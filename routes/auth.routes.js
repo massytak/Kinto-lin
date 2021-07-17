@@ -1,3 +1,5 @@
+/** @format */
+
 const express = require("express");
 // const passport = require('passport');
 const router = express.Router();
@@ -10,14 +12,19 @@ const bcryptSalt = 10;
 //////////////////////////// Sign Up/////////////////////////////
 
 router.post("/signup", (req, res, next) => {
-    const username = req.body.username;
-    const email = req.body.email;
-    const password = req.body.password;
-    const image= req.body.image;
-  
-    if (!username || !password|| !email|| !image) {
-      res.status(400).json({message: "Indicate username,password,email and download a picture"});
-      return;
-    });
+  const username = req.body.username;
+  const email = req.body.email;
+  const password = req.body.password;
+  const image = req.body.image;
 
-    module.exports = router;
+  if (!username || !password || !email || !image) {
+    res
+      .status(400)
+      .json({
+        message: "Indicate username,password,email and download a picture",
+      });
+    return;
+  }
+});
+
+module.exports = router;

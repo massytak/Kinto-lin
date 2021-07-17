@@ -71,4 +71,11 @@ app.use("/", index);
 const auth = require("./routes/auth.routes");
 app.use("/auth", auth);
 
+const games=require("./routes/games.routes")
+app.use("/games", games);
+
+const reviews=require("./routes/reviews.routes")
+app.use("/reviews", reviews);
+
+
 module.exports = app;

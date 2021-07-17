@@ -4,13 +4,21 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema(
   {
     username: {type:String,unique:true},
+    email: String,
     password: String,
-    campus:{type:String,enum:[`Madrid`, `Barcelona`, `Miami`, `Paris`, `Berlin`, `Amsterdam`, `México`, `Sao Paulo`, `Lisbon`],default:'Lisbon'},
-    course:{type:String, enum:[`Web Dev`, `UX/UI`, `Data Analytics`],default:'Web Dev'},
-    image:String
+    image:String,
+    favorisgame:{
+      type: String,
+      enum:[]
+    }
   },
+
   {
-    timestamps: true,
+    createdAt: 'created_at',
+    updatedAt: 'updated_at'
+  }, 
+  {
+    admin: True,
   }
 );
 

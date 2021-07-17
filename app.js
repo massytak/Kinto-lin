@@ -10,6 +10,7 @@ const logger       = require('morgan');
 const path         = require('path');
 const cors = require('cors');
 
+
 /// mongoose
 mongoose
   .connect(process.env.MONGODB_URL,{
@@ -24,8 +25,10 @@ mongoose
     console.error("Error connecting to mongo", err);
   });
 
+
 const app_name = require("./package.json").name;
 const debug = require("debug")(`${app_name}:${path.basename(__filename).split(".")[0]}`);
+
 
 const app = express();
 
@@ -36,7 +39,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Express View engine setup
-
 app.use(require('node-sass-middleware')({
   src:  path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),

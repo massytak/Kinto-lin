@@ -18,4 +18,6 @@ router.post("/signup", (req, res, next) => {
     if (!username || !password|| !email|| !image) {
       res.status(400).json({message: "Indicate username,password,email and download a picture"});
       return;
-    }
+    });
+
+    module.exports = router;

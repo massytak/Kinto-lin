@@ -8,12 +8,12 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const cors = require('cors');
 
 
 // Mongoose connect
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/kinto-un";
 mongoose
-  .connect(MONGODB_URI, {
+  .connect(MONGODB_URL, {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -50,12 +50,17 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
-
+//corse relation React front
+app.use(
+  cors({
+  credentials: true,
+  origin: [`http://localhost:${process.env.LOCAL_PORT}`] // <== this will be the URL of our React app (it will be running on port 3000)
+  }))
 
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
-
+//routes
 
 const index = require('./routes/index');
 app.use('/', index);

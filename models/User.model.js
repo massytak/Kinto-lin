@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+// const Users = require('./User.model')
 
 const userSchema = new Schema(
   {
@@ -7,6 +8,7 @@ const userSchema = new Schema(
     email: String,
     password: String,
     image:String,
+    // owner: req.session.currentUser._id,
     favorisgame:{
       type: String,
       enum:[]

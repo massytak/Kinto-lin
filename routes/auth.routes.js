@@ -18,7 +18,7 @@ router.post("/signup", fileUploader.single("image"),(req, res, next) => {
   const username = req.body.username;
   const email = req.body.email;
   const password = req.body.password;
-//   const image = req.path.file;
+  const image = req.path.file;
 
   if (!username || !password || !email) {
     res
@@ -92,7 +92,6 @@ router.post('/login', (req, res, next) => {
     }).catch(next=>console.log(next))
   });
 
-
   /////////////////////////////// Log out /////////////////////////////////////
 
   router.post('/logout', (req, res, next) => {
@@ -107,5 +106,15 @@ router.post('/login', (req, res, next) => {
     }
     res.status(403).json({ message: 'Unauthorized' });
   });
+
+  /////////////////////////////// Edit user/////////////////////////////////
+  router.put('/edit/:id',(req,res,next)=>{
+      User.findByIdAndUpdate({_id:req.params.id},req.body)
+      .then((user)=>{
+          User.findOne({_id:req.params.id}).then((user)=>{
+            res.send({user}) 
+          })
+      })
+  })
 
 module.exports = router;

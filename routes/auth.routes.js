@@ -18,7 +18,7 @@ router.post("/signup", fileUploader.single("image"),(req, res, next) => {
   const username = req.body.username;
   const email = req.body.email;
   const password = req.body.password;
-  const image = req.path.file;
+//   const image = req.path.file;
 
   if (!username || !password || !email) {
     res
@@ -51,7 +51,7 @@ router.post("/signup", fileUploader.single("image"),(req, res, next) => {
     username:username,
     password: hashPass,
     email: email,
-    image: image,
+    // image: image,
   });
 
   aNewUser.save()
@@ -76,7 +76,8 @@ router.post("/signup", fileUploader.single("image"),(req, res, next) => {
 router.post('/login', (req, res, next) => {
     const {username, password} = req.body /// ce dont l'utilisateur a besoin pour se connecter
    
-    User.findOne({username}).then(user => {
+    User.findOne({username})
+    .then((user) => {
       if (!user) {
         return next(new Error('No user with that email'))
       }
@@ -88,8 +89,9 @@ router.post('/login', (req, res, next) => {
         req.session.currentUser = user
         res.json(user)
       }
-    }).catch(next)
+    }).catch(next=>console.log(next))
   });
+
 
   /////////////////////////////// Log out /////////////////////////////////////
 

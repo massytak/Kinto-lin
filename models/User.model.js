@@ -7,7 +7,7 @@ const userSchema = new Schema(
     username: {type:String,unique:true},
     email: String,
     password: String,
-    image:String,
+    image:{type:String,default:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Billie_Eilish_2019_by_Glenn_Francis_%28cropped%29_2.jpg/260px-Billie_Eilish_2019_by_Glenn_Francis_%28cropped%29_2.jpg"},
     // owner: req.session.currentUser._id,
     favorisgame:{
       type: String,

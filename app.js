@@ -9,6 +9,9 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
 const cors = require("cors");
+const session = require('express-session');
+
+
 
 /// mongoose
 mongoose
@@ -53,6 +56,15 @@ app.set("view engine", "hbs");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
+// ADD SESSION SETTINGS HERE:
+app.use(
+  session({
+    secret: "some secret goes here",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+
 //corse relation React front
 app.use(
   cors({
@@ -69,7 +81,7 @@ const index = require("./routes/index");
 app.use("/", index);
 
 const auth = require("./routes/auth.routes");
-app.use("/auth", auth);
+app.use("/auth",auth);
 
 const games=require("./routes/games.routes")
 app.use("/games", games);

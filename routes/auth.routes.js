@@ -3,10 +3,10 @@
 const express = require("express");
 // const passport = require('passport');
 const router = express.Router();
-const User = require("../models/User");
+const User = require("../models/User.model");
 
 // Bcrypt to encrypt passwords
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
 //////////////////////////// Sign Up/////////////////////////////

@@ -10,10 +10,10 @@ const Reviews = require("../models/Reviews.model");
 ////////////////////////////Create/////////////////////////////
 router.post("/", (req, res, next) => {
   console.log( req.session.currentUser._id);
-  const reviewerID = req.session.currentUser._id;
+  const user = req.session.currentUser._id;
   const message = req.body.message;
   const review = new Reviews({
-    reviewerID,
+    user,
     message,
   });
   review
@@ -31,7 +31,7 @@ router.post("/", (req, res, next) => {
 ////////////////////////////Read/////////////////////////////
 router.get("/reviews", (req, res, next) => {
   Review.find()
-    .then((review) => res.render("reviews", { reviews }))
+    .then((review) => res.render("reviews", { review }))
     .catch((err) => next(err));
 });
 

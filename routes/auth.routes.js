@@ -73,6 +73,7 @@ router.post("/signup", fileUploader.single("image"),(req, res, next) => {
 });
 
 //////////////////////////////// Log in /////////////////////////////////////////
+
 router.post('/login', (req, res, next) => {
     const {username, password} = req.body /// ce dont l'utilisateur a besoin pour se connecter
    
@@ -108,6 +109,7 @@ router.post('/login', (req, res, next) => {
   });
 
   /////////////////////////////// Edit user/////////////////////////////////
+
   router.put('/edit/:id',(req,res,next)=>{
       User.findByIdAndUpdate({_id:req.params.id},req.body)
       .then((user)=>{
@@ -116,5 +118,14 @@ router.post('/login', (req, res, next) => {
           })
       })
   })
+
+  ////////////////////////////Delete user/////////////////////////////
+  
+router.delete("/delete/:id", (req, res, next) => {
+  console.log(req.params.id);
+  User.findByIdAndRemove(req.params.id)
+    .then((user) =>  res.status(200).json(user))
+    .catch((err) => next(err));
+});
 
 module.exports = router;

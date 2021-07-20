@@ -3,13 +3,14 @@ const Schema = mongoose.Schema;
 
 const gamesSchema = new Schema(
   {
-    trailer:String,
-    gameId:Number,
-    added:{type:Boolean,default: true}
+    trailer: String,
+    gameId: Number,
+    added: { type: Boolean, default: true },
+    note: String,
   },
+
   {
     timestamps: true,
-
   }
 );
 

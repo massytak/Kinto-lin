@@ -14,117 +14,136 @@ const bcryptSalt = 10;
 
 //////////////////////////// Sign Up/////////////////////////////
 
-router.post("/signup", fileUploader.single("image"),(req, res, next) => {
+router.post("/signup", fileUploader.single("image"), (req, res, next) => {
   const username = req.body.username;
   const email = req.body.email;
   const password = req.body.password;
   const image = req.path.file;
+  const confirmPassword = req.body.confirmPassword;
 
   if (!username || !password || !email) {
-    res
-      .status(400)
-      .json({
-        message: "Indicate username,password, or email",
-      });
-      // password length 
-    return;
-    if (password.length< 7){
-        res.status(400).json({message:'Please make your password at least 8 characters long for security purposes.'});
-    }
-    return;
-}
-   // when username is already taken
-    User.findOne({ username })
-.then(foundUser => {
-  if (foundUser) {
-    res.status(400).json({ message: 'Username taken. Choose another one.' });
+    res.status(400).json({
+      message: "Indicate username,password, or email",
+    });
+    // password length
     return;
   }
 
-  // use bcrypt for password
-  const salt     = bcrypt.genSaltSync(10);
-  const hashPass = bcrypt.hashSync(password, salt);
+  if (password.length < 7) {
+    res.status(400).json({
+      message:
+        "Please make your password at least 8 characters long for security purposes.",
+    });
 
-  // save new user in api
+    return;
+  }
+  // when username is already taken
+  console.log("confirmPassword",confirmPassword);
+  console.log("password",password);
+  if (password !== confirmPassword) {
+    console.log("le confirm password is bad");
+    res.status(400).json({
+      message: "le confirm password is bad",
+    });
+    return;
+  }
 
-  const aNewUser = new User({
-    username:username,
-    password: hashPass,
-    email: email,
-    // image: image,
-  });
+  if (password === confirmPassword) {
+    User.findOne({ username })
+      .then((foundUser) => {
+        if (foundUser) {
+          res
+            .status(400)
+            .json({ message: "Username taken. Choose another one." });
+          return;
+        }
 
-  aNewUser.save()
-    .then(() => {
-      // Persist our new user into session
-      req.session.currentUser = aNewUser
+        // use bcrypt for password
+        const salt = bcrypt.genSaltSync(10);
+        const hashPass = bcrypt.hashSync(password, salt);
 
-     res.status(200).json(aNewUser);
-    })
-    .catch(err => {
-      res.status(400).json({ message: 'Saving user to database went wrong.' });
-    })
-  ;
-})
-.catch(err => {
-  res.status(500).json({message: "Username check went bad."});
-})
-;
+        // save new user in api
+
+        const aNewUser = new User({
+          username: username,
+          password: hashPass,
+          email: email,
+          // image: image,
+        });
+
+        aNewUser
+          .save()
+          .then(() => {
+            // Persist our new user into session
+            req.session.currentUser = aNewUser;
+
+            res.status(200).json(aNewUser);
+          })
+          .catch((err) => {
+            res
+              .status(400)
+              .json({ message: "Saving user to database went wrong." });
+          });
+      })
+      .catch((err) => {
+        res.status(500).json({ message: "Username check went bad." });
+      });
+  }
 });
 
 //////////////////////////////// Log in /////////////////////////////////////////
 
-router.post('/login', (req, res, next) => {
-    const {username, password} = req.body /// ce dont l'utilisateur a besoin pour se connecter
-   
-    User.findOne({username})
+router.post("/login", (req, res, next) => {
+  const { username, password } = req.body; /// ce dont l'utilisateur a besoin pour se connecter
+
+  User.findOne({ username })
     .then((user) => {
       if (!user) {
-        return next(new Error('No user with that email'))
+        return next(new Error("No user with that email"));
       }
-      
+
       // compareSync
       if (bcrypt.compareSync(password, user.password) !== true) {
-        return next(new Error('Wrong credentials'))
+        return next(new Error("Wrong credentials"));
       } else {
-        req.session.currentUser = user
-        res.json(user)
+        req.session.currentUser = user;
+        res.json(user);
       }
-    }).catch(next=>console.log(next))
+    })
+    .catch((next) => console.log(next));
+});
+
+/////////////////////////////// Log out /////////////////////////////////////
+
+router.post("/logout", (req, res, next) => {
+  req.session.destroy();
+  res.json({ message: "Your are now logged out." });
+});
+
+router.get("/loggedin", (req, res, next) => {
+  if (req.session.currentUser) {
+    res.status(200).json(req.session.currentUser);
+    return;
+  }
+  res.status(403).json({ message: "Unauthorized" });
+});
+
+/////////////////////////////// Edit user/////////////////////////////////
+
+router.put("/edit/:id", (req, res, next) => {
+  User.findByIdAndUpdate({ _id: req.params.id }, req.body).then((user) => {
+    User.findOne({ _id: req.params.id }).then((user) => {
+      res.send({ user });
+    });
   });
+});
 
-  /////////////////////////////// Log out /////////////////////////////////////
+////////////////////////////Delete user/////////////////////////////
 
-  router.post('/logout', (req, res, next) => {
-    req.session.destroy()
-    res.json({message: 'Your are now logged out.'})
-  });
-   
-  router.get('/loggedin', (req, res, next) => {
-    if (req.session.currentUser) {
-        res.status(200).json(req.session.currentUser);
-        return;
-    }
-    res.status(403).json({ message: 'Unauthorized' });
-  });
-
-  /////////////////////////////// Edit user/////////////////////////////////
-
-  router.put('/edit/:id',(req,res,next)=>{
-      User.findByIdAndUpdate({_id:req.params.id},req.body)
-      .then((user)=>{
-          User.findOne({_id:req.params.id}).then((user)=>{
-            res.send({user}) 
-          })
-      })
-  })
-
-  ////////////////////////////Delete user/////////////////////////////
-  
 router.delete("/delete/:id", (req, res, next) => {
   console.log(req.params.id);
   User.findByIdAndRemove(req.params.id)
-    .then((user) =>  res.status(200).json(user))
+    .then((user) => res.status(200).json(user))
     .catch((err) => next(err));
 });
 

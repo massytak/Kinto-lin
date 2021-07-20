@@ -11,16 +11,13 @@ const userSchema = new Schema(
     email: String,
     password: String,
     confirmpassword: String,
-    // admin: true,
+    admin:{type:Boolean, default: false},
     image: {
       type: String,
       default:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Billie_Eilish_2019_by_Glenn_Francis_%28cropped%29_2.jpg/260px-Billie_Eilish_2019_by_Glenn_Francis_%28cropped%29_2.jpg",
     },
-    favorisgame: {
-      type: String,
-      enum: [],
-    },
+    favorisgame:{type:Array},
   },
 
   {

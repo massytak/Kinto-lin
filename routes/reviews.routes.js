@@ -12,9 +12,11 @@ router.post("/create", (req, res, next) => {
   console.log( req.session.currentUser._id);
   const user = req.session.currentUser._id;
   const message = req.body.message;
+  const gameIdFromMongo = req.body.gameIdFromMongo;
   const review = new Reviews({
     user,
     message,
+    gameIdFromMongo,
   });
   review
     .save()

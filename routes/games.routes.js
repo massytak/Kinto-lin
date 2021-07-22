@@ -4,6 +4,7 @@ const axios = require("axios");
 const Games = require("../models/Games.model");
 const { response } = require("express");
 const mongoose = require("mongoose");
+const Reviews= require("../models/Reviews.model")
 ////////POST ajouter un jeux sur notre base de donnee depuis L'API/////
 gamesRoutes.post("/", (req, res, next) => {
   let gameId = req.body.gameId;
@@ -80,6 +81,7 @@ gamesRoutes.get("/:id", (req, res, next) => {
     res.status(400).json({ message: "Specified id is not valid" });
     return;
   }
+
   Games.findById(req.params.id)
     .then((gameDetail) => {
       res.status(200).json(gameDetail);

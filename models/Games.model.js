@@ -20,6 +20,10 @@ const gamesSchema = new Schema(
     freetogame_profile_url: String,
     minimum_system_requirements:{type:Object},
     screenshots:{ type : Array , "default" : [] },
+    reviews: [{
+      type: Schema.Types.ObjectId, // recuperer id du user qui poste le review
+      ref: "Reviews",
+    }],
     added: { type: Boolean, default: false },
   },
 

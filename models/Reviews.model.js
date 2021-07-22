@@ -11,7 +11,10 @@ const reviewsSchema = new Schema(
       type: String,
       maxLength: 240,
     },
-    gameIdFromMongo: String,
+    gameIdFromMongo: {
+      type: Schema.Types.ObjectId, // recuperer id du user qui poste le review
+      ref: "Games",
+    },
     note: String,
   },
 

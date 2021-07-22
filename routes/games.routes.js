@@ -114,6 +114,7 @@ gamesRoutes.delete("/:id", (req, res, next) => {
     res.status(400).json({ message: "Specified id is not valid" });
     return;
   }
+  Reviews.find({})
   Games.findByIdAndDelete(req.params.id)
     .then(() => {
       res.json({

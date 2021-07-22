@@ -6,7 +6,10 @@ const express = require("express");
 // const passport = require('passport');
 const router = express.Router();
 const User = require("../models/User.model");
-const fileUploader = require("../configs/cloudinary.config"); // for the images upload
+
+/////////// route gard + cloudinary/////////////////////
+const fileUploader = require("../configs/cloudinary.config"); 
+const routeGuard = require("../configs/route-guard.config");
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");

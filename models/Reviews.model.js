@@ -15,7 +15,7 @@ const reviewsSchema = new Schema(
       type: Schema.Types.ObjectId, // recuperer id du user qui poste le review
       ref: "Games",
     },
-    note: String,
+    note: Number,
   },
 
   {

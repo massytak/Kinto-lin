@@ -20,6 +20,7 @@ router.post("/signup", fileUploader.single("image"), (req, res, next) => {
   const password = req.body.password;
   const image = req.path.file;
   const confirmPassword = req.body.confirmPassword;
+  const regex = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/);
 
   if (!username || !password || !email) {
     res.status(400).json({
@@ -29,17 +30,27 @@ router.post("/signup", fileUploader.single("image"), (req, res, next) => {
     return;
   }
 
-  if (password.length < 7) {
-    res.status(400).json({
-      message:
-        "Please make your password at least 8 characters long for security purposes.",
-    });
+  if (!regex.test(password) === true) {
+    res
+      .status(400)
+      .json({
+        message:
+          "Password needs to have at least 6 chars and must contain at least one number, one lowercase and one uppercase letter.",
+      });
 
     return;
   }
+  // if (password.length < 7) {
+  //   res.status(400).json({
+  //     message:
+  //       "Please make your password at least 8 characters long for security purposes.",
+  //   });
+
+  //   return;
+  // }
   // when username is already taken
-  console.log("confirmPassword",confirmPassword);
-  console.log("password",password);
+  console.log("confirmPassword", confirmPassword);
+  console.log("password", password);
   if (password !== confirmPassword) {
     console.log("le confirm password is bad");
     res.status(400).json({
@@ -47,6 +58,7 @@ router.post("/signup", fileUploader.single("image"), (req, res, next) => {
     });
     return;
   }
+  // make sure passwords are strong:
 
   if (password === confirmPassword) {
     User.findOne({ username })

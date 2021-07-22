@@ -40,14 +40,7 @@ router.post("/signup", fileUploader.single("image"), (req, res, next) => {
 
     return;
   }
-  // if (password.length < 7) {
-  //   res.status(400).json({
-  //     message:
-  //       "Please make your password at least 8 characters long for security purposes.",
-  //   });
-
-  //   return;
-  // }
+  
   // when username is already taken
   console.log("confirmPassword", confirmPassword);
   console.log("password", password);

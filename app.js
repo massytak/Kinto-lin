@@ -10,6 +10,7 @@ const logger = require("morgan");
 const path = require("path");
 const cors = require("cors");
 const session = require('express-session');
+const MongoStore=require("connect-mongo")(session)
 
 
 
@@ -58,10 +59,16 @@ app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
 // ADD SESSION SETTINGS HERE:
 app.use(
+
   session({
-    secret: "some secret goes here",
+    secret: process.env.SESSION_SECRET,
     resave: true,
     saveUninitialized: true,
+    cookie:{maxAge:200000},
+    store:new MongoStore({
+      mongooseConnection:mongoose.connection, 
+      ttl:60*60*24
+    })
   })
 );
 

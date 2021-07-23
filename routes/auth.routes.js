@@ -9,8 +9,8 @@ const User = require("../models/User.model");
 
 /////////// route gard + cloudinary/////////////////////
 const fileUploader = require("../configs/cloudinary.config"); 
-const routeGuard = require("../configs/route-guard.config");
-
+const routeGuard = require("../configs/route-gard-isLog")
+const session =require('../configs/session.config')
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
@@ -112,7 +112,8 @@ router.post("/login", (req, res, next) => {
 
       // compareSync
       if (bcrypt.compareSync(password, user.password) !== true) {
-        return next(new Error("Wrong credentials"));
+        res.status(404).json({message:'mot de passe incorrect'})
+        return;
       } else {
         req.session.currentUser = user;
         res.json(user);
@@ -133,7 +134,7 @@ router.get("/loggedin", (req, res, next) => {
     res.status(200).json(req.session.currentUser);
     return;
   }
-  res.status(403).json({ message: "Unauthorized" });
+  res.status(403).json({ message: "non connecter" });
 });
 
 /////////////////////////////// Edit user/////////////////////////////////

@@ -16,7 +16,15 @@ mongoose.connect(process.env.MONGODB_URL, {
   useUnifiedTopology: true,
 });
 
-const admin = require("../json/userdata.json");
+const admin = {
+  username: "admin",
+  email: "admin@admin.com",
+  password: bcrypt.hashSync("Admin2021", salt),
+  admin: true,
+  image: "",
+  favorisgame: [],
+};
+
 User.insertMany(admin)
   .then((adminfromDb) => {
     console.log("admin a etait cree", adminfromDb);

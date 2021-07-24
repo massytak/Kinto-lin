@@ -7,3 +7,8 @@ const service = axios.create({
   withCredentials: true
 });
 export default service;
+
+function signup(username, password) {
+  return service.post('/signup', {username, password}).then(response => response.data)
+}
+export {signup}

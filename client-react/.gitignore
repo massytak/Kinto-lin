@@ -24,3 +24,7 @@ yarn-error.log*
 
 # Environment Variables should NEVER be published
 .env
+
+
+./vscode
+./package-lock.json

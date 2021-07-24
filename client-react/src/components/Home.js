@@ -1,12 +1,18 @@
-import React, { Component } from 'react'
+/** @format */
+
+import React, { Component } from "react";
 class Home extends Component {
   render() {
     return (
-      <div>
-        Bienvenue sur la home page
-      </div>
-    )
+      <>
+        {this.props.userInSession ? (
+          <p>Bonjour {this.props.userInSession.username} </p>
+        ) : (
+          <div>Bienvenue sur la home page</div>
+        )}
+      </>
+    );
   }
 }
 
-export default Home
+export default Home;

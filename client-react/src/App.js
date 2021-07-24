@@ -55,14 +55,16 @@ class App extends Component {
           <Route
             exact
             path="/login"
-            render={() => <Login updateUser={this.updateLoggedInUser} />}
+            render={() => <Login updateUser={this.updateLoggedInUser} userInSession={this.state.loggedInUser} />}
           />
           <Route
             exact
             path="/logout"
             render={() => <Login updateUser={this.updateUser} />}
           />
-          <Route exact path="/home" component={Home} />
+          <Route exact path="/home" 
+          render={()=><Home userInSession={this.state.loggedInUser} />}/>
+
           <Route exact path="/about" component={About} />
         </Switch>
       </div>

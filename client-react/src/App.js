@@ -45,12 +45,11 @@ class App extends Component {
         <Navbar userInSession={this.state.loggedInUser} updateUser={this.updateLoggedInUser} />
 
         <Switch>
-          <Route exact path="/signup" component={Signup} />
 
           <Route
             exact
             path="/signup"
-            render={() => <Signup updateUser={this.updateLoggedInUser} {...this.props} />}
+            render={(props) => <Signup updateUser={this.updateLoggedInUser} {...props} />}
           />
           <Route
             exact

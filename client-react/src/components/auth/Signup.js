@@ -18,7 +18,8 @@ class Signup extends Component {
     signup(username, password,confirmPassword,email)
       .then(response => {
         this.setState({username: "", password: "", confirmPassword:"",email:""});
-        // this.props.updateUser(response)
+        this.props.updateUser(response)
+        this.props.history.push('/home')
       })
       .catch(error => console.log(error))
   }

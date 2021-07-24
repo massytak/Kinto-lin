@@ -50,7 +50,7 @@ class App extends Component {
           <Route
             exact
             path="/signup"
-            render={() => <Signup updateUser={this.updateLoggedInUser} />}
+            render={() => <Signup updateUser={this.updateLoggedInUser} {...this.props} />}
           />
           <Route
             exact

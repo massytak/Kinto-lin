@@ -11,7 +11,7 @@ const Navbar = (props) => {
     <nav className="nav-style">
       {props.userInSession ? (
         <ul>
-          <li>Welcome, {props.userInSession.username}</li>
+          <li>{props.userInSession.username} is connected</li>
           <li>
             <Link to="/home">Home</Link>
           </li>
@@ -28,6 +28,9 @@ const Navbar = (props) => {
           <li>
             <li>
               <Link to="/signup">Signup</Link>
+            </li>
+            <li>
+              < Link to ="/login">Log in</Link>
             </li>
           </li>
         </ul>

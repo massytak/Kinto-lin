@@ -6,6 +6,9 @@ import Navbar from "./components/Navbar";
 import { Switch, Route } from "react-router-dom";
 
 class App extends Component {
+  state={
+    user:null,
+  }
   render() {
     return (
       <div className="App">

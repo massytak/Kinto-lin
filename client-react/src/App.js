@@ -4,7 +4,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Navbar from "./components/Navbar";
 import { Switch, Route } from "react-router-dom";
-import Signup from './components/auth/Signup';
+import Signup from "./components/auth/Signup"
 
 class App extends Component {
   // auth service functionality

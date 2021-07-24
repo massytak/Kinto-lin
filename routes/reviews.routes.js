@@ -8,12 +8,13 @@ const router = express.Router();
 const Reviews = require("../models/Reviews.model");
 const Games = require("../models/Games.model");
 const routeGuard = require("../configs/route-gard-isLog");
-
+const session = require("../configs/session.config");
 ////////////////////////////Create/////////////////////////////
 router.post("/create", (req, res, next) => {
+  user: req.session.currentUser;
   const message = req.body.message;
-  const gameIdFromMongo = req.body.gameIdFromMongo;//c'est la valeur qui va nous parvenir depuis react id du jeux
-
+  const gameIdFromMongo = req.body.gameIdFromMongo; //c'est la valeur qui va nous parvenir depuis react id du jeux
+  const note = req.body.note;
   if (!req.session.currentUser) {
     res.status(400).json({ message: "you need to login" });
     return;
@@ -24,6 +25,7 @@ router.post("/create", (req, res, next) => {
       user,
       message,
       gameIdFromMongo,
+      note,
     });
     review
       .save()
@@ -32,12 +34,15 @@ router.post("/create", (req, res, next) => {
         console.log("gameIdFromMongo", gameIdFromMongo);
         Games.findById(gameIdFromMongo)
           .then((gamefromDb) => {
-            let reviewsnow=gamefromDb.reviews
-            reviewsnow.push(reviewfdb.id)
+            let reviewsnow = gamefromDb.reviews;
+            reviewsnow.push(reviewfdb.id);
             console.log(reviewsnow);
-            Games.findByIdAndUpdate(gameIdFromMongo, {
-              reviews: reviewsnow
-            })
+            Games.findOneAndUpdate(
+              { _id: gameIdFromMongo },
+              {
+                reviews: reviewsnow,
+              }
+            )
               .then((updategame) => {
                 res.status(200).json(reviewfdb);
               })
@@ -57,6 +62,7 @@ router.post("/create", (req, res, next) => {
 
 ////////////////////////////Read/////////////////////////////
 router.get("/read/:id", (req, res, next) => {
+  user: req.session.currentUser;
   console.log(req.params.id);
   Reviews.findById(req.params.id)
     // .populate("gameIdFromMongo") si on veut afficher les detail du jeux concerneé
@@ -66,6 +72,7 @@ router.get("/read/:id", (req, res, next) => {
 
 ////////////////////////////Update////////////////////////////
 router.put("/update/:id", (req, res, next) => {
+  user: req.session.currentUser;
   Reviews.findByIdAndUpdate({ _id: req.params.id }, req.body).then((review) => {
     Reviews.findOne({ _id: req.params.id }).then((review) => {
       res.send({ review });
@@ -75,6 +82,7 @@ router.put("/update/:id", (req, res, next) => {
 
 ////////////////////////////Delete/////////////////////////////
 router.delete("/delete/:id", (req, res, next) => {
+  user: req.session.currentUser;
   console.log(req.params.id);
   Reviews.findByIdAndRemove(req.params.id)
     .then((review) => res.status(200).json(review))

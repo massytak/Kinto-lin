@@ -15,7 +15,7 @@ const reviewsSchema = new Schema(
       type: mongoose.Schema.Types.ObjectId, // recuperer id du user qui poste le review
       ref: "Games",
     },
-    note: Number,
+    note: { type: Number, default: 0 },
   },
 
   {

@@ -1,20 +1,6 @@
-.App {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
 
-input[type="radio"] {
-  display: none;
-}
 
-.star {
-  cursor: pointer;
-  transition: color 200ms;
-}
-
-/*
+/*couleur pricipale du site
 lime: #00FF00
 gray: #2C3E50
 */

@@ -58,20 +58,21 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
 // ADD SESSION SETTINGS HERE:
-app.use(
+// app.use(
 
-  session({
-    secret: process.env.SESSION_SECRET,
-    resave: true,
-    saveUninitialized: true,
-    cookie:{maxAge:200000},
-    store:new MongoStore({
-      mongooseConnection:mongoose.connection, 
-      ttl:60*60*24
-    })
-  })
-);
-
+//   session({
+//     secret: process.env.SESSION_SECRET,
+//     resave: true,
+//     saveUninitialized: true,
+   
+//     store:new MongoStore({
+//       mongooseConnection:mongoose.connection, 
+//       ttl:60*60*24
+//     })
+//   })
+// );
+// const app = express();
+require("./configs/session.config")(app);
 //corse relation React front
 app.use(
   cors({

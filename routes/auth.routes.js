@@ -104,10 +104,12 @@ router.post("/signup", fileUploader.single("image"), (req, res, next) => {
 router.post("/login", (req, res, next) => {
   const { username, password } = req.body; /// ce dont l'utilisateur a besoin pour se connecter
 
-  User.findOne({ username })
+  User.findOne({ username :username})
     .then((user) => {
       if (!user) {
-        return next(new Error("No user with that email"));
+        res
+          .status(400)
+          .json({ message: "ther are not user with this username" });
       }
 
       // compareSync

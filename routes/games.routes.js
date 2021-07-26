@@ -8,6 +8,7 @@ const Reviews = require("../models/Reviews.model");
 const User = require("../models/User.model");
 const routeGuard = require("../configs/route-gard-isLog");
 const session=require('../configs/session.config')
+
 ////////POST ajouter un jeux sur notre base de donnee depuis L'API/////
 gamesRoutes.post("/addgames", (req, res, next) => {
  user:req.session.currentUser
@@ -100,6 +101,7 @@ gamesRoutes.post("/addgames", (req, res, next) => {
         .json({ message: "j'aia pas pu recuperer les utilisateurs" })
     );
 });
+
 /////////GET Read our DATA////////////
 gamesRoutes.get("/", (req, res, next) => {
   Games.find()
@@ -110,6 +112,7 @@ gamesRoutes.get("/", (req, res, next) => {
       res.json(err);
     });
 });
+
 ///////////GET detail of one game//////////
 gamesRoutes.get("/:id", (req, res, next) => {
   user: req.session.currentUser;

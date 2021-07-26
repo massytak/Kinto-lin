@@ -12,24 +12,11 @@ const cors = require("cors");
 const session = require('express-session');
 const MongoStore=require("connect-mongo")(session)
 
+// Set up the database
+require("./configs/db.config");
 
-
-/// mongoose
-mongoose
-  .connect(process.env.MONGODB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false
-  })
-  .then((x) => {
-    console.log(
-      `Connected to Mongo! Database name: "${x.connections[0].name}"`
-    );
-  })
-  .catch((err) => {
-    console.error("Error connecting to mongo", err);
-  });
+// bind user to view - locals
+const bindUserToViewLocals = require("./configs/user-local.config");
 
 const app_name = require("./package.json").name;
 const debug = require("debug")(
@@ -37,12 +24,14 @@ const debug = require("debug")(
 );
 
 const app = express();
+require("./configs/session.config")(app);
 
 // Middleware Setup
 app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(bindUserToViewLocals);
 
 // Express View engine setup
 app.use(
@@ -58,22 +47,6 @@ app.set("view engine", "hbs");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
-// ADD SESSION SETTINGS HERE:
-// app.use(
-
-//   session({
-//     secret: process.env.SESSION_SECRET,
-//     resave: true,
-//     saveUninitialized: true,
-   
-//     store:new MongoStore({
-//       mongooseConnection:mongoose.connection, 
-//       ttl:60*60*24
-//     })
-//   })
-// );
-// const app = express();
-require("./configs/session.config")(app);
 //corse relation React front
 app.use(
   cors({
@@ -81,11 +54,11 @@ app.use(
     origin: [`http://localhost:${process.env.LOCAL_PORT}`], // <== this will be the URL of our React app (it will be running on port 3000)
   })
 );
+
 // default value for title local
 app.locals.title = "Express - Generated with IronGenerator";
 
 //routes
-
 const index = require("./routes/index");
 app.use("/", index);
 

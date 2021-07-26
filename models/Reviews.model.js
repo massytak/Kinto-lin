@@ -12,7 +12,7 @@ const reviewsSchema = new Schema(
       maxLength: 240,
     },
     gameIdFromMongo: {
-      type: mongoose.Schema.Types.ObjectId, // recuperer id du user qui poste le review
+      type: mongoose.Schema.Types.ObjectId, // recuperer id du game
       ref: "Games",
     },
     note: { type: Number, default: 0 },

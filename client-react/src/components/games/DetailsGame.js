@@ -22,7 +22,7 @@ class DetailsGame extends Component {
     return (
       (!this.state.game && <h1>Loading...</h1>) || (
         <div className="single-game">
-          <video src={this.state.game.trailer} autoPlay loop>
+         
             {/* <source src={this.state.game.trailer} /> */}
           {/* <video autoPlay loop>
             <source src={this.state.game.trailer} />
@@ -46,6 +46,6 @@ class DetailsGame extends Component {
         </div>
       )
     );
-  
+  }}
 
 export default DetailsGame;

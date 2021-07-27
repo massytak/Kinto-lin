@@ -15,6 +15,7 @@ const Navbar = (props) => {
           <li>
             <Link to="/home">Home</Link>
           </li>
+          <Link to="/games">Games</Link>
           <button
             onClick={(e) => {
               logout().then(() => props.updateUser(false));
@@ -26,12 +27,13 @@ const Navbar = (props) => {
       ) : (
         <ul>
           <li>
-            <li>
-              <Link to="/signup">Signup</Link>
-            </li>
-            <li>
-              <Link to="/login">Log in</Link>
-            </li>
+            <Link to="/signup">Signup</Link>
+          </li>
+          <li>
+            <Link to="/login">Log in</Link>
+          </li>
+          <li>
+            <Link to="/games">Games</Link>
           </li>
         </ul>
       )}

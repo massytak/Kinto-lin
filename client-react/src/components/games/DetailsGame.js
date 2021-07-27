@@ -35,14 +35,48 @@ class DetailsGame extends Component {
           <p>{this.state.game.description}</p>
           <button onClick={this.state.game.game_url}>Jouer</button>
           <button>Ajouter/Supprimer auw favoris </button>
+          <h3>Information additionnelles</h3>
           <div>
-            <h3>Information additionnelles</h3>
+            
             <p>Développeur:</p>
-            <p>{this.state.developer}</p>
+            <p>{this.state.game.developer}</p>
             <p>Éditeur</p>
-            <p>{this.state.publisher}</p>
+            <p>{this.state.game.publisher}</p>
+            <p>Plateforme:</p>
+            <p>{this.state.game.platform}</p>
+            <p>Date de sortie:</p>
+            <p>{this.state.game.release_date}</p>
+            <p>Catégorie:</p>
+            <p>{this.state.game.genre}</p>
+            <div>
+            {
+              this.state.game.screenshots.map((scrennShoot,i)=>{return(
+
+                <img key={scrennShoot.id} src={scrennShoot.image} alt='screen'/>
+              )
+              })
+            }
+
+            </div>
+            <h3>Configuration minimale requise</h3>
+            <div>
+              <p>OS:</p>
+              <p>{this.state.game.minimum_system_requirements.os}</p>
+              <p>Processeur:</p>
+              <p>{this.state.game.minimum_system_requirements.processor}</p>
+              <p>Stockage:</p>
+              <p>{this.state.game.minimum_system_requirements.storage}</p>
+              <p>Mémoire:</p>
+              <p>{this.state.game.minimum_system_requirements.memory}</p>
+              <p>Graphique:</p>
+              <p>{this.state.game.minimum_system_requirements.graphics}</p>
+            </div>
           </div>
+          <div>
           <Comment />
+          {this.state.game.reviews.map()}
+          </div>
+
         </div>
       )
     );

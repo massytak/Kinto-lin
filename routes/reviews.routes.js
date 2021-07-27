@@ -1,7 +1,6 @@
 /** @format */
 
 ///////// all requirements////////////////
-
 const express = require("express");
 // const passport = require('passport');
 const router = express.Router();
@@ -9,6 +8,7 @@ const Reviews = require("../models/Reviews.model");
 const Games = require("../models/Games.model");
 const routeGuard = require("../configs/route-gard-isLog");
 const session = require("../configs/session.config");
+
 ////////////////////////////Create/////////////////////////////
 router.post("/create", (req, res, next) => {
   user: req.session.currentUser;
@@ -58,7 +58,6 @@ router.post("/create", (req, res, next) => {
       });
   }
 });
-/////////////////////////////////////////////////////////////
 
 ////////////////////////////Read/////////////////////////////
 router.get("/read/:id", (req, res, next) => {

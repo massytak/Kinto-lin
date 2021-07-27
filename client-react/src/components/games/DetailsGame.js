@@ -46,7 +46,6 @@ class DetailsGame extends Component {
         </div>
       )
     );
-  }
-}
+  
 
 export default DetailsGame;

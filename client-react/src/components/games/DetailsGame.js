@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Comment from "./reviews/Comment";
 import { detailofGame } from "./game-service";
 
 class DetailsGame extends Component {
@@ -38,6 +38,7 @@ class DetailsGame extends Component {
             <p>Éditeur</p>
             <p>{this.state.publisher}</p>
           </div>
+          <Comment />
         </div>
       )
     );

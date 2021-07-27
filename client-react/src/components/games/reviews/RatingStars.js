@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Comment extends Component {
+class RatingStars extends Component {
   render() {
     return (
       <div>
@@ -10,4 +10,4 @@ class Comment extends Component {
   }
 }
 
-export default Comment;
+export default RatingStars;

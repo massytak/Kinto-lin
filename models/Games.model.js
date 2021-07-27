@@ -21,7 +21,7 @@ const gamesSchema = new Schema(
     minimum_system_requirements:{type:Object},
     screenshots:{ type : Array , "default" : [] },
     reviews: [{
-      type: mongoose.Schema.Types.ObjectId, // recuperer id du user qui poste le review
+      type: mongoose.Schema.Types.ObjectId, // recuperer id du review
       ref: "Reviews",
     }],
     added: { type: Boolean, default: false },

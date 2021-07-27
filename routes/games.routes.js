@@ -121,7 +121,7 @@ gamesRoutes.get("/:id", (req, res, next) => {
     return;
   }
   if (!req.session.currentUser) {
-    res.status(400).json({ message: "you need to login" });
+    res.status(400).json({ message: "you need to login massi" });
     return;
   } else {
     Games.findById(req.params.id)

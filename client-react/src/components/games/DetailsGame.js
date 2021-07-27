@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { Component } from "react";
 import Comment from "./reviews/Comment";
 import { detailofGame } from "./game-service";
@@ -10,7 +12,6 @@ class DetailsGame extends Component {
 
   componentDidMount() {
     detailofGame(this.state.id)
-      
       .then((game) => {
         console.log(game);
         this.setState({ game: game });
@@ -21,8 +22,8 @@ class DetailsGame extends Component {
     return (
       (!this.state.game && <h1>Loading...</h1>) || (
         <div className="single-game">
-          <video autoPlay loop>
-            <source src={this.state.game.trailer} />
+          <video src={this.state.game.trailer} autoPlay loop>
+            {/* <source src={this.state.game.trailer} /> */}
             Your browser does not support the video tag.
           </video>
 

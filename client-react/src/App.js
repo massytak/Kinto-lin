@@ -10,6 +10,8 @@ import { Switch, Route } from "react-router-dom";
 import Signup from "./components/auth/Signup";
 import { loggedin } from "./components/auth/auth-service";
 import Login from "./components/auth/Login";
+import ListGames from "./components/games/ListGames";
+import DetailsGame from "./components/games/DetailsGame"
 
 class App extends Component {
   // auth service functionality
@@ -65,6 +67,8 @@ class App extends Component {
           render={()=><Home userInSession={this.state.loggedInUser} />}/>
 
           <Route exact path="/about" component={About} />
+          <Route exact path="/games" component={ListGames} />
+          <Route exact path="/games/:id" component={DetailsGame}/>
         </Switch>
       </div>
     );

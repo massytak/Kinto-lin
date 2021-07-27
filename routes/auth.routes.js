@@ -131,7 +131,7 @@ router.post("/logout", (req, res, next) => {
   req.session.destroy();
   res.json({ message: "Your are now logged out." });
 });
-
+///////////////////////////////////////////////////
 router.get("/loggedin", (req, res, next) => {
   if (req.session.currentUser) {
     res.status(200).json(req.session.currentUser);

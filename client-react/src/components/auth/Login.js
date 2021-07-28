@@ -4,9 +4,8 @@ import React, { Component } from "react";
 import { login } from "./auth-service";
 import { Link, Redirect } from "react-router-dom";
 
-
 class Login extends Component {
-  state = { username: "", password: "" };
+  state = { username: "", password: "", err: null };
 
   handleFormSubmit = (event) => {
     event.preventDefault();
@@ -18,7 +17,14 @@ class Login extends Component {
         this.setState({ username: "", password: "" });
         this.props.updateUser(response);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        this.setState({ err: error.response.data.message });
+        setTimeout(() => {
+          this.setState({
+            err: null,
+          });
+        }, 3000);
+      });
   };
 
   handleChange = (event) => {
@@ -51,7 +57,7 @@ class Login extends Component {
             <input type="submit" value="Login" />
           </form>
         )}
-
+        <p>{this.state.err}</p>
         <p>
           Don't have account?
           <Link to={"/signup"}>Register</Link>

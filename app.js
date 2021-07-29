@@ -1,3 +1,5 @@
+/** @format */
+
 require("dotenv").config();
 
 const bodyParser = require("body-parser");
@@ -9,15 +11,13 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
 const cors = require("cors");
-const session = require('express-session');
-const MongoStore=require("connect-mongo")(session)
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
 
 // Set up the database
 require("./configs/db.config");
 
-
 /// mongoose
-
 // bind user to view - locals
 const bindUserToViewLocals = require("./configs/user-local.config");
 
@@ -66,13 +66,12 @@ const index = require("./routes/index");
 app.use("/", index);
 
 const auth = require("./routes/auth.routes");
-app.use("/auth",auth);
+app.use("/auth", auth);
 
-const games=require("./routes/games.routes")
+const games = require("./routes/games.routes");
 app.use("/games", games);
 
-const reviews=require("./routes/reviews.routes")
+const reviews = require("./routes/reviews.routes");
 app.use("/reviews", reviews);
-
 
 module.exports = app;

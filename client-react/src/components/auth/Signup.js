@@ -3,7 +3,7 @@ import { signup } from "./auth-service";
 import { Link } from "react-router-dom";
 
 class Signup extends Component {
-  state = { username: "", password: "", confirmPassword: "", email: "" };
+  state = { username: "", password: "", confirmPassword: "", email: "", err: null };
 
   // handleSubmit()
   handleFormSubmit = (event) => {
@@ -25,7 +25,15 @@ class Signup extends Component {
         this.props.updateUser(response);
         this.props.history.push("/home");
       })
-      .catch((error) => console.log(error));
+  //     .catch((error) => console.log(error));
+  .catch((error) => {
+    this.setState({ err: error.response.data.message });
+    setTimeout(() => {
+      this.setState({
+        err: null,
+      });
+    }, 3000);
+  });
   };
 
   // handleChange()
@@ -76,7 +84,7 @@ class Signup extends Component {
 
           <button>I Signup</button>
         </form>
-
+       <p>{this.state.err }</p>
         <p>
           Already have account?
           <Link to={"/login"}>Login</Link>

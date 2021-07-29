@@ -12,7 +12,8 @@ import { loggedin } from "./components/auth/auth-service";
 import Login from "./components/auth/Login";
 import ListGames from "./components/games/ListGames";
 import DetailsGame from "./components/games/DetailsGame"
-
+import AddGame from "./components/games/AddGame";
+require('dotenv').config()
 class App extends Component {
   // auth service functionality
   state = { loggedInUser: null }; // 1.
@@ -69,6 +70,7 @@ class App extends Component {
           <Route exact path="/about" component={About} />
           <Route exact path="/games" component={ListGames} />
           <Route exact path="/games/:id" component={DetailsGame}/>
+          <Route exact path="/addgame" component={AddGame}/>
         </Switch>
       </div>
     );

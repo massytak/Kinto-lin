@@ -21,7 +21,7 @@ const admin = {
   email: "admin@admin.com",
   password: bcrypt.hashSync("Admin2021", salt),
   admin: true,
-  image: "",
+  image: "https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/401516_381081/editor_images/expertise.png",
   favorisgame: [],
 };
 

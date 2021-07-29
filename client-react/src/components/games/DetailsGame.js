@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { Component } from "react";
 import Comment from "./reviews/Comment";
 import { detailofGame } from "./game-service";

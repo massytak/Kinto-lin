@@ -18,25 +18,6 @@ const MongoStore = require("connect-mongo")(session);
 require("./configs/db.config");
 
 /// mongoose
-<<<<<<< HEAD
-// mongoose
-//   .connect(process.env.MONGODB_URL, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     useCreateIndex: true,
-//     useFindAndModify: false,
-//   })
-//   .then((x) => {
-//     console.log(
-//       `Connected to Mongo! Database name: "${x.connections[0].name}"`
-//     );
-//   })
-//   .catch((err) => {
-//     console.error("Error connecting to mongo", err);
-//   });
-=======
-
->>>>>>> e482f1a2c8904698010e909cc26577123c04462d
 // bind user to view - locals
 const bindUserToViewLocals = require("./configs/user-local.config");
 

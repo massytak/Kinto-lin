@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { Component } from "react";
-import "../public/Styling/App.css";
+import  "./Styling/app.css"
 // import all components//////
 import Home from "./components/Home";
 import About from "./components/About";

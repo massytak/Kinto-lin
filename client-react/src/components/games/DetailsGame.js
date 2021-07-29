@@ -4,10 +4,14 @@ import { detailofGame } from "./game-service";
 import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
+import { deleteGame } from "./game-service";
+
 class DetailsGame extends Component {
   state = {
     game: false,
     id: this.props.match.params.id,
+    admin: this.props.userInSession.admin,
+    err: null,
   };
 
   componentDidMount() {
@@ -15,8 +19,23 @@ class DetailsGame extends Component {
       .then((game) => {
         this.setState({ game: game });
       })
-      .catch((err) => console.log("err lor du chargement", err));
+      .catch((err) => console.log("err lors du chargement", err));
   }
+  deleteGameInOurDB = (id) => {
+    console.log("id du jeux", id);
+    deleteGame(id)
+      .then((response) => {
+        this.props.history.push("/games")
+      })
+      .catch((error) => {
+        this.setState({ err: error.response.data.message });
+        setTimeout(() => {
+          this.setState({
+            err: null,
+          });
+        }, 3000);
+      });
+  };
   render() {
     return (
       (!this.state.game && <h1>Loading...</h1>) || (
@@ -33,6 +52,19 @@ class DetailsGame extends Component {
             <button>Jouer</button>
           </Link>
           <button>Ajouter/Supprimer auw favoris </button>
+          {this.state.admin && (
+            <>
+              <button
+                onClick={() => {
+                  this.deleteGameInOurDB(this.state.id);
+                }}
+              >
+                Supprimer
+              </button>
+              <button>Modifier</button>
+            </>
+          )}
+
           <h3>Information additionnelles</h3>
           <div>
             <p>Développeur:</p>

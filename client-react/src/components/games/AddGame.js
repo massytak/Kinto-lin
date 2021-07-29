@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { addGametoData } from "./game-service";
 require("dotenv").config();
 class AddGame extends Component {
   state = {
     gamesFromApi: null,
     query: "",
+    err: null,
+    addedgame: null,
   };
   componentDidMount() {
     var options = {
@@ -32,16 +35,31 @@ class AddGame extends Component {
     this.setState({ [name]: value, query: value });
   };
 
+  addGameInOurData = (title) => {
+    const titlesearch = title;
+    addGametoData(titlesearch)
+      .then((response) => {
+        this.setState({ addedgame: titlesearch });
+      })
+      .catch((error) => {
+        this.setState({ err: error.response.data.message });
+        setTimeout(() => {
+          this.setState({
+            err: null,
+          });
+        }, 3000);
+      });
+  };
+
   render() {
     const query = this.state.query;
     let games = this.state.gamesFromApi;
     const sentence = this.state.query;
     var newsentence = sentence.charAt(0).toUpperCase();
     const divStyle = {
-      color: 'blue',
-      display:"flex",
-      flexDirection:"row",
-      width:"100vh"
+      color: "blue",
+      display: "flex",
+      flexDirection: "row",
     };
     for (let i = 1; i < sentence.length; i++) {
       newsentence += sentence.charAt(i).toLowerCase();
@@ -59,22 +77,27 @@ class AddGame extends Component {
           value={this.state.name}
           onChange={(e) => this.handelFilter(e)}
         />
-
+        {this.state.addedgame &&
+          alert(`${this.state.addedgame} a été ajouter dans la base de donnée`)}
         <p>add game</p>
-        <div  style={divStyle}>
-        {!this.state.gamesFromApi ? (
-          <p>Loading...</p>
-        ) : (
-          games.map((e) => {
-            return (
-              <div>
-                <p>{e.title}</p>
-                <img src={e.thumbnail} alt="img du jeux" />
-              </div>
-            );
-          })
-        )}
-         </div>
+        <p>{this.state.err}</p>
+        <div style={divStyle}>
+          {!this.state.gamesFromApi ? (
+            <p>Loading...</p>
+          ) : (
+            games.map((e) => {
+              return (
+                <div key={e._id}>
+                  <button onClick={() => this.addGameInOurData(e.title)}>
+                    Ajouter
+                  </button>
+                  <p>{e.title}</p>
+                  <img src={e.thumbnail} alt="img du jeux" />
+                </div>
+              );
+            })
+          )}
+        </div>
       </div>
     );
   }

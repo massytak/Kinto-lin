@@ -29,7 +29,15 @@ function listofGames() {
 export { listofGames };
 
 ///////////////addgame///////////
-function addGametoData() {
-  return serviceapi.get("").then((response) => response.data);
+function addGametoData(titlesearch) {
+  return service
+    .post("/addgames", { titlesearch })
+    .then((response) => response.data);
 }
 export { addGametoData };
+
+//////////////////Delete game/////////////
+function deleteGame(id) {
+  return service.delete(`/${id}`).then((response) => console.log(response));
+}
+export { deleteGame };

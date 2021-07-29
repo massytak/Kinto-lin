@@ -3,7 +3,9 @@
 import React, { Component } from "react";
 import Comment from "./reviews/Comment";
 import { detailofGame } from "./game-service";
-import ReactPlayer from 'react-player'
+import ReactPlayer from "react-player";
+import { Link } from "react-router-dom";
+import ReactStars from "react-rating-stars-component";
 class DetailsGame extends Component {
   state = {
     game: false,
@@ -13,7 +15,6 @@ class DetailsGame extends Component {
   componentDidMount() {
     detailofGame(this.state.id)
       .then((game) => {
-        console.log(game);
         this.setState({ game: game });
       })
       .catch((err) => console.log("err lor du chargement", err));
@@ -22,22 +23,20 @@ class DetailsGame extends Component {
     return (
       (!this.state.game && <h1>Loading...</h1>) || (
         <div className="single-game">
-         
-            {/* <source src={this.state.game.trailer} /> */}
-          {/* <video autoPlay loop>
-            <source src={this.state.game.trailer} />
-            Your browser does not support the video tag.
-          </video> */}
           <ReactPlayer url={this.state.game.trailer} loop playing />
 
           <img src={this.state.game.thumbnail} alt="game" />
           <h3>{this.state.game.title}</h3>
           <p>{this.state.game.description}</p>
-          <button onClick={this.state.game.game_url}>Jouer</button>
+          <Link
+            to={{ pathname: `${this.state.game.game_url}` }}
+            target="_blank"
+          >
+            <button>Jouer</button>
+          </Link>
           <button>Ajouter/Supprimer auw favoris </button>
           <h3>Information additionnelles</h3>
           <div>
-            
             <p>Développeur:</p>
             <p>{this.state.game.developer}</p>
             <p>Éditeur</p>
@@ -49,14 +48,13 @@ class DetailsGame extends Component {
             <p>Catégorie:</p>
             <p>{this.state.game.genre}</p>
             <div>
-            {
-              this.state.game.screenshots.map((scrennShoot,i)=>{return(
-
-                <img key={scrennShoot.id} src={scrennShoot.image} alt='screen'/>
-              )
-              })
-            }
-
+              {this.state.game.screenshots.map((scrennShoot, i) => {
+                return (
+                  <div key={scrennShoot.id}>
+                    <img src={scrennShoot.image} alt="screen" />
+                  </div>
+                );
+              })}
             </div>
             <h3>Configuration minimale requise</h3>
             <div>
@@ -73,13 +71,27 @@ class DetailsGame extends Component {
             </div>
           </div>
           <div>
-          <Comment />
-          {this.state.game.reviews.map()}
+            <Comment />
+            {this.state.game.reviews.map((review, i) => {
+              return (
+                <div key={review._id}>
+                  <img src={review.user.image} alt="avatar user" />
+                  <p>{review.user.username}</p>
+                  <ReactStars
+                    activeColor="#00FF00"
+                    size={100}
+                    value={review.note}
+                    edit={false}
+                  />
+                  <p>{review.message}</p>
+                </div>
+              );
+            })}
           </div>
-
         </div>
       )
     );
-  }}
+  }
+}
 
 export default DetailsGame;

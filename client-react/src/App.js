@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { Component } from "react";
-import "./App.css";
+import "../public/Styling/App.css";
 // import all components//////
 import Home from "./components/Home";
 import About from "./components/About";
@@ -85,7 +85,7 @@ class App extends Component {
             exact
             path="/games/:id"
             render={(props) => (
-              <DetailsGame userInSession={this.state.loggedInUser} {...props}/>
+              <DetailsGame userInSession={this.state.loggedInUser} {...props} />
             )}
           />
           <Route exact path="/addgame" component={AddGame} />

@@ -17,7 +17,6 @@ const MongoStore = require("connect-mongo")(session);
 // Set up the database
 require("./configs/db.config");
 
-/// mongoose
 // bind user to view - locals
 const bindUserToViewLocals = require("./configs/user-local.config");
 

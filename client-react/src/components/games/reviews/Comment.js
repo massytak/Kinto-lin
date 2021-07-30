@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import RatingStars from "./RatingStars";
+// import axios from "axios";
+// import { createReview } from "./review-service";
+// import { updateReview } from "./review-service";
+// import { deleteReview } from "./review-service";
 
 class Comment extends Component {
   render() {
@@ -28,7 +32,7 @@ const styles = {
     minHeight: 100,
     padding: 10,
     backgroundColor: "#2C3E50",
-    textColor: "#00FF00",
+    color: "#00FF00",
   },
   button: {
     border: "1px solid #2C3E50",
@@ -36,7 +40,7 @@ const styles = {
     width: 300,
     padding: 10,
     backgroundColor: "#2C3E50",
-    textColor: "#00FF00",
+    color: "#00FF00",
   },
 };
 

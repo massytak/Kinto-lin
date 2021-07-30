@@ -10,7 +10,7 @@ class RatingStars extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div>
         <ReactStars
           color="#2C3E50"
           activeColor="#00FF00"

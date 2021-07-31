@@ -41,3 +41,51 @@ function deleteGame(id) {
   return service.delete(`/${id}`).then((response) => console.log(response));
 }
 export { deleteGame };
+//////////////////Edit game///////////////
+function editGame(
+  id,
+  title,
+  trailer,
+  thumbnail,
+  description,
+  game_url,
+  developer,
+  publisher,
+  platform,
+  release_date,
+  genre,
+  screenshots1,
+  screenshots2,
+  screenshots3,
+  screenshots4,
+  os,
+  processor,
+  storage,
+  memory,
+  graphics
+) {
+  return service
+    .put(`/${id}`, {
+      title,
+      trailer,
+      thumbnail,
+      description,
+      game_url,
+      developer,
+      publisher,
+      platform,
+      release_date,
+      genre,
+      'screenshots.0.image':screenshots1,
+      'screenshots.1.image':screenshots2,
+      'screenshots.2.image':screenshots3,
+      'screenshots.3.image':screenshots4,
+      'minimum_system_requirements.os':os,
+      'minimum_system_requirements.processor':processor,
+      'minimum_system_requirements.storage':storage,
+      'minimum_system_requirements.memory':memory,
+      'minimum_system_requirements.graphics':graphics,
+    })
+    .then((response) => console.log(response));
+}
+export { editGame };

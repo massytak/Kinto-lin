@@ -12,7 +12,7 @@ class DetailsGame extends Component {
   state = {
     game: false,
     id: this.props.match.params.id,
-    admin: this.props.userInSession.admin,
+    admin: this.props.userInSession?.admin,
     err: null,
   };
 
@@ -27,7 +27,7 @@ class DetailsGame extends Component {
     console.log("id du jeux", id);
     deleteGame(id)
       .then((response) => {
-        this.props.history.push("/games")
+        this.props.history.push("/games");
       })
       .catch((error) => {
         this.setState({ err: error.response.data.message });
@@ -42,7 +42,7 @@ class DetailsGame extends Component {
     return (
       (!this.state.game && <h1>Loading...</h1>) || (
         <div className="single-game">
-          <ReactPlayer url={this.state.game.trailer} loop playing />
+          <ReactPlayer url={this.state.game.trailer}  playing loop/>
 
           <img src={this.state.game.thumbnail} alt="game" />
           <h3>{this.state.game.title}</h3>
@@ -63,7 +63,9 @@ class DetailsGame extends Component {
               >
                 Supprimer
               </button>
-              <button>Modifier</button>
+              <Link to={{ pathname: `/games/edit/${this.state.id}` }}>
+                <button>Modifier</button>
+              </Link>
             </>
           )}
 

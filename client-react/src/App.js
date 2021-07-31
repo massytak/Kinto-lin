@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { Component } from "react";
-import  "./Styling/app.css"
+import "./Styling/app.css";
 // import all components//////
 import Home from "./components/Home";
 import About from "./components/About";
@@ -13,6 +13,7 @@ import Login from "./components/auth/Login";
 import ListGames from "./components/games/ListGames";
 import DetailsGame from "./components/games/DetailsGame";
 import AddGame from "./components/games/AddGame";
+import EditGame from "./components/games/EditGame";
 require("dotenv").config();
 class App extends Component {
   // auth service functionality
@@ -89,6 +90,13 @@ class App extends Component {
             )}
           />
           <Route exact path="/addgame" component={AddGame} />
+          <Route
+            exact
+            path="/games/edit/:id"
+            render={(props) => (
+              <EditGame userInSession={this.state.loggedInUser} {...props} />
+            )}
+          />
         </Switch>
       </div>
     );

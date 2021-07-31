@@ -7,9 +7,9 @@ const service = axios.create({
 export default service;
 
 ///////////////Create review///////////
-function createReview(comments) {
+function createReview(message, note, gameId) {
   return service
-    .post("/create", { comments })
+    .post("/create", { message, note, gameId })
     .then((response) => response.data);
 }
 export { createReview };

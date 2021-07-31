@@ -13,7 +13,7 @@ const session = require("../configs/session.config");
 router.post("/create", (req, res, next) => {
   user: req.session.currentUser;
   const message = req.body.message;
-  const gameIdFromMongo = req.body.gameIdFromMongo; //c'est la valeur qui va nous parvenir depuis react id du jeux
+  const gameId = req.body.gameId; //c'est la valeur qui va nous parvenir depuis react id du jeux
   const note = req.body.note;
   if (!req.session.currentUser) {
     res.status(400).json({ message: "you need to login" });
@@ -24,21 +24,21 @@ router.post("/create", (req, res, next) => {
     const review = new Reviews({
       user,
       message,
-      gameIdFromMongo,
+      gameId,
       note,
     });
     review
       .save()
       .then((reviewfdb) => {
         console.log("review", reviewfdb.id);
-        console.log("gameIdFromMongo", gameIdFromMongo);
-        Games.findById(gameIdFromMongo)
+        console.log("gameId", gameId);
+        Games.findById(gameId)
           .then((gamefromDb) => {
             let reviewsnow = gamefromDb.reviews;
             reviewsnow.push(reviewfdb.id);
             console.log(reviewsnow);
             Games.findOneAndUpdate(
-              { _id: gameIdFromMongo },
+              { _id: gameId },
               {
                 reviews: reviewsnow,
               }

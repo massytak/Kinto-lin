@@ -2,11 +2,15 @@ import React, { Component } from "react";
 import ReactStars from "react-rating-stars-component";
 
 class RatingStars extends Component {
-  state = { rate: 0 };
+ 
   ratingChanged = (rating) => {
-    console.log(`You have given ${rating} star rating for us.`);
-    this.setState({ rate: rating });
+    // console.log(`You have given ${rating} star rating for us.`);
+    // this.setState({ note: rating });
+    this.props.parentCallback(rating);
   };
+  // sendData = () => {
+  //   this.props.parentCallback(this.state.note);
+  // };
 
   render() {
     return (

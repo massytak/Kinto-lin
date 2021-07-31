@@ -38,7 +38,7 @@ class DetailsGame extends Component {
         }, 3000);
       });
   };
-  render() {
+  render(props) {
     return (
       (!this.state.game && <h1>Loading...</h1>) || (
         <div className="single-game">
@@ -105,7 +105,7 @@ class DetailsGame extends Component {
             </div>
           </div>
           <div>
-            <Comment />
+            <Comment {...this.props} />
             {this.state.game.reviews.map((review, i) => {
               return (
                 <div key={review._id}>

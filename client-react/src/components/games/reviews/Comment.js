@@ -1,14 +1,57 @@
 import React, { Component } from "react";
 import RatingStars from "./RatingStars";
+import { createReview } from "./review-service";
+// import { updateReview } from "./review-service";
+// import { deleteReview } from "./review-service";
 
 class Comment extends Component {
+  state = { message: "", note: "", err: null , id:this.props.match.params.id };
+
+  callbackFunction = (childData) => {
+    this.setState({note: childData})
+}
+
+  handleFormSubmit = (event) => {
+    const message = this.state.message;
+    const note = this.state.note;
+
+    createReview(message, note, this.props.match.params.id)
+      .then(() => {
+        this.setState({
+          message: "",
+          note:""
+        });
+      })
+  .catch((error) => {
+    this.setState({ err: error.response.data.message });
+    setTimeout(() => {
+      this.setState({
+        err: null,
+      });
+    }, 3000);
+  });
+  };
+
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
+
   render() {
     return (
       <div style={styles.container}>
-        <h2>Commentaires :</h2>
-        <RatingStars />
-        <textarea placeholder="Vos commentaires" style={styles.textarea} />
-        <button style={styles.button}>Soumettre</button>
+        <form onSubmit={this.handleFormSubmit}>
+          <label>Vos commentaires : </label>
+          <input
+            type="text"
+            name="message"
+            value={this.state.message}
+            onChange={(e) => this.handleChange(e)}
+          />
+          <RatingStars parentCallback = {this.callbackFunction} {...this.props} />
+          <button style={styles.button}>Soumettre</button>
+        </form>
+        <p>{this.state.err }</p>
       </div>
     );
   }
@@ -28,7 +71,7 @@ const styles = {
     minHeight: 100,
     padding: 10,
     backgroundColor: "#2C3E50",
-    textColor: "#00FF00",
+    color: "#00FF00",
   },
   button: {
     border: "1px solid #2C3E50",
@@ -36,7 +79,7 @@ const styles = {
     width: 300,
     padding: 10,
     backgroundColor: "#2C3E50",
-    textColor: "#00FF00",
+    color: "#00FF00",
   },
 };
 

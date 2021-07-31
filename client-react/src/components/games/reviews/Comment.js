@@ -5,13 +5,14 @@ import { createReview } from "./review-service";
 // import { deleteReview } from "./review-service";
 
 class Comment extends Component {
-  state = { message: "", note: "", err: null , id:this.props.match.params.id };
+  state = { message: "", note: "", err: null, id: this.props.match.params.id };
 
   callbackFunction = (childData) => {
-    this.setState({note: childData})
-}
+    this.setState({ note: childData });
+  };
 
   handleFormSubmit = (event) => {
+    event.preventDefault();
     const message = this.state.message;
     const note = this.state.note;
 
@@ -19,17 +20,19 @@ class Comment extends Component {
       .then(() => {
         this.setState({
           message: "",
-          note:""
+          note: 0,
         });
+      // this.props.history.push(`/games`)
+      document.location.reload()
       })
-  .catch((error) => {
-    this.setState({ err: error.response.data.message });
-    setTimeout(() => {
-      this.setState({
-        err: null,
+      .catch((error) => {
+        this.setState({ err: error.response.data.message });
+        setTimeout(() => {
+          this.setState({
+            err: null,
+          });
+        }, 3000);
       });
-    }, 3000);
-  });
   };
 
   handleChange = (event) => {
@@ -40,6 +43,7 @@ class Comment extends Component {
   render() {
     return (
       <div style={styles.container}>
+        <RatingStars parentCallback={this.callbackFunction} {...this.props} />
         <form onSubmit={this.handleFormSubmit}>
           <label>Vos commentaires : </label>
           <input
@@ -48,10 +52,10 @@ class Comment extends Component {
             value={this.state.message}
             onChange={(e) => this.handleChange(e)}
           />
-          <RatingStars parentCallback = {this.callbackFunction} {...this.props} />
-          <button style={styles.button}>Soumettre</button>
+
+          <button>Soumettre</button>
         </form>
-        <p>{this.state.err }</p>
+        <p>{this.state.err}</p>
       </div>
     );
   }

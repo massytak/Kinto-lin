@@ -15,7 +15,14 @@ const Navbar = (props) => {
           <li>
             <Link to="/home">Home</Link>
           </li>
-          <Link to="/games">Games</Link>
+          <li>
+            <Link to="/games">Games</Link>
+          </li>
+          {props.userInSession.admin && (
+            <li>
+              <Link to="/addgame">Ajouter des jeux</Link>
+            </li>
+          )}
           <button
             onClick={(e) => {
               logout().then(() => props.updateUser(false));

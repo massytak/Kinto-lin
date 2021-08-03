@@ -2,8 +2,8 @@ import axios from "axios";
 
 const api = axios.create({
   headers: {
-    "Client-ID": "h3wjlzyk1lhby2xcjboa0thfgixl4h",
-    "Authorization": "Bearer xgd23czltqvlgglvrdlzghe2v3ngdn"
+    "Client-ID": "504csxp967z1sthqz9fqrkkrxff76l",
+    "Authorization": "Bearer k62x6otkmg4ttiujxi830ch44ror5p",
   },
 });
 

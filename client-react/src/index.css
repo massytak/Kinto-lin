@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: center url("./imgbackground/games-homepage.png");
-  backdrop-filter: blur(1px) brightness(60%);
+  
   background-attachment: fixed;
  
   width: 100%;

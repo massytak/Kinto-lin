@@ -27,6 +27,7 @@ Header
   position: fixed;
   width: 100%;
   z-index: 1000;
+  
 }
 
 .listeMenu {
@@ -144,6 +145,7 @@ Sidebar
   width: 239px;
   background: #19171c;
   height: 100vh;
+  
 }
 
 .titreSidebar {

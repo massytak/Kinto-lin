@@ -8,13 +8,17 @@ const service = axios.create({
 });
 export default service;
 ////////////////////////////////
+const errorHandler = err => {
+  // console.error(err);
+  throw err;
+};
 
 
 
 /// sign up route////
 
-function signup(username, password, confirmPassword, email) {
-  return service.post('/signup', {username, password,confirmPassword, email}).then(response => response.data)
+function signup(username, password, confirmPassword, email,image) {
+  return service.post('/signup', {username, password,confirmPassword, email,image}).then(response => response.data)
 }
 export {signup}
 
@@ -36,3 +40,22 @@ function logout() {
   return service.post('/logout', {}).then(response => response.data)
 }
 export {logout}
+////////////upload an image//////////////
+function handleUpload(theFile) {
+  // console.log('file in service: ', theFile)
+  return service
+    .post('/upload', theFile)
+    .then(res => res.data)
+    .catch(errorHandler);
+}
+export {handleUpload}
+
+//////save in data base image///////////
+// function saveNewThing(newThing) {
+//   // console.log('new thing is: ', newThing)
+//   return service
+//     .post('/things/create', newThing)
+//     .then(res => res.data)
+//     .catch(errorHandler);
+// }
+// export {saveNewThing}

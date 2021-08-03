@@ -7,7 +7,7 @@ import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import { deleteGame } from "./game-service";
-
+import '../../Styling/detailsGame.css'
 class DetailsGame extends Component {
   state = {
     game: false,

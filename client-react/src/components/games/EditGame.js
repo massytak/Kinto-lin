@@ -43,11 +43,60 @@ class EditGame extends Component {
   componentDidMount() {
     detailofGame(this.state.id)
       .then((game) => {
-        
-       if(!game.title){
-         this.setState({})
-       }
-
+        if (!game.minimum_system_requirements.os) {
+          this.setState({
+            os: "non renseigné",
+          });
+        } else {
+          this.setState({
+            os: game.minimum_system_requirements.os,
+          });
+        }
+        if (!game.minimum_system_requirements.storage) {
+          this.setState({
+            storage: "non renseigné",
+          });
+        } else {
+          this.setState({
+            storage: game.minimum_system_requirements.storage,
+          });
+        }
+        if (!game.minimum_system_requirements.processor) {
+          this.setState({
+            processor: "non renseigné",
+          });
+        } else {
+          this.setState({
+            processor: game.minimum_system_requirements.processor,
+          });
+        }
+        if (!game.minimum_system_requirements.memory) {
+          this.setState({
+            memory: "non renseigné",
+          });
+        } else {
+          this.setState({
+            memory: game.minimum_system_requirements.memory,
+          });
+        }
+        if (!game.minimum_system_requirements.graphics) {
+          this.setState({
+            graphics: "non renseigné",
+          });
+        } else {
+          this.setState({
+            graphics: game.minimum_system_requirements.graphics,
+          });
+        }
+        if (!game.screenshots[3]?.image) {
+          this.setState({
+            screenshots4: "",
+          });
+        } else {
+          this.setState({
+            screenshots4: game.screenshots[3].image,
+          });
+        }
         this.setState({
           game: game,
           title: game.title,
@@ -63,12 +112,6 @@ class EditGame extends Component {
           screenshots1: game.screenshots[0]?.image,
           screenshots2: game.screenshots[1]?.image,
           screenshots3: game.screenshots[2]?.image,
-          screenshots4: game.screenshots[3]?.image,
-          os: game.minimum_system_requirements?.os,
-          processor: game.minimum_system_requirements?.processor,
-          storage: game.minimum_system_requirements?.storage,
-          memory: game.minimum_system_requirements?.memory,
-          graphics: game.minimum_system_requirements?.graphics,
         });
       })
       .catch((err) => console.log("err lors du chargement", err));
@@ -142,7 +185,6 @@ class EditGame extends Component {
     this.setState({ genre: selectedOption.label });
   };
   render() {
-   
     return (
       <div>
         <h2>Edit game</h2>
@@ -219,6 +261,7 @@ class EditGame extends Component {
               value={this.state.release_date}
               onChange={(e) => this.handleChange(e)}
             />
+            <br />
             <label>genre:</label>
             <Select
               placeholder={this.state.genre}

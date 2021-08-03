@@ -7,15 +7,25 @@ import { Link } from "react-router-dom";
 import { logout } from "./auth/auth-service";
 
 const Navbar = (props) => {
+  const divstyle={
+    backgroundColor:"green"
+  }
   return (
-    <nav className="nav-style">
+    <nav style={divstyle} className="nav-style">
       {props.userInSession ? (
         <ul>
           <li>{props.userInSession.username} is connected</li>
           <li>
             <Link to="/home">Home</Link>
           </li>
-          <Link to="/games">Games</Link>
+          <li>
+            <Link to="/games">Games</Link>
+          </li>
+          {props.userInSession.admin && (
+            <li>
+              <Link to="/addgame">Ajouter des jeux</Link>
+            </li>
+          )}
           <button
             onClick={(e) => {
               logout().then(() => props.updateUser(false));

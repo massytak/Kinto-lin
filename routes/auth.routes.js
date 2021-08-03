@@ -9,23 +9,35 @@ const User = require("../models/User.model");
 
 /////////// route gard + cloudinary/////////////////////
 
-const fileUploader = require("../configs/cloudinary.config"); 
+const uploader = require("../configs/cloudinary.config"); 
 const routeGuard = require("../configs/route-gard-isLog")
 const session =require('../configs/session.config')
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
+router.post('/upload', uploader.single('image'), (req, res, next) => {
+  // console.log('file is: ', req.file)
+ 
+  if (!req.file) {
+    next(new Error('No file uploaded!'));
+    return;
+  }
+  // get secure_url from the file object and save it in the
+  // variable 'secure_url', but this can be any name, just make sure you remember to use the same in frontend
+ 
+  res.json({ secure_url: req.file.path });
+});
 //////////////////////////// Sign Up/////////////////////////////
 
-router.post("/signup", fileUploader.single("image"), (req, res, next) => {
+router.post("/signup", uploader.single('image'), (req, res, next) => {
   const username = req.body.username;
   const email = req.body.email;
   const password = req.body.password;
-  const image = req.path.file;
+  const image = req.body.image;
   const confirmPassword = req.body.confirmPassword;
   const regex = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/);
-
+  
   if (!username || !password || !email) {
     res.status(400).json({
       message: "Indicate username,password, or email",
@@ -77,7 +89,7 @@ router.post("/signup", fileUploader.single("image"), (req, res, next) => {
           username: username,
           password: hashPass,
           email: email,
-          // image: image,
+          image: image,
         });
 
         aNewUser

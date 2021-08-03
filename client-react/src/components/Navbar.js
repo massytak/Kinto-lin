@@ -7,8 +7,11 @@ import { Link } from "react-router-dom";
 import { logout } from "./auth/auth-service";
 
 const Navbar = (props) => {
+  const divstyle={
+    backgroundColor:"green"
+  }
   return (
-    <nav className="nav-style">
+    <nav style={divstyle} className="nav-style">
       {props.userInSession ? (
         <ul>
           <li>{props.userInSession.username} is connected</li>

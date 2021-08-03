@@ -1,9 +1,17 @@
 import React, { Component } from "react";
 import { signup } from "./auth-service";
 import { Link } from "react-router-dom";
-
+import { handleUpload } from "./auth-service"
+// import { saveNewThing } from "./auth-service"
 class Signup extends Component {
-  state = { username: "", password: "", confirmPassword: "", email: "", err: null };
+  state = {
+    username: "",
+    password: "",
+    confirmPassword: "",
+    email: "",
+    err: null,
+    imageUrl:""
+  };
 
   // handleSubmit()
   handleFormSubmit = (event) => {
@@ -12,8 +20,9 @@ class Signup extends Component {
     const password = this.state.password;
     const confirmPassword = this.state.confirmPassword;
     const email = this.state.email;
+    const image=this.state.imageUrl
 
-    signup(username, password, confirmPassword, email)
+    signup(username, password, confirmPassword, email,image)
       .then((response) => {
         console.log("coucou");
         this.setState({
@@ -21,30 +30,52 @@ class Signup extends Component {
           password: "",
           confirmPassword: "",
           email: "",
+          imageUrl:""
         });
         this.props.updateUser(response);
         this.props.history.push("/home");
       })
-  //     .catch((error) => console.log(error));
-  .catch((error) => {
-    this.setState({ err: error.response.data.message });
-    setTimeout(() => {
-      this.setState({
-        err: null,
+      //     .catch((error) => console.log(error));
+      .catch((error) => {
+        this.setState({ err: error.response.data.message });
+        setTimeout(() => {
+          this.setState({
+            err: null,
+          });
+        }, 3000);
       });
-    }, 3000);
-  });
   };
+  //handlefiluploud()
+  handleFileUpload = (e) => {
+    console.log("The file to be uploaded is: ", e.target.files[0]);
 
+    const uploadData = new FormData();
+    // imageUrl => this name has to be the same as in the model since we pass
+    // req.body to .create() method when creating a new thing in '/api/things/create' POST route
+    uploadData.append("image", e.target.files[0]);
+
+    handleUpload(uploadData)
+      .then((response) => {
+        // console.log('response is: ', response);
+        // after the console.log we can see that response carries 'secure_url' which we can use to update the state
+        this.setState({ imageUrl: response.secure_url });
+      })
+      .catch((err) => {
+        console.log("Error while uploading the file: ", err);
+      });
+  };
   // handleChange()
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
   render() {
+    const divstyle={
+      backgroundColor:"red"
+    }
     return (
       // form design
-      <div>
+      <div style={divstyle}>
         {/* HERE */}
         <form onSubmit={this.handleFormSubmit}>
           <label>Username:</label>
@@ -78,13 +109,13 @@ class Signup extends Component {
             value={this.state.confirmPassword}
             onChange={(e) => this.handleChange(e)}
           />
-
+          <label>Avatar</label>
           {/* <label> Upload your picture</label>
         <input type="file" value ={this.state.imahe} onChange={e=> this.handleChange(e)} /> */}
-
+          <input type="file" onChange={(e) => this.handleFileUpload(e)} />
           <button>I Signup</button>
         </form>
-       <p>{this.state.err }</p>
+        <p>{this.state.err}</p>
         <p>
           Already have account?
           <Link to={"/login"}>Login</Link>

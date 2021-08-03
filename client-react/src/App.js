@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { Component } from "react";
-import "./Styling/app.css";
+// import "./Styling/app.css";
 // import all components//////
 import Home from "./components/Home";
 import About from "./components/About";
@@ -14,6 +14,16 @@ import ListGames from "./components/games/ListGames";
 import DetailsGame from "./components/games/DetailsGame";
 import AddGame from "./components/games/AddGame";
 import EditGame from "./components/games/EditGame";
+import ComponentTwitch from "./components/stream/ComponentTwitch"
+import { BrowserRouter as Router} from "react-router-dom"
+import Header from "./components/stream/Header/Header";
+import Sidebar from "./components/stream/Sidebar/Sidebar";
+import Games from "./components/stream/Games/Games";
+import TopStreams from "./components/stream/TopStreams/TopStreams";
+import Live from "./components/stream/Live/Live";
+import GameStreams from "./components/stream/GameStreams/GameStreams";
+import Resultats from "./components/stream/Resultats/Resultats";
+import Erreur from "./components/stream/Erreur/Erreur";
 require("dotenv").config();
 class App extends Component {
   // auth service functionality
@@ -46,10 +56,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar
+        {/* <Navbar
           userInSession={this.state.loggedInUser}
           updateUser={this.updateLoggedInUser}
-        />
+        /> */}
+         <Router forceRefresh={true}/>
+         <Header userInSession={this.state.loggedInUser}
+          updateUser={this.updateLoggedInUser}/>
+
+        
 
         <Switch>
           <Route
@@ -97,6 +112,13 @@ class App extends Component {
               <EditGame userInSession={this.state.loggedInUser} {...props} />
             )}
           />
+          {/* <Route exact path="/stream" component={ComponentTwitch}/> */}
+          <Route exact path="/stream/" component={Games} />
+          <Route exact path="/stream/top-streams" component={TopStreams} />
+          <Route exact path="/stream/live/:slug" component={Live} />
+          <Route exact path="/stream/game/:slug" component={GameStreams} />
+          <Route exact path="/stream/resultats/:slug" component={Resultats} />
+          <Route exact path="/stream/resultats/" component={Erreur} />
         </Switch>
       </div>
     );

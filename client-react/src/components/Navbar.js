@@ -21,10 +21,14 @@ const Navbar = (props) => {
           <li>
             <Link to="/games">Games</Link>
           </li>
+          <li>
+            <Link to="/stream">Stream</Link>
+          </li>
           {props.userInSession.admin && (
             <li>
               <Link to="/addgame">Ajouter des jeux</Link>
             </li>
+            
           )}
           <button
             onClick={(e) => {
@@ -44,6 +48,9 @@ const Navbar = (props) => {
           </li>
           <li>
             <Link to="/games">Games</Link>
+          </li>
+          <li>
+            <Link to="/stream">Stream</Link>
           </li>
         </ul>
       )}

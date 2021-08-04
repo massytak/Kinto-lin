@@ -7,5 +7,5 @@ function move(){
  
  
 }
-window.setInterval(move,64)
+window.setInterval(move,65)
 export default move

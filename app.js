@@ -73,4 +73,7 @@ app.use("/games", games);
 const reviews = require("./routes/reviews.routes");
 app.use("/reviews", reviews);
 
+const twitch=require('./routes/twitch.routes')
+app.use("/stream", twitch)
+
 module.exports = app;

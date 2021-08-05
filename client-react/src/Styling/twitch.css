@@ -22,12 +22,11 @@ Header
  */
 
 .headerTop {
-  background: #2ECC71;
+  background: #2ecc71;
   height: 50px;
   position: fixed;
   width: 100%;
   z-index: 1000;
-  
 }
 
 .listeMenu {
@@ -50,7 +49,7 @@ Header
 }
 
 .lien {
-  color: #2C3E50;
+  color: #2c3e50;
   cursor: pointer;
   text-decoration: none;
 }
@@ -93,7 +92,7 @@ Header
   border: none;
   cursor: inherit;
 }
-.buttonLogout{
+.buttonLogout {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   padding: 4px 20px;
@@ -108,7 +107,7 @@ Header
   position: fixed;
   top: 10px;
   right: 20px;
-  color: #2C3E50;
+  color: #2c3e50;
   width: 50px;
   height: 50px;
   cursor: pointer;
@@ -132,7 +131,7 @@ Header
   }
   .liensNav {
     height: 100px;
-    background: #00FF00;
+    background: #00ff00;
     width: 100%;
   }
   .liensNav:nth-child(4) {
@@ -160,7 +159,6 @@ Sidebar
   width: 239px;
   background: #19171c;
   height: 100vh;
-  
 }
 
 .titreSidebar {
@@ -242,10 +240,11 @@ Games
 .titreGames {
   padding-top: 90px;
   font-size: 50px;
-  font-weight: 400;
+  font-weight: bold;
   padding-left: 260px;
   padding-bottom: 50px;
-  color: white;
+  color: #2ecc71;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
 .flexAccueil {
@@ -364,7 +363,6 @@ TopStreams
   text-overflow: ellipsis;
   width: 80%;
   font-weight: 500;
-  
 }
 
 .cardBodyStream {
@@ -405,10 +403,12 @@ Live
   overflow-x: hidden;
   padding-top: 50px;
   padding-left: 239px;
+  background-color: #2ecc71;
 }
 
 .contInfo {
   color: #19171c;
+  background-color: #2ecc71;
   display: grid;
   height: 156px;
   width: calc(100% - 340px);
@@ -417,17 +417,20 @@ Live
 }
 
 .titreStream {
-  grid-area: 1 / 1 / 2 / 3;
+  grid-area: 1 / 1 / 2 / 2;
   text-align: left;
   margin-left: 5px;
   font-weight: 400;
   font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .viewer {
   grid-area: 1 / 2 / 2 / 3;
   text-align: right;
-  color: #00FF00;
+  color: #19171c;
   font-weight: 700;
   margin: 3px 5px 0 0;
 }
@@ -489,23 +492,25 @@ GameStreams
 
 .titreGamesStreams {
   padding-top: 100px;
-  font-size: 53px;
-  font-weight: 400;
+  font-size: 50px;
+  font-weight: bold;
   padding-left: 260px;
   padding-bottom: 10px;
-  color: white;
+  color: #2ecc71;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
 .sousTitreGameStreams {
   font-size: 25px;
-  font-weight: 400;
+  font-weight: bold;
   padding-left: 260px;
   padding-bottom: 50px;
-  color:white;
+  color: #2ecc71;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .textColored {
-  color: #00FF00;
+  color: #2ecc71;
 }
 
 .carteGameStreams {
@@ -567,6 +572,7 @@ Resultats
   padding-top: 50px;
   padding-bottom: 20px;
   font-size: 24px;
+  color: #2ecc71;
 }
 
 .carteResultats {
@@ -578,6 +584,7 @@ Resultats
   border-radius: 10px;
   box-shadow: 2px 11px 36px -16px rgba(0, 0, 0, 0.75);
   margin-top: 20px;
+  background-color: white;
 }
 
 .cardBodyResults {
@@ -586,7 +593,7 @@ Resultats
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
-  background-color: #2ECC71;
+  background-color: #2ecc71;
 }
 
 .cardBodyResults .btnCarte {

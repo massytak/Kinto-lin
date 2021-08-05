@@ -61,7 +61,7 @@ const Header = (props) => {
   const update = () => {
     setTimeout(() => {
       window.location.reload();
-    }, 1);
+    }, 2);
   };
   return (
     <div>
@@ -158,7 +158,7 @@ const Header = (props) => {
                     to={{
                       pathname: `/home`,
                     }}
-                    onClick={update}
+                   
                   >
                     <button
                       className="buttonLogout"
@@ -191,7 +191,7 @@ const Header = (props) => {
                   </Link>
                 </li>
                 <li className="liensNav">
-                  <Link className="lien" to="/login">
+                  <Link className="lien" to="/login" onClick={update}>
                   <button className="buttonLogout">
                       <img
                         src={loginLogo}

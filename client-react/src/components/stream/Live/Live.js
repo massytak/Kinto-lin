@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactTwitchEmbedVideo from "react-twitch-embed-video";
 import { useParams } from "react-router-dom";
 // useParams permet d'utiliser le slug.
-import api from "../api";
+// import api from "../api";
 import Sidebar from "../Sidebar/Sidebar";
 import { getLive } from "../stream-service";
 import { getGame } from "../stream-service";

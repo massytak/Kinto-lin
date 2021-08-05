@@ -5,7 +5,7 @@ import React, { Component } from "react";
 // import all components//////
 import Home from "./components/Home";
 import About from "./components/About";
-import Navbar from "./components/Navbar";
+// import Navbar from "./components/Navbar";
 import { Switch, Route } from "react-router-dom";
 import Signup from "./components/auth/Signup";
 import { loggedin } from "./components/auth/auth-service";
@@ -17,7 +17,7 @@ import EditGame from "./components/games/EditGame";
 import ComponentTwitch from "./components/stream/ComponentTwitch"
 import { BrowserRouter as Router} from "react-router-dom"
 import Header from "./components/stream/Header/Header";
-import Sidebar from "./components/stream/Sidebar/Sidebar";
+// import Sidebar from "./components/stream/Sidebar/Sidebar";
 import Games from "./components/stream/Games/Games";
 import TopStreams from "./components/stream/TopStreams/TopStreams";
 import Live from "./components/stream/Live/Live";
@@ -55,12 +55,12 @@ class App extends Component {
   };
   render() {
     return (
+      <Router forceRefresh={true}>
       <div className="App">
         {/* <Navbar
           userInSession={this.state.loggedInUser}
           updateUser={this.updateLoggedInUser}
         /> */}
-         <Router forceRefresh={true}/>
          <Header userInSession={this.state.loggedInUser}
           updateUser={this.updateLoggedInUser}/>
 
@@ -121,6 +121,7 @@ class App extends Component {
           <Route exact path="/stream/resultats/" component={Erreur} />
         </Switch>
       </div>
+      </Router>
     );
   }
 }

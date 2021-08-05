@@ -240,10 +240,11 @@ Games
 .titreGames {
   padding-top: 90px;
   font-size: 50px;
-  font-weight: 400;
+  font-weight: bold;
   padding-left: 260px;
   padding-bottom: 50px;
-  color: #00ff00;
+  color: #2ecc71;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
 .flexAccueil {
@@ -402,12 +403,12 @@ Live
   overflow-x: hidden;
   padding-top: 50px;
   padding-left: 239px;
-  background-color: #f1f1f1;
+  background-color: #2ecc71;
 }
 
 .contInfo {
   color: #19171c;
-  background-color: #f1f1f1;
+  background-color: #2ecc71;
   display: grid;
   height: 156px;
   width: calc(100% - 340px);
@@ -429,7 +430,7 @@ Live
 .viewer {
   grid-area: 1 / 2 / 2 / 3;
   text-align: right;
-  color: #00ff00;
+  color: #19171c;
   font-weight: 700;
   margin: 3px 5px 0 0;
 }
@@ -492,10 +493,11 @@ GameStreams
 .titreGamesStreams {
   padding-top: 100px;
   font-size: 50px;
-  font-weight: 400;
+  font-weight: bold;
   padding-left: 260px;
   padding-bottom: 10px;
-  color: #00ff00;
+  color: #2ecc71;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
 .sousTitreGameStreams {
@@ -503,11 +505,12 @@ GameStreams
   font-weight: bold;
   padding-left: 260px;
   padding-bottom: 50px;
-  color: #00ff00;
+  color: #2ecc71;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .textColored {
-  color: #00ff00;
+  color: #2ecc71;
 }
 
 .carteGameStreams {
@@ -569,7 +572,7 @@ Resultats
   padding-top: 50px;
   padding-bottom: 20px;
   font-size: 24px;
-  color: #00ff00;
+  color: #2ecc71;
 }
 
 .carteResultats {

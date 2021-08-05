@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import search from "./Search.svg";
 import menuIco from "./MenuIco.svg";
 import croix from "./Croix.svg";
+import signupLogo from "../../../Styling/signup.svg";
+import loginLogo from "../../../Styling/logoLogin.png"
+import logoAcount from "../../../Styling/logo-account.png"
 import logoutlog from "../../../Styling/logo-logout.png";
 import { Link } from "react-router-dom";
 import { logout } from "../../auth/auth-service";
@@ -28,7 +31,7 @@ const Header = (props) => {
     return () => {
       mediaQuery.removeListener(handleMediaQueryChange);
     };
-  },[]);
+  }, []);
 
   const handleMediaQueryChange = (mediaQuery) => {
     if (mediaQuery.matches) {
@@ -116,6 +119,7 @@ const Header = (props) => {
             )}
             {props.userInSession && (
               <>
+              {!pathname && (<li className="liensNav"></li>)}
                 <li onClick={hideMenu} className="liensNav">
                   {props.userInSession.username} is connected
                 </li>
@@ -126,6 +130,28 @@ const Header = (props) => {
                     </Link>
                   </li>
                 )}
+                 <li className="liensNav">
+                  <Link
+                    className="lien"
+                    to={{
+                      pathname: `/home`,
+                    }}
+                    onClick={update}
+                  >
+                    <button
+                      className="buttonLogout"
+                      onClick={(e) => {
+                        logout().then(() => props.updateUser(false));
+                      }}
+                    >
+                      <img
+                        src={logoAcount}
+                        alt="icone account"
+                        className="logoaccount"
+                      />
+                    </button>
+                  </Link>
+                </li>
                 <li className="liensNav">
                   <Link
                     className="lien"
@@ -143,6 +169,33 @@ const Header = (props) => {
                       <img
                         src={logoutlog}
                         alt="icone logout"
+                        className="logologout"
+                      />
+                    </button>
+                  </Link>
+                </li>
+              </>
+            )}
+            {!props.userInSession && (
+              <>
+                <li className="liensNav"></li>
+                <li className="liensNav">
+                  <Link className="lien" to="/signup">
+                    <button className="buttonLogout">
+                      <img
+                        src={signupLogo}
+                        alt="icone logout"
+                        className="logologout"
+                      />
+                    </button>
+                  </Link>
+                </li>
+                <li className="liensNav">
+                  <Link className="lien" to="/login">
+                  <button className="buttonLogout">
+                      <img
+                        src={loginLogo}
+                        alt="icone login"
                         className="logologout"
                       />
                     </button>

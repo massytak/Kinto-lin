@@ -33,11 +33,16 @@ class Login extends Component {
   };
 
   render() {
+    const divstyle={
+      paddingTop:"4em"
+    }
     return (
-      <div>
+      <div >
         {this.props.userInSession ? (
           <Redirect to="/home" />
         ) : (
+          <div style={divstyle}>
+
           <form onSubmit={this.handleFormSubmit}>
             <label>Username:</label>
             <input
@@ -56,12 +61,13 @@ class Login extends Component {
 
             <input type="submit" value="Login" />
           </form>
-        )}
         <p>{this.state.err}</p>
         <p>
           Don't have account?
           <Link to={"/signup"}>Register</Link>
         </p>
+          </div>
+        )}
       </div>
     );
   }

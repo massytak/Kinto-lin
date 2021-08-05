@@ -46,7 +46,7 @@ Header
 .liensNav:nth-child(5) {
   margin: 0 auto;
   flex-shrink: 1;
-  width: 600px;
+  width: 300px;
 }
 
 .lien {
@@ -75,7 +75,9 @@ Header
 .logologout {
   width: 26px;
 }
-
+.logoaccount {
+  width: 30px;
+}
 .inputRecherche {
   width: 50%;
   background-color: #fff;

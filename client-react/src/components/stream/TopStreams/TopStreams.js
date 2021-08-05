@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import api from "../api";
 import { Link } from "react-router-dom";
 import Sidebar from "../Sidebar/Sidebar";
 import { getTopstream } from "../stream-service";
@@ -9,6 +8,7 @@ function TopStreams() {
   const [channels, setChannels] = useState([]);
 
   useEffect(() => {
+    
     getTopstream()
       .then((result) => {
         let dataArray = result.data;
@@ -86,7 +86,7 @@ function TopStreams() {
       .catch((err) => console.log(err));
     
   });
-
+ 
   return (
     <div>
       <Sidebar />

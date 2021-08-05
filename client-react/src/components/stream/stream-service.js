@@ -44,3 +44,8 @@ function searchTwitch(cleanSearch) {
   return service.get(`/resultats/${cleanSearch}`).then((response) => response.data);
 }
 export { searchTwitch };
+/////////////////get search games/////////////////
+function gamesTwitch(slug) {
+  return service.get(`/games/${slug}`).then((response) => response.data);
+}
+export { gamesTwitch };

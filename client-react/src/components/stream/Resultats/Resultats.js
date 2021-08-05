@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import api from "../api";
 import { Link, useParams } from "react-router-dom";
 import Erreur from "../Erreur/Erreur";
 import Sidebar from "../Sidebar/Sidebar";

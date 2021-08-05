@@ -14,8 +14,8 @@ import ListGames from "./components/games/ListGames";
 import DetailsGame from "./components/games/DetailsGame";
 import AddGame from "./components/games/AddGame";
 import EditGame from "./components/games/EditGame";
-import ComponentTwitch from "./components/stream/ComponentTwitch"
-import { BrowserRouter as Router} from "react-router-dom"
+import ComponentTwitch from "./components/stream/ComponentTwitch";
+import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./components/stream/Header/Header";
 import Sidebar from "./components/stream/Sidebar/Sidebar";
 import Games from "./components/stream/Games/Games";
@@ -60,11 +60,11 @@ class App extends Component {
           userInSession={this.state.loggedInUser}
           updateUser={this.updateLoggedInUser}
         /> */}
-         <Router forceRefresh={true}/>
-         <Header userInSession={this.state.loggedInUser}
-          updateUser={this.updateLoggedInUser}/>
-
-        
+        <Router forceRefresh={true} />
+        <Header
+          userInSession={this.state.loggedInUser}
+          updateUser={this.updateLoggedInUser}
+        />
 
         <Switch>
           <Route

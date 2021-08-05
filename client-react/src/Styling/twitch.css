@@ -22,7 +22,7 @@ Header
  */
 
 .headerTop {
-  background: #00FF00;
+  background: #2ECC71;
   height: 50px;
   position: fixed;
   width: 100%;
@@ -43,7 +43,7 @@ Header
   padding: 0 20px;
 }
 
-.liensNav:nth-child(4) {
+.liensNav:nth-child(5) {
   margin: 0 auto;
   flex-shrink: 1;
   width: 600px;
@@ -72,6 +72,9 @@ Header
 .logoLoupe {
   width: 20px;
 }
+.logologout {
+  width: 26px;
+}
 
 .inputRecherche {
   width: 50%;
@@ -86,6 +89,16 @@ Header
   border-bottom-right-radius: 5px;
   padding: 4px 20px;
   border: none;
+  cursor: inherit;
+}
+.buttonLogout{
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 4px 20px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  margin-top: 6px;
+  cursor: inherit;
 }
 
 .menuResBtn {
@@ -248,7 +261,7 @@ Games
   transition: all 0.4s;
   border-radius: 10px;
   box-shadow: 2px 11px 36px -16px rgba(255, 255, 255, 0.75);
-  background-color: white;
+  background-color: #2ecc71;
 }
 
 .carteGames:hover {
@@ -335,7 +348,7 @@ TopStreams
   transition: all 0.4s;
   border-radius: 10px;
   box-shadow: 2px 11px 36px -16px rgba(255, 255, 255, 0.75);
-  background-color: white;
+  background-color: #2ecc71;
 }
 
 .carteStream:hover {
@@ -349,6 +362,7 @@ TopStreams
   text-overflow: ellipsis;
   width: 80%;
   font-weight: 500;
+  
 }
 
 .cardBodyStream {
@@ -474,16 +488,18 @@ GameStreams
 .titreGamesStreams {
   padding-top: 100px;
   font-size: 53px;
-  font-weight: 300;
+  font-weight: 400;
   padding-left: 260px;
   padding-bottom: 10px;
+  color: white;
 }
 
 .sousTitreGameStreams {
   font-size: 25px;
-  font-weight: 300;
+  font-weight: 400;
   padding-left: 260px;
   padding-bottom: 50px;
+  color:white;
 }
 
 .textColored {
@@ -496,7 +512,8 @@ GameStreams
   margin: 0 30px 30px 0;
   transition: all 0.4s;
   border-radius: 10px;
-  box-shadow: 2px 11px 36px -16px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 11px 36px -16px rgba(255, 255, 255, 0.75);
+  background-color: #2ecc71;
 }
 
 .carteGameStreams:hover {
@@ -567,6 +584,7 @@ Resultats
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
+  background-color: #2ECC71;
 }
 
 .cardBodyResults .btnCarte {
@@ -580,13 +598,13 @@ Resultats
 }
 
 .btnResult {
-  background: #00FF00;
-  color: #000;
+  background: #19171c;
+  color: rgb(255, 255, 255);
   font-size: 17px;
 }
 
 .btnResult:hover {
-  color: #000;
+  color: rgb(156, 156, 156);
 }
 
 .spanTxt {

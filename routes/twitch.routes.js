@@ -23,7 +23,8 @@ twitchRoutes.get("/games", (req, res, next) => {
     .then((response) => {
       res.status(200).json(response.data);
     })
-    .catch((err) => res.status(401).json(err));
+    .catch((err) => {console.log(err)
+    res.status(500).json(err)});
 });
 
 twitchRoutes.get("/games/:slug", (req, res, next) => {
@@ -32,7 +33,8 @@ twitchRoutes.get("/games/:slug", (req, res, next) => {
     .then((response) => {
       res.status(200).json(response.data);
     })
-    .catch((err) => res.status(401).json(err));
+    .catch((err) => {console.log(err)
+    res.status(500).json(err)});
 });
 
 twitchRoutes.get("/live/:slug", (req, res, next) => {
@@ -41,7 +43,8 @@ twitchRoutes.get("/live/:slug", (req, res, next) => {
     .then((response) => {
       res.status(200).json(response.data);
     })
-    .catch((err) => res.status(401).json(err));
+    .catch((err) => {console.log(err)
+    res.status(500).json(err)});
 });
 
 twitchRoutes.get("/resultats/:cleanSearch", (req, res, next) => {
@@ -50,7 +53,8 @@ twitchRoutes.get("/resultats/:cleanSearch", (req, res, next) => {
     .then((response) => {
       res.status(200).json(response.data);
     })
-    .catch((err) => res.status(401).json(err));
+    .catch((err) => {console.log(err)
+    res.status(500).json(err)});
 });
 
 twitchRoutes.get("/sidebar", (req, res, next) => {
@@ -59,7 +63,8 @@ twitchRoutes.get("/sidebar", (req, res, next) => {
     .then((response) => {
       res.status(200).json(response.data);
     })
-    .catch((err) => res.status(401).json(err));
+    .catch((err) => {console.log(err)
+    res.status(500).json(err)});
 });
 
 twitchRoutes.get("/game/:id", (req, res, next) => {
@@ -68,7 +73,8 @@ twitchRoutes.get("/game/:id", (req, res, next) => {
     .then((response) => {
       res.status(200).json(response.data);
     })
-    .catch((err) => res.status(401).json(err));
+    .catch((err) => {console.log(err)
+    res.status(500).json(err)});
 });
 twitchRoutes.get("/streamer/:id", (req, res, next) => {
   api
@@ -76,7 +82,8 @@ twitchRoutes.get("/streamer/:id", (req, res, next) => {
     .then((response) => {
       res.status(200).json(response.data);
     })
-    .catch((err) => res.status(401).json(err));
+    .catch((err) => {console.log(err)
+    res.status(500).json(err)});
 });
 
 module.exports = twitchRoutes;

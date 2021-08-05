@@ -1,54 +1,57 @@
 // auth/auth-service.js
 
-import axios from 'axios';
+import axios from "axios";
 
 const service = axios.create({
-  baseURL: 'http://localhost:5000/auth',
-  withCredentials: true
+  baseURL: "http://localhost:5000/auth",
+  withCredentials: true,
 });
 export default service;
 ////////////////////////////////
-const errorHandler = err => {
+const errorHandler = (err) => {
   // console.error(err);
   throw err;
 };
 
-
-
 /// sign up route////
 
-function signup(username, password, confirmPassword, email,image) {
-  return service.post('/signup', {username, password,confirmPassword, email,image}).then(response => response.data)
+function signup(username, password, confirmPassword, email, image) {
+  return service
+    .post("/signup", { username, password, confirmPassword, email, image })
+    .then((response) => response.data);
 }
-export {signup}
+export { signup };
 
 /////////// log in route//////////
- 
+
 function login(username, password) {
-  return service.post('/login', {username, password}).then(response => response.data)
+  return service
+    .post("/login", { username, password })
+    .then((response) => response.data);
 }
-export {login}
+export { login };
 ////////// loggedin route//////////
 function loggedin() {
-  return service.get('/loggedin').then(response => response.data)
+  return service.get("/loggedin").then((response) => response.data);
 }
-export {loggedin}
+export { loggedin };
 
 /////////// log out ////////////////
- 
+
 function logout() {
-  return service.post('/logout', {}).then(response => response.data)
+  return service.post("/logout", {}).then((response) => response.data);
 }
-export {logout}
+export { logout }; /////////////// edit profil/////////////////
+
 ////////////upload an image//////////////
 function handleUpload(theFile) {
   // console.log('file in service: ', theFile)
   return service
-    .post('/upload', theFile)
-    .then(res => res.data)
+    .post("/upload", theFile)
+    .then((res) => res.data)
     .catch(errorHandler);
 }
-export {handleUpload}
+export { handleUpload };
 
 //////save in data base image///////////
 // function saveNewThing(newThing) {
@@ -59,3 +62,11 @@ export {handleUpload}
 //     .catch(errorHandler);
 // }
 // export {saveNewThing}
+/////////////// edit profil/////////////////
+function editUser(id, username, email, image) {
+  return service.put(
+    `/edit/${id}`,
+    { username, email, image }.then((response) => response.data)
+  );
+}
+export { editUser };

@@ -15,12 +15,14 @@ function TopStreams() {
         let dataArray = result.data;
         
 
-        let gameIDs = dataArray.map((stream) => {
+        let resultgameIDs = dataArray.map((stream) => {
           return stream.game_id;
         });
-        let userIDs = dataArray.map((stream) => {
+        let resultuserIDs = dataArray.map((stream) => {
           return stream.user_id;
         });
+        let gameIDs=resultgameIDs.filter(game=>game)
+        let userIDs=resultuserIDs.filter(user=>user)
         // console.log(gameIDs, userIDs);
 
         // Création des URLs personnalisés
@@ -29,13 +31,15 @@ function TopStreams() {
 
         let queryParamsGames = "";
         let queryParamsUsers = "";
-
+        
         gameIDs.map((id) => {
           return (queryParamsGames = queryParamsGames + `id=${id}&`);
         });
         userIDs.map((id) => {
           return (queryParamsUsers = queryParamsUsers + `id=${id}&`);
         });
+
+       
 
         // URL final : coller tous les IDs avec leur URL respectif
         let urlFinalGames = queryParamsGames.substr(3);

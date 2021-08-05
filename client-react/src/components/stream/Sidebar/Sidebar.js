@@ -78,12 +78,14 @@ function Sidebar() {
       .then((result) => {
         let dataArray = result.data;
 
-        let gameIDs = dataArray.map((stream) => {
+        let resultgameIDs = dataArray.map((stream) => {
           return stream.game_id;
         });
-        let userIDs = dataArray.map((stream) => {
+        let resultuserIDs = dataArray.map((stream) => {
           return stream.user_id;
         });
+        let gameIDs=resultgameIDs.filter(game=>game)
+        let userIDs=resultuserIDs.filter(user=>user)
         // console.log(gameIDs, userIDs);
 
         // Création des URLs personnalisés

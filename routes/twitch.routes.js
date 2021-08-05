@@ -26,9 +26,9 @@ twitchRoutes.get("/games", (req, res, next) => {
     .catch((err) => res.status(401).json(err));
 });
 
-twitchRoutes.get("/games/:id", (req, res, next) => {
+twitchRoutes.get("/games/:slug", (req, res, next) => {
   api
-    .get(`https://api.twitch.tv/helix/streams?game_id=${req.params.id}`)
+    .get(`https://api.twitch.tv/helix/streams?game_id=${req.params.slug}`)
     .then((response) => {
       res.status(200).json(response.data);
     })

@@ -71,7 +71,8 @@ class Signup extends Component {
   };
   render() {
     const divstyle={
-      backgroundColor:"red"
+      backgroundColor:"red",
+      paddingTop:"4em"
     }
     return (
       // form design

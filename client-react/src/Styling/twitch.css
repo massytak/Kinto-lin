@@ -22,12 +22,11 @@ Header
  */
 
 .headerTop {
-  background: #00FF00;
+  background: #2ecc71;
   height: 50px;
   position: fixed;
   width: 100%;
   z-index: 1000;
-  
 }
 
 .listeMenu {
@@ -43,14 +42,14 @@ Header
   padding: 0 20px;
 }
 
-.liensNav:nth-child(4) {
+.liensNav:nth-child(5) {
   margin: 0 auto;
   flex-shrink: 1;
-  width: 600px;
+  width: 300px;
 }
 
 .lien {
-  color: #2C3E50;
+  color: #2c3e50;
   cursor: pointer;
   text-decoration: none;
 }
@@ -72,7 +71,12 @@ Header
 .logoLoupe {
   width: 20px;
 }
-
+.logologout {
+  width: 26px;
+}
+.logoaccount {
+  width: 30px;
+}
 .inputRecherche {
   width: 50%;
   background-color: #fff;
@@ -86,6 +90,16 @@ Header
   border-bottom-right-radius: 5px;
   padding: 4px 20px;
   border: none;
+  cursor: inherit;
+}
+.buttonLogout {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 4px 20px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  margin-top: 6px;
+  cursor: inherit;
 }
 
 .menuResBtn {
@@ -93,7 +107,7 @@ Header
   position: fixed;
   top: 10px;
   right: 20px;
-  color: #2C3E50;
+  color: #2c3e50;
   width: 50px;
   height: 50px;
   cursor: pointer;
@@ -117,7 +131,7 @@ Header
   }
   .liensNav {
     height: 100px;
-    background: #00FF00;
+    background: #00ff00;
     width: 100%;
   }
   .liensNav:nth-child(4) {
@@ -145,7 +159,6 @@ Sidebar
   width: 239px;
   background: #19171c;
   height: 100vh;
-  
 }
 
 .titreSidebar {
@@ -230,7 +243,7 @@ Games
   font-weight: 400;
   padding-left: 260px;
   padding-bottom: 50px;
-  color: #00FF00;
+  color: #00ff00;
 }
 
 .flexAccueil {
@@ -248,7 +261,7 @@ Games
   transition: all 0.4s;
   border-radius: 10px;
   box-shadow: 2px 11px 36px -16px rgba(255, 255, 255, 0.75);
-  background-color: white;
+  background-color: #2ecc71;
 }
 
 .carteGames:hover {
@@ -335,7 +348,7 @@ TopStreams
   transition: all 0.4s;
   border-radius: 10px;
   box-shadow: 2px 11px 36px -16px rgba(255, 255, 255, 0.75);
-  background-color: white;
+  background-color: #2ecc71;
 }
 
 .carteStream:hover {
@@ -416,7 +429,7 @@ Live
 .viewer {
   grid-area: 1 / 2 / 2 / 3;
   text-align: right;
-  color: #00FF00;
+  color: #00ff00;
   font-weight: 700;
   margin: 3px 5px 0 0;
 }
@@ -482,7 +495,7 @@ GameStreams
   font-weight: 400;
   padding-left: 260px;
   padding-bottom: 10px;
-  color: #00FF00;
+  color: #00ff00;
 }
 
 .sousTitreGameStreams {
@@ -490,11 +503,11 @@ GameStreams
   font-weight: bold;
   padding-left: 260px;
   padding-bottom: 50px;
-  color: #00FF00;
+  color: #00ff00;
 }
 
 .textColored {
-  color: #00FF00;
+  color: #00ff00;
 }
 
 .carteGameStreams {
@@ -503,8 +516,8 @@ GameStreams
   margin: 0 30px 30px 0;
   transition: all 0.4s;
   border-radius: 10px;
-  box-shadow: 2px 11px 36px -16px rgba(0, 0, 0, 0.75);
-  background-color: white;
+  box-shadow: 2px 11px 36px -16px rgba(255, 255, 255, 0.75);
+  background-color: #2ecc71;
 }
 
 .carteGameStreams:hover {
@@ -517,7 +530,6 @@ GameStreams
   align-items: center;
   flex-direction: column;
   justify-content: space-evenly;
-  
 }
 
 @media screen and (max-width: 1200px) {
@@ -557,7 +569,7 @@ Resultats
   padding-top: 50px;
   padding-bottom: 20px;
   font-size: 24px;
-  color: #00FF00;
+  color: #00ff00;
 }
 
 .carteResultats {
@@ -578,6 +590,7 @@ Resultats
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
+  background-color: #2ecc71;
 }
 
 .cardBodyResults .btnCarte {
@@ -591,13 +604,13 @@ Resultats
 }
 
 .btnResult {
-  background: #212529;
-  color: #fff;
+  background: #19171c;
+  color: rgb(255, 255, 255);
   font-size: 17px;
 }
 
 .btnResult:hover {
-  color: #000;
+  color: rgb(156, 156, 156);
 }
 
 .spanTxt {

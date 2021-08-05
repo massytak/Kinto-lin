@@ -9,6 +9,7 @@ function TopStreams() {
   const [channels, setChannels] = useState([]);
 
   useEffect(() => {
+    
     getTopstream()
       .then((result) => {
         let dataArray = result.data;
@@ -86,7 +87,7 @@ function TopStreams() {
       .catch((err) => console.log(err));
     
   });
-
+ 
   return (
     <div>
       <Sidebar />

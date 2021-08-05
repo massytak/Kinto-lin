@@ -6,9 +6,6 @@ import { Link } from "react-router-dom";
 import Sidebar from "../Sidebar/Sidebar";
 import { getTopGame } from "../stream-service";
 function Games() {
-  // premiere valeur = valeur du state
-  // seconde valeur = fonction qui peut mettre à jour le state
-  // useState = valeur initiale à 0 (on peut mettre d'autre valeur)
   const [games, setGames] = useState([]);
 
   useEffect(() => {

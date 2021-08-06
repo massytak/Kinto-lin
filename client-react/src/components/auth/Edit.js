@@ -51,14 +51,21 @@ class Edit extends Component {
     return (
       <div style={divStyle}>
         <form onClick={this.handleFormSubmit}>
-          <label> New Password:</label>
+          <label> New Username : </label>
           <input
-            type="password"
-            name="password"
-            value={this.state.password}
+            type="text"
+            name="username"
+            value={this.state.username}
             onChange={(e) => this.handleChange(e)}
           />
-          <label>New Avatar</label>
+          <label> New Email : </label>
+          <input
+            type="email"
+            name="email"
+            value={this.state.email}
+            onChange={(e) => this.handleChange(e)}
+          />
+          <label>New Avatar : </label>
           <input type="file" onChange={(e) => this.handleFileUpload(e)} />
           <button
             onClick={(e) => {

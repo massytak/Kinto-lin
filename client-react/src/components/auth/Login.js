@@ -53,7 +53,8 @@ class Login extends Component {
             />
 
             <label>Password:</label>
-            <textarea
+            <input
+              type="password"
               name="password"
               value={this.state.password}
               onChange={(e) => this.handleChange(e)}

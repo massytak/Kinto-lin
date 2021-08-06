@@ -58,13 +58,12 @@ class App extends Component {
   render() {
 
     return (
-      
+      <Router forceRefresh={true}>
       <div className="App">
         {/* <Navbar
           userInSession={this.state.loggedInUser}
           updateUser={this.updateLoggedInUser}
         /> */}
-        <Router forceRefresh={true} />
         <Header
           userInSession={this.state.loggedInUser}
           updateUser={this.updateLoggedInUser}
@@ -131,6 +130,7 @@ class App extends Component {
           <Route exact path="/stream/resultats/" component={Erreur} />
         </Switch>
       </div>
+      </Router>
     );
   }
 }

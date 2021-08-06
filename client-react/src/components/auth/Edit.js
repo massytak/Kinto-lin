@@ -1,10 +1,11 @@
 /** @format */
 
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+
 import { handleUpload } from "./auth-service";
 import { editUser } from "./auth-service";
-import { loggedin } from "./auth-service";
+import { userInfo } from "./auth-service";
+
 class Edit extends Component {
   state = {
     username: "",
@@ -19,13 +20,18 @@ class Edit extends Component {
     const username = this.state.username;
     const email = this.state.email;
     const image = this.state.imageUrl;
+    editUser(this.state.id, username, email, image)
+      .then((userupdate) => {
+        console.log(userupdate);
+        this.props.history.push(`/viewprofil/${this.state.id}`);
+      })
+      .catch((err) => console.log(err));
   };
   componentDidMount() {
-    loggedin().then((userInfo) => {
+    userInfo(this.state.id).then((userInfo) => {
       this.setState({
         username: userInfo.username,
         email: userInfo.email,
-        
       });
     });
   }
@@ -61,7 +67,7 @@ class Edit extends Component {
     };
     return (
       <div style={divstyle}>
-        <form onClick={this.handleFormSubmit}>
+        <form onSubmit={this.handleFormSubmit}>
           <label> New Username : </label>
           <input
             type="text"
@@ -77,17 +83,12 @@ class Edit extends Component {
             onChange={(e) => this.handleChange(e)}
           />
           <br />
+
           <label>New Avatar : </label>
           <input type="file" onChange={(e) => this.handleFileUpload(e)} />
-          <button
-            onClick={(e) => {
-              editUser().then(() => props.updateUser(false));
-            }}
-          >
-            Update my profil
-          </button>
+
+          <button>Update my profil</button>
         </form>
-        <p>{this.state.err}</p>
       </div>
     );
   }

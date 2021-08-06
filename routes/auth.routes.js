@@ -28,6 +28,7 @@ router.post("/upload", uploader.single("image"), (req, res, next) => {
 
   res.json({ secure_url: req.file.path });
 });
+
 //////////////////////////// Sign Up/////////////////////////////
 
 router.post("/signup", uploader.single("image"), (req, res, next) => {
@@ -182,4 +183,15 @@ router.delete("/delete/:id", (req, res, next) => {
     .catch((err) => next(err));
 });
 
+///////////////lire les info du user concernée////////
+router.get("/user/:id",(req,res,next)=>{
+  
+  if (req.session.currentUser._id!== req.params.id) {
+    res.status(400).json('not authorise to edit this user');
+    return;
+  }
+User.findById(req.params.id)
+.then(userfromDb=>res.status(200).json(userfromDb))
+.catch(err=> res.status(500).json('I can not get this user'))
+})
 module.exports = router;

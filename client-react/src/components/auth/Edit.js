@@ -1,26 +1,34 @@
-import React, { Component } from 'react'
+/** @format */
 
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { handleUpload } from "./auth-service";
-
-import {editUser} from "./auth-service"
+import { editUser } from "./auth-service";
+import { loggedin } from "./auth-service";
 class Edit extends Component {
   state = {
     username: "",
-    password: "",
+    id: this.props.match.params.id,
     email: "",
-    err: null,
     imageUrl: "",
   };
+
   // handleSubmit()
   handleFormSubmit = (event) => {
     event.preventDefault();
     const username = this.state.username;
-    const password = this.state.password;
     const email = this.state.email;
     const image = this.state.imageUrl;
-    
   };
+  componentDidMount() {
+    loggedin().then((userInfo) => {
+      this.setState({
+        username: userInfo.username,
+        email: userInfo.email,
+        
+      });
+    });
+  }
   //handlefiluploud()
   handleFileUpload = (e) => {
     console.log("The file to be uploaded is: ", e.target.files[0]);
@@ -44,6 +52,7 @@ class Edit extends Component {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
+
   render(props) {
     const divstyle = {
       paddingTop: "5em",
@@ -67,6 +76,7 @@ class Edit extends Component {
             value={this.state.email}
             onChange={(e) => this.handleChange(e)}
           />
+          <br />
           <label>New Avatar : </label>
           <input type="file" onChange={(e) => this.handleFileUpload(e)} />
           <button

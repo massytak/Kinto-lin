@@ -152,7 +152,7 @@ router.get("/loggedin", (req, res, next) => {
 
 /////////////////////////////// Edit user/////////////////////////////////
 
-router.put("/edit/:id", (req, res, next) => {
+router.put("/edit/:id", uploader.single("image"), (req, res, next) => {
   user: req.session.currentUser;
 
   if (!req.session.currentUser) {
@@ -161,7 +161,7 @@ router.put("/edit/:id", (req, res, next) => {
   } else {
     User.findById(req.params.id)
       .then((userDetail) => {
-        console.log(userDetail)
+        console.log(userDetail);
         User.findByIdAndUpdate(req.params.id, req.body)
           .then((user) => {
             res.status(200).json("Your account is updated");
@@ -180,8 +180,6 @@ router.delete("/delete/:id", (req, res, next) => {
   User.findByIdAndRemove(req.params.id)
     .then((user) => res.status(200).json(user))
     .catch((err) => next(err));
-}); 
-
-
+});
 
 module.exports = router;

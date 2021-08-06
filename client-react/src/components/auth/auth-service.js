@@ -57,7 +57,7 @@ export { handleUpload };
 // function saveNewThing(newThing) {
 //   // console.log('new thing is: ', newThing)
 //   return service
-//     .post('/things/create', newThing)
+//     .post(`/upload`, newThing)
 //     .then(res => res.data)
 //     .catch(errorHandler);
 // }

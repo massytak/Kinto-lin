@@ -45,11 +45,13 @@ class Edit extends Component {
     this.setState({ [name]: value });
   };
   render(props) {
-    const divStyle={
-      paddingTop:'5em'
-    }
+    const divstyle = {
+      paddingTop: "5em",
+      color: "red",
+      backgroundColor: "yellow",
+    };
     return (
-      <div style={divStyle}>
+      <div style={divstyle}>
         <form onClick={this.handleFormSubmit}>
           <label> New Username : </label>
           <input

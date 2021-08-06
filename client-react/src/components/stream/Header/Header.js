@@ -81,7 +81,7 @@ const Header = (props) => {
             <li onClick={hideMenu} className="liensNav">
               <Link className="lien" to="/stream" onClick={update}>
                 Top Games
-              </Link>
+              </Link>{}
             </li>
 
             <li onClick={hideMenu} className="liensNav">
@@ -134,14 +134,14 @@ const Header = (props) => {
                   <Link
                     className="lien"
                     to={{
-                      pathname: `/home`,
+                      pathname: `/viewprofil/${props.userInSession._id}`,
                     }}
                     onClick={update}
                   >
                     <button
                       className="buttonLogout"
                       onClick={(e) => {
-                        logout().then(() => props.updateUser(false));
+                        
                       }}
                     >
                       <img

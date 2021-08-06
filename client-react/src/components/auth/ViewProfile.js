@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { loggedin } from "./auth-service";
-import "../../Styling/profilUser.css";
+
+import { userInfo } from "./auth-service";
 class ViewProfile extends Component {
   state = {
     id: this.props.match.params.id,
@@ -12,7 +12,8 @@ class ViewProfile extends Component {
   };
 
   componentDidMount() {
-    loggedin().then((userInfo) => {
+    userInfo(this.state.id).then((userInfo) => {
+      
       this.setState({
         userInfostate: userInfo,
         username: userInfo.username,

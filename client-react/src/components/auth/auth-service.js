@@ -53,6 +53,10 @@ function handleUpload(theFile) {
 }
 export { handleUpload };
 
+function userInfo(id){
+  return service.get(`/user/${id}`).then((response)=>response.data)
+}
+export {userInfo}
 //////save in data base image///////////
 // function saveNewThing(newThing) {
 //   // console.log('new thing is: ', newThing)
@@ -66,7 +70,7 @@ export { handleUpload };
 function editUser(id, username, email, image) {
   return service.put(
     `/edit/${id}`,
-    { username, email, image }.then((response) => response.data)
-  );
-}
-export { editUser };
+    { username, email, image }).then((response) => console.log(response))}
+  
+
+export { editUser }

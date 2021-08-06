@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 // import "./Styling/app.css";
 // import all components//////
+import "./Styling/twitch.css"
 import Home from "./components/Home";
 import About from "./components/About";
 // import Navbar from "./components/Navbar";
@@ -14,7 +15,6 @@ import ListGames from "./components/games/ListGames";
 import DetailsGame from "./components/games/DetailsGame";
 import AddGame from "./components/games/AddGame";
 import EditGame from "./components/games/EditGame";
-import ComponentTwitch from "./components/stream/ComponentTwitch";
 import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./components/stream/Header/Header";
 // import Sidebar from "./components/stream/Sidebar/Sidebar";

@@ -1,0 +1,23 @@
+*{
+margin: 0;
+padding: 0;
+}
+
+@media screen and (max-width: 950px) {
+    .profil{
+        background-color: green;
+    }
+    .avatar{
+        padding-top: 15%;
+        width: 30%;
+        height: auto;
+    }
+   
+  }
+  
+  @media screen and (max-width: 900px) {
+  
+    
+  }
+  
+  

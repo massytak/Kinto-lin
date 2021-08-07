@@ -3,8 +3,8 @@ import search from "./Search.svg";
 import menuIco from "./MenuIco.svg";
 import croix from "./Croix.svg";
 import signupLogo from "../../../Styling/signup.svg";
-import loginLogo from "../../../Styling/logoLogin.png"
-import logoAcount from "../../../Styling/logo-account.png"
+import loginLogo from "../../../Styling/logoLogin.png";
+import logoAcount from "../../../Styling/logo-account.png";
 import logoutlog from "../../../Styling/logo-logout.png";
 import { Link } from "react-router-dom";
 import { logout } from "../../auth/auth-service";
@@ -61,7 +61,7 @@ const Header = (props) => {
   const update = () => {
     setTimeout(() => {
       window.location.reload();
-    }, 2);
+    }, 200);
   };
   return (
     <div>
@@ -69,23 +69,24 @@ const Header = (props) => {
         {(menu || !smallScreen) && (
           <ul className="listeMenu">
             <li onClick={hideMenu} className="liensNav">
-              <Link className="lien" to="/home" onClick={update}>
+              <Link className="lien" to="/home" >
                 <h3>Kinto-Un</h3>
               </Link>
             </li>
             <li onClick={hideMenu} className="liensNav">
-              <Link className="lien" to="/games" onClick={update}>
+              <Link className="lien" to="/games" >
                 Games
               </Link>
             </li>
             <li onClick={hideMenu} className="liensNav">
-              <Link className="lien" to="/stream" onClick={update}>
+              <Link className="lien" to="/stream" >
                 Top Games
-              </Link>{}
+              </Link>
+              {}
             </li>
 
             <li onClick={hideMenu} className="liensNav">
-              <Link className="lien" to="/stream/top-streams" onClick={update}>
+              <Link className="lien" to="/stream/top-streams" >
                 Top Streams
               </Link>
             </li>
@@ -106,7 +107,7 @@ const Header = (props) => {
                       pathname: `/stream/resultats/${searchInput}`,
                     }}
                   >
-                    <button type="submit">
+                    <button  type="submit">
                       <img
                         src={search}
                         alt="icone loupe"
@@ -119,18 +120,18 @@ const Header = (props) => {
             )}
             {props.userInSession && (
               <>
-              {!pathname && (<li className="liensNav"></li>)}
+                {!pathname && <li className="liensNav"></li>}
                 <li onClick={hideMenu} className="liensNav">
                   {props.userInSession.username} is connected
                 </li>
                 {props.userInSession.admin && (
                   <li onClick={hideMenu} className="liensNav">
-                    <Link className="lien" to="/addgame" onClick={update}>
+                    <Link className="lien" to="/addgame" >
                       Add games
                     </Link>
                   </li>
                 )}
-                 <li className="liensNav">
+                <li className="liensNav">
                   <Link
                     className="lien"
                     to={{
@@ -138,12 +139,7 @@ const Header = (props) => {
                     }}
                     onClick={update}
                   >
-                    <button
-                      className="buttonLogout"
-                      onClick={(e) => {
-                        
-                      }}
-                    >
+                    <button className="buttonLogout" onClick={(e) => {}}>
                       <img
                         src={logoAcount}
                         alt="icone account"
@@ -155,18 +151,22 @@ const Header = (props) => {
                 <li className="liensNav">
                   <Link
                     className="lien"
+                    
                     to={{
                       pathname: `/home`,
                     }}
-                   
                   >
                     <button
                       className="buttonLogout"
                       onClick={(e) => {
-                        logout().then(() => props.updateUser(false));
+                        logout().then(() => {
+                          props.updateUser(false);
+                          update()
+                        });
                       }}
                     >
                       <img
+                        on
                         src={logoutlog}
                         alt="icone logout"
                         className="logologout"
@@ -191,8 +191,8 @@ const Header = (props) => {
                   </Link>
                 </li>
                 <li className="liensNav">
-                  <Link className="lien" to="/login" onClick={update}>
-                  <button className="buttonLogout">
+                  <Link className="lien" to="/login" >
+                    <button className="buttonLogout">
                       <img
                         src={loginLogo}
                         alt="icone login"

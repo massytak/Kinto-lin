@@ -61,8 +61,9 @@ app.use(
 app.locals.title = "Express - Generated with IronGenerator";
 
 //routes
-const index = require("./routes/index");
-app.use("/", index);
+
+// const index = require("./routes/index");
+// app.use("/", index);
 
 const auth = require("./routes/auth.routes");
 app.use("/auth", auth);
@@ -73,7 +74,17 @@ app.use("/games", games);
 const reviews = require("./routes/reviews.routes");
 app.use("/reviews", reviews);
 
-const twitch=require('./routes/twitch.routes')
-app.use("/stream", twitch)
+const twitch = require("./routes/twitch.routes");
+app.use("/stream", twitch);
+
+
+//serveur statique file
+app.use(express.static("client-react/build"));
+//for any other route
+app.use((req, res, next) => {
+  res.sendFile(`${__dirname}/client-react/build/index.html`, (err) => {
+    if (err) next(err);
+  });
+});
 
 module.exports = app;

@@ -12,6 +12,7 @@ class Edit extends Component {
     id: this.props.match.params.id,
     email: "",
     imageUrl: "",
+    errImage:null
   };
 
   // handleSubmit()
@@ -20,12 +21,15 @@ class Edit extends Component {
     const username = this.state.username;
     const email = this.state.email;
     const image = this.state.imageUrl;
+    if (!image){
+      this.setState({errImage:"Your image is note upload Please Wait to change..."})
+     }else{
     editUser(this.state.id, username, email, image)
       .then((userupdate) => {
         console.log(userupdate);
         this.props.history.push(`/viewprofil/${this.state.id}`);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err));}
   };
   componentDidMount() {
     userInfo(this.state.id).then((userInfo) => {
@@ -89,6 +93,7 @@ class Edit extends Component {
 
           <button>Update my profil</button>
         </form>
+        {this.state.errImage && <p>{this.state.errImage}</p>}
       </div>
     );
   }

@@ -12,7 +12,8 @@ class Edit extends Component {
     id: this.props.match.params.id,
     email: "",
     imageUrl: "",
-    errImage:null
+    errImage: null,
+    buttonload: "Update my profil",
   };
 
   // handleSubmit()
@@ -21,16 +22,15 @@ class Edit extends Component {
     const username = this.state.username;
     const email = this.state.email;
     const image = this.state.imageUrl;
-    if (!image){
-      this.setState({errImage:"Your image is note upload Please Wait to change..."})
-     }else{
+
     editUser(this.state.id, username, email, image)
       .then((userupdate) => {
         console.log(userupdate);
         this.props.history.push(`/viewprofil/${this.state.id}`);
       })
-      .catch((err) => console.log(err));}
+      .catch((err) => console.log(err));
   };
+
   componentDidMount() {
     userInfo(this.state.id).then((userInfo) => {
       this.setState({
@@ -44,25 +44,28 @@ class Edit extends Component {
     console.log("The file to be uploaded is: ", e.target.files[0]);
 
     const uploadData = new FormData();
+    console.log("avant", uploadData);
     // imageUrl => this name has to be the same as in the model since we pass
     // req.body to .create() method when creating a new thing in '/api/things/create' POST route
     uploadData.append("image", e.target.files[0]);
-
+    this.setState({
+      buttonload: "loading...",
+      errImage: "please wait while we load your image...",
+    });
     handleUpload(uploadData)
       .then((response) => {
         // console.log('response is: ', response);
         // after the console.log we can see that response carries 'secure_url' which we can use to update the state
-        this.setState({ imageUrl: response.secure_url });
+        this.setState({
+          buttonload: "Update my profil",
+          imageUrl: response.secure_url,
+          errImage: null,
+        });
       })
       .catch((err) => {
         console.log("Error while uploading the file: ", err);
       });
   };
-  handleChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-  };
-
   render(props) {
     const divstyle = {
       paddingTop: "5em",
@@ -91,7 +94,7 @@ class Edit extends Component {
           <label>New Avatar : </label>
           <input type="file" onChange={(e) => this.handleFileUpload(e)} />
 
-          <button>Update my profil</button>
+          <button>{this.state.buttonload}</button>
         </form>
         {this.state.errImage && <p>{this.state.errImage}</p>}
       </div>

@@ -11,17 +11,18 @@ class AddGame extends Component {
     correct: null,
   };
   componentDidMount() {
-    var options = {
-      method: "GET",
-      url: "https://free-to-play-games-database.p.rapidapi.com/api/games",
-      headers: {
-        "x-rapidapi-key": process.env.REACT_APP_XAPIKEY,
-        "x-rapidapi-host": process.env.REACT_APP_XAPIHOST,
-      },
-    };
+    // var options = {
+    //   method: "GET",
+    //   url: "https://free-to-play-games-database.p.rapidapi.com/api/games",
+    //   headers: {
+    //     "x-rapidapi-key": process.env.REACT_APP_XAPIKEY,
+    //     "x-rapidapi-host": process.env.REACT_APP_XAPIHOST,
+    //   },
+    // };
 
-    axios
-      .request(options)
+    // axios
+    //   .request(options)
+    axios.get('https://www.freetogame.com/api/games')
       .then((response) => {
         this.setState({
           gamesFromApi: response.data,

@@ -7,19 +7,18 @@ const mongoose = require("mongoose");
 const Reviews = require("../models/Reviews.model");
 const User = require("../models/User.model");
 const routeGuard = require("../configs/route-gard-isLog");
-const session=require('../configs/session.config');
+const session = require("../configs/session.config");
 const { populate } = require("../models/Reviews.model");
 
 ////////POST ajouter un jeux sur notre base de donnee depuis L'API/////
 gamesRoutes.post("/addgames", (req, res, next) => {
- user:req.session.currentUser
+  user: req.session.currentUser;
   if (!req.session.currentUser) {
     res.status(400).json({ message: "you need to login" });
     return;
   }
   User.findById(req.session.currentUser)
     .then((userFromDb) => {
-      
       if (!userFromDb.admin) {
         res
           .status(400)
@@ -28,9 +27,8 @@ gamesRoutes.post("/addgames", (req, res, next) => {
         let gameId = req.body.gameId;
         let titlesearch = req.body.titlesearch;
 
-        Games.findOne({ title:titlesearch })
+        Games.findOne({ title: titlesearch })
           .then((foundGames) => {
-            
             if (foundGames) {
               res.status(400).json({ message: "game exist in data base" });
               return;
@@ -126,7 +124,10 @@ gamesRoutes.get("/:id", (req, res, next) => {
     return;
   } else {
     Games.findById(req.params.id)
-      .populate({path:"reviews",populate:{path:'user',select:'username image _id'}})
+      .populate({
+        path: "reviews",
+        populate: { path: "user", select: "username image _id" },
+      })
       .then((gameDetail) => {
         res.status(200).json(gameDetail);
       })
@@ -204,6 +205,28 @@ gamesRoutes.delete("/:id", (req, res, next) => {
         .status(404)
         .json({ message: "j'aia pas pu recuperer les utilisateurs" })
     );
+});
+
+////////////////afficher des games depui api rapidfree to game///////
+gamesRoutes.get("/allGamesFromApi", (req, res, next) => {
+  
+  var options = {
+    method: "GET",
+    url: "https://free-to-play-games-database.p.rapidapi.com/api/games",
+    headers: {
+      "x-rapidapi-key": process.env.XAPIKEY,
+      "x-rapidapi-host": process.env.XAPIHOST,
+    },
+  };
+  axios
+    .request(options)
+    .then((response) => {
+      res.status(200).json(response);
+    })
+    .catch(function (error) {
+      console.error(error);
+      res.status(400).json("je narrive pas a trouver les jeux depui l api");
+    });
 });
 
 module.exports = gamesRoutes;

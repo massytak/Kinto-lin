@@ -13,7 +13,7 @@ function Games() {
     getTopGame()
       .then((result) => {
         
-        let dataArray = result.data;
+        let dataArray = result.data.data;
         let finalArray = dataArray.map((game) => {
           let newUrl = game.box_art_url
             .replace("{width}", "250")

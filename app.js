@@ -11,26 +11,11 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
 const cors = require("cors");
-<<<<<<< HEAD
-const session = require('express-session');
-const MongoStore=require("connect-mongo")(session)
-
-// Serve static files from client/build folder
-app.use(express.static('client-react/build'));
-
-// For any other routes: serve client/build/index.html SPA
-app.use((req, res, next) => {
-  res.sendFile(`${__dirname}/client-react/build/index.html`, err => {
-    if (err) next(err)
-  })
-});
-=======
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 
 // Set up the database
 require("./configs/db.config");
->>>>>>> 871570db4fd807fc72b127a85046dd202be05e38
 
 // bind user to view - locals
 const bindUserToViewLocals = require("./configs/user-local.config");

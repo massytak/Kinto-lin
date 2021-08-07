@@ -41,7 +41,8 @@ export { loggedin };
 function logout() {
   return service.post("/logout", {}).then((response) => response.data);
 }
-export { logout }; /////////////// edit profil/////////////////
+export { logout };
+ /////////////// edit profil/////////////////
 
 ////////////upload an image//////////////
 function handleUpload(theFile) {

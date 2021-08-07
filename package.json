@@ -6,6 +6,7 @@
     "start": "node ./bin/www",
     "dev": "DEBUG=serveurnode:* nodemon ./bin/www",
     "dev-windows": "nodemon ./bin/www"
+    "build": "cd client && npm install && npm run build"
   },
   "dependencies": {
     "axios": "^0.21.1",

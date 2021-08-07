@@ -41,8 +41,12 @@ export { loggedin };
 function logout() {
   return service.post("/logout", {}).then((response) => response.data);
 }
-export { logout }; /////////////// edit profil/////////////////
-
+export { logout };
+ /////////////// edit profil/////////////////
+function deleteProfile(id) {
+  return service.delete(`/delete/${id}`).then((response)=>response.data)
+}
+export {deleteProfile};
 ////////////upload an image//////////////
 function handleUpload(theFile) {
   // console.log('file in service: ', theFile)

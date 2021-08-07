@@ -15,8 +15,8 @@ class AddGame extends Component {
       method: "GET",
       url: "https://free-to-play-games-database.p.rapidapi.com/api/games",
       headers: {
-        "x-rapidapi-key": process.env.REACT_APP_XAPIKEY,
-        "x-rapidapi-host": process.env.REACT_APP_XAPIHOST,
+        "x-rapidapi-key": "499827b900msh876b2bc0c07a502p1c0d87jsn96b8e26f9571",
+        "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
       },
     };
 

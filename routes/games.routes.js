@@ -9,6 +9,16 @@ const User = require("../models/User.model");
 const routeGuard = require("../configs/route-gard-isLog");
 const session = require("../configs/session.config");
 const { populate } = require("../models/Reviews.model");
+let responsef
+var options = {
+  method: "GET",
+  url: "https://free-to-play-games-database.p.rapidapi.com/api/games",
+  headers: {
+    "x-rapidapi-key": "499827b900msh876b2bc0c07a502p1c0d87jsn96b8e26f9571",
+    "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
+  },
+};
+
 
 ////////POST ajouter un jeux sur notre base de donnee depuis L'API/////
 gamesRoutes.post("/addgames", (req, res, next) => {
@@ -210,23 +220,18 @@ gamesRoutes.delete("/:id", (req, res, next) => {
 ////////////////afficher des games depui api rapidfree to game///////
 gamesRoutes.get("/allGamesFromApi", (req, res, next) => {
   
-  var options = {
-    method: "GET",
-    url: "https://free-to-play-games-database.p.rapidapi.com/api/games",
-    headers: {
-      "x-rapidapi-key": process.env.XAPIKEY,
-      "x-rapidapi-host": process.env.XAPIHOST,
-    },
-  };
   axios
-    .request(options)
-    .then((response) => {
-      res.status(200).json(response);
-    })
-    .catch(function (error) {
-      console.error(error);
-      res.status(400).json("je narrive pas a trouver les jeux depui l api");
-    });
+  .request(options)
+  .then(function (response) {
+    console.log(response.data);
+    responsef=response.data
+    res.status(200).json(responsef)
+  })
+  .catch(function (error) {
+    console.error(error);
+  });
+
+  
 });
 
 module.exports = gamesRoutes;

@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const service = axios.create({
-  baseURL: `${process.env.MONGODB_URI/games}`,
+  baseURL: `${process.env.REACT_APP_APIURL}/games`,
   withCredentials: true, //a ne pas oublier pour les cockies qure vous etes connecter
 });
 export default service;

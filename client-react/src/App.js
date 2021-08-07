@@ -3,7 +3,7 @@
 import React, { Component } from "react";
 // import "./Styling/app.css";
 // import all components//////
-import "./Styling/twitch.css"
+import "./Styling/twitch.css";
 import Home from "./components/Home";
 import About from "./components/About";
 // import Navbar from "./components/Navbar";
@@ -24,8 +24,8 @@ import Live from "./components/stream/Live/Live";
 import GameStreams from "./components/stream/GameStreams/GameStreams";
 import Resultats from "./components/stream/Resultats/Resultats";
 import Erreur from "./components/stream/Erreur/Erreur";
-import ViewProfile from "./components/auth/ViewProfile"
-import Edit from "./components/auth/Edit"
+import ViewProfile from "./components/auth/ViewProfile";
+import Edit from "./components/auth/Edit";
 require("dotenv").config();
 class App extends Component {
   // auth service functionality
@@ -56,9 +56,7 @@ class App extends Component {
     });
   };
   render() {
-
     return (
-      
       <div className="App">
         {/* <Navbar
           userInSession={this.state.loggedInUser}
@@ -68,9 +66,8 @@ class App extends Component {
           userInSession={this.state.loggedInUser}
           updateUser={this.updateLoggedInUser}
         />
-        <Router forceRefresh={true}/>
+        <Router forceRefresh={true} />
         <Switch>
-       
           <Route
             exact
             path="/signup"
@@ -116,12 +113,20 @@ class App extends Component {
               <EditGame userInSession={this.state.loggedInUser} {...props} />
             )}
           />
-          <Route exact path="/viewprofil/:id" render={(props) => (
+          <Route
+            exact
+            path="/viewprofil/:id"
+            render={(props) => (
               <ViewProfile userInSession={this.state.loggedInUser} {...props} />
-            )}/>
-            <Route exact path="/editprofil/:id" render={(props) => (
+            )}
+          />
+          <Route
+            exact
+            path="/editprofil/:id"
+            render={(props) => (
               <Edit userInSession={this.state.loggedInUser} {...props} />
-            )}/>
+            )}
+          />
           {/* <Route exact path="/stream" component={ComponentTwitch}/> */}
           <Route exact path="/stream" component={Games} />
           <Route exact path="/stream/top-streams" component={TopStreams} />
@@ -131,7 +136,6 @@ class App extends Component {
           <Route exact path="/stream/resultats/" component={Erreur} />
         </Switch>
       </div>
-      
     );
   }
 }

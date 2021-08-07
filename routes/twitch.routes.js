@@ -13,12 +13,17 @@ const { populate } = require("../models/Reviews.model");
 const api = axios.create({
   headers: {
     "Client-ID": process.env.TWITCH_CLIENT_ID,
-    Authorization: process.env.TWITCH_AUTHORISATION,
+    "Authorization" : process.env.TWITCH_AUTHORISATION,
   },
 });
 
 twitchRoutes.get("/games", (req, res, next) => {
-  api
+  axios.create({
+    headers: {
+      "Client-ID": process.env.TWITCH_CLIENT_ID,
+      "Authorization": process.env.TWITCH_AUTHORISATION,
+    },
+  })
     .get("https://api.twitch.tv/helix/games/top")
     .then((response) => {
       res.status(200).json(response.data);
@@ -28,7 +33,12 @@ twitchRoutes.get("/games", (req, res, next) => {
 });
 
 twitchRoutes.get("/games/:slug", (req, res, next) => {
-  api
+  axios.create({
+    headers: {
+      "Client-ID": process.env.TWITCH_CLIENT_ID,
+      "Authorization": process.env.TWITCH_AUTHORISATION,
+    },
+  })
     .get(`https://api.twitch.tv/helix/streams?game_id=${req.params.slug}`)
     .then((response) => {
       res.status(200).json(response.data);
@@ -38,7 +48,12 @@ twitchRoutes.get("/games/:slug", (req, res, next) => {
 });
 
 twitchRoutes.get("/live/:slug", (req, res, next) => {
-  api
+  axios.create({
+    headers: {
+      "Client-ID": process.env.TWITCH_CLIENT_ID,
+      "Authorization": process.env.TWITCH_AUTHORISATION,
+    },
+  })
     .get(`https://api.twitch.tv/helix/streams?user_login=${req.params.slug}`)
     .then((response) => {
       res.status(200).json(response.data);
@@ -48,7 +63,12 @@ twitchRoutes.get("/live/:slug", (req, res, next) => {
 });
 
 twitchRoutes.get("/resultats/:cleanSearch", (req, res, next) => {
-  api
+  axios.create({
+    headers: {
+      "Client-ID": process.env.TWITCH_CLIENT_ID,
+      "Authorization": process.env.TWITCH_AUTHORISATION,
+    },
+  })
     .get(`https://api.twitch.tv/helix/users?login=${req.params.cleanSearch}`)
     .then((response) => {
       res.status(200).json(response.data);
@@ -58,7 +78,12 @@ twitchRoutes.get("/resultats/:cleanSearch", (req, res, next) => {
 });
 
 twitchRoutes.get("/sidebar", (req, res, next) => {
-  api
+  axios.create({
+    headers: {
+      "Client-ID": process.env.TWITCH_CLIENT_ID,
+      "Authorization": process.env.TWITCH_AUTHORISATION,
+    },
+  })
     .get(`https://api.twitch.tv/helix/streams`)
     .then((response) => {
       res.status(200).json(response.data);
@@ -68,7 +93,12 @@ twitchRoutes.get("/sidebar", (req, res, next) => {
 });
 
 twitchRoutes.get("/game/:id", (req, res, next) => {
-  api
+  axios.create({
+    headers: {
+      "Client-ID": process.env.TWITCH_CLIENT_ID,
+      "Authorization": process.env.TWITCH_AUTHORISATION,
+    },
+  })
     .get(`https://api.twitch.tv/helix/games?id=${req.params.id}`)
     .then((response) => {
       res.status(200).json(response.data);
@@ -77,7 +107,12 @@ twitchRoutes.get("/game/:id", (req, res, next) => {
     res.status(500).json(err)});
 });
 twitchRoutes.get("/streamer/:id", (req, res, next) => {
-  api
+  axios.create({
+    headers: {
+      "Client-ID": process.env.TWITCH_CLIENT_ID,
+      "Authorization": process.env.TWITCH_AUTHORISATION,
+    },
+  })
     .get(`https://api.twitch.tv/helix/users?id=${req.params.id}`)
     .then((response) => {
       res.status(200).json(response.data);

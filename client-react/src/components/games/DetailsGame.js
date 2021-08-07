@@ -143,7 +143,7 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    color: "red#fff",
+    color: "#fff",
     backgroundColor: "#212529",
     fontSize: "14px",
     lineHeight: "1.125",

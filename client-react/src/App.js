@@ -8,13 +8,6 @@ import Home from "./components/Home";
 import About from "./components/About";
 // import Navbar from "./components/Navbar";
 import { Switch, Route } from "react-router-dom";
-<<<<<<< HEAD
-
-/// ex utilisation apres deploy
-//  client/src/App.js
-// axios.get(`${process.env.REACT_APP_APIURL || ""}/profile`)
-
-=======
 import Signup from "./components/auth/Signup";
 import { loggedin } from "./components/auth/auth-service";
 import Login from "./components/auth/Login";
@@ -34,7 +27,6 @@ import Erreur from "./components/stream/Erreur/Erreur";
 import ViewProfile from "./components/auth/ViewProfile"
 import Edit from "./components/auth/Edit"
 require("dotenv").config();
->>>>>>> 871570db4fd807fc72b127a85046dd202be05e38
 class App extends Component {
   // auth service functionality
   state = { loggedInUser: null }; // 1.

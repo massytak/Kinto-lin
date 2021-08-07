@@ -123,7 +123,7 @@ class App extends Component {
               <Edit userInSession={this.state.loggedInUser} {...props} />
             )}/>
           {/* <Route exact path="/stream" component={ComponentTwitch}/> */}
-          <Route exact path="/stream/" component={Games} />
+          <Route exact path="/stream" component={Games} />
           <Route exact path="/stream/top-streams" component={TopStreams} />
           <Route exact path="/stream/live/:slug" component={Live} />
           <Route exact path="/stream/game/:slug" component={GameStreams} />

@@ -69,24 +69,24 @@ const Header = (props) => {
         {(menu || !smallScreen) && (
           <ul className="listeMenu">
             <li onClick={hideMenu} className="liensNav">
-              <Link className="lien" to="/home" onClick={update}>
+              <Link className="lien" to="/home" >
                 <h3>Kinto-Un</h3>
               </Link>
             </li>
             <li onClick={hideMenu} className="liensNav">
-              <Link className="lien" to="/games" onClick={update}>
+              <Link className="lien" to="/games" >
                 Games
               </Link>
             </li>
             <li onClick={hideMenu} className="liensNav">
-              <Link className="lien" to="/stream" onClick={update}>
+              <Link className="lien" to="/stream" >
                 Top Games
               </Link>
               {}
             </li>
 
             <li onClick={hideMenu} className="liensNav">
-              <Link className="lien" to="/stream/top-streams" onClick={update}>
+              <Link className="lien" to="/stream/top-streams" >
                 Top Streams
               </Link>
             </li>
@@ -107,7 +107,7 @@ const Header = (props) => {
                       pathname: `/stream/resultats/${searchInput}`,
                     }}
                   >
-                    <button onClick={update} type="submit">
+                    <button  type="submit">
                       <img
                         src={search}
                         alt="icone loupe"
@@ -126,7 +126,7 @@ const Header = (props) => {
                 </li>
                 {props.userInSession.admin && (
                   <li onClick={hideMenu} className="liensNav">
-                    <Link className="lien" to="/addgame" onClick={update}>
+                    <Link className="lien" to="/addgame" >
                       Add games
                     </Link>
                   </li>
@@ -191,7 +191,7 @@ const Header = (props) => {
                   </Link>
                 </li>
                 <li className="liensNav">
-                  <Link className="lien" to="/login" onClick={update}>
+                  <Link className="lien" to="/login" >
                     <button className="buttonLogout">
                       <img
                         src={loginLogo}

@@ -117,7 +117,7 @@ class App extends Component {
             exact
             path="/viewprofil/:id"
             render={(props) => (
-              <ViewProfile userInSession={this.state.loggedInUser} {...props} />
+              <ViewProfile userInSession={this.state.loggedInUser} updateUser={this.updateLoggedInUser} {...props} />
             )}
           />
           <Route

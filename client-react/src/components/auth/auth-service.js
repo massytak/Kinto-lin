@@ -43,7 +43,10 @@ function logout() {
 }
 export { logout };
  /////////////// edit profil/////////////////
-
+function deleteProfile(id) {
+  return service.delete(`/delete/${id}`).then((response)=>response.data)
+}
+export {deleteProfile};
 ////////////upload an image//////////////
 function handleUpload(theFile) {
   // console.log('file in service: ', theFile)

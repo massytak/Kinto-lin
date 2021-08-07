@@ -5,6 +5,10 @@ import About from "./components/About";
 import Navbar from "./components/Navbar";
 import { Switch, Route } from "react-router-dom";
 
+/// ex utilisation apres deploy
+//  client/src/App.js
+// axios.get(`${process.env.REACT_APP_APIURL || ""}/profile`)
+
 class App extends Component {
   render() {
     return (

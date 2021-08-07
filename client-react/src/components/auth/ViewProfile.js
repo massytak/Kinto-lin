@@ -25,22 +25,20 @@ class ViewProfile extends Component {
       });
     });
   }
-  // handleDeleteUser = () => {
-  //   logout()
-  //     .then(() => {
-  //       props.updateUser(false);
-  //       deleteProfile(this.state.id)
-  //         .then(() => {
-  //           window.location.reload();
-  //           this.props.history.replace(`/home`);
-  //         })
+  handleDeleteUser = () => {
+    deleteProfile(this.state.id)
+      .then(() => {
+        this.props.history.push(`/home`);
+        this.update()
+      })
 
-  //         .catch((err) => console.log(err));
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
+      .catch((err) => console.log(err));
+  };
+  update = () => {
+    setTimeout(() => {
+      window.location.reload();
+    }, 200);
+  };
 
   render(props) {
     return (
@@ -59,28 +57,20 @@ class ViewProfile extends Component {
               <Link to={{ pathname: `/editprofil/${this.state.id}` }}>
                 <button className="buttoninfo">edit my profile</button>
               </Link>
-              <Link to={{ pathname: `/delete/${this.state.id}` }}>
-                <button
-                  className="buttoninfo"
-                  onClick={(props)=>{logout()
-                    .then(() => {
-                      props.updateUser(false);
-                      deleteProfile(this.state.id)
-                        .then(() => {
-                          
-                          this.props.history.replace(`/home`);
-                          window.location.reload();
-                        })
 
-                        .catch((err) => console.log(err));
-                    })
-                    .catch((err) => {
-                      console.log(err);
-                    })}}
-                >
-                  Delete my profil
-                </button>
-              </Link>
+              <button
+                className="buttoninfo"
+                onClick={(e) => {
+                  logout().then(() => {
+                    // props.updateUser(false);
+                    
+                    this.handleDeleteUser();
+                    // this.update();
+                  });
+                }}
+              >
+                Delete my profil
+              </button>
             </div>
           </div>
         </div>

@@ -3,8 +3,8 @@ import search from "./Search.svg";
 import menuIco from "./MenuIco.svg";
 import croix from "./Croix.svg";
 import signupLogo from "../../../Styling/signup.svg";
-import loginLogo from "../../../Styling/logoLogin.png"
-import logoAcount from "../../../Styling/logo-account.png"
+import loginLogo from "../../../Styling/logoLogin.png";
+import logoAcount from "../../../Styling/logo-account.png";
 import logoutlog from "../../../Styling/logo-logout.png";
 import { Link } from "react-router-dom";
 import { logout } from "../../auth/auth-service";
@@ -81,7 +81,8 @@ const Header = (props) => {
             <li onClick={hideMenu} className="liensNav">
               <Link className="lien" to="/stream" onClick={update}>
                 Top Games
-              </Link>{}
+              </Link>
+              {}
             </li>
 
             <li onClick={hideMenu} className="liensNav">
@@ -106,7 +107,7 @@ const Header = (props) => {
                       pathname: `/stream/resultats/${searchInput}`,
                     }}
                   >
-                    <button type="submit">
+                    <button onClick={update} type="submit">
                       <img
                         src={search}
                         alt="icone loupe"
@@ -119,7 +120,7 @@ const Header = (props) => {
             )}
             {props.userInSession && (
               <>
-              {!pathname && (<li className="liensNav"></li>)}
+                {!pathname && <li className="liensNav"></li>}
                 <li onClick={hideMenu} className="liensNav">
                   {props.userInSession.username} is connected
                 </li>
@@ -130,7 +131,7 @@ const Header = (props) => {
                     </Link>
                   </li>
                 )}
-                 <li className="liensNav">
+                <li className="liensNav">
                   <Link
                     className="lien"
                     to={{
@@ -138,12 +139,7 @@ const Header = (props) => {
                     }}
                     onClick={update}
                   >
-                    <button
-                      className="buttonLogout"
-                      onClick={(e) => {
-                        
-                      }}
-                    >
+                    <button className="buttonLogout" onClick={(e) => {}}>
                       <img
                         src={logoAcount}
                         alt="icone account"
@@ -155,18 +151,22 @@ const Header = (props) => {
                 <li className="liensNav">
                   <Link
                     className="lien"
+                    
                     to={{
                       pathname: `/home`,
                     }}
-                   
                   >
                     <button
                       className="buttonLogout"
                       onClick={(e) => {
-                        logout().then(() => props.updateUser(false));
+                        logout().then(() => {
+                          props.updateUser(false);
+                          update()
+                        });
                       }}
                     >
                       <img
+                        on
                         src={logoutlog}
                         alt="icone logout"
                         className="logologout"
@@ -192,7 +192,7 @@ const Header = (props) => {
                 </li>
                 <li className="liensNav">
                   <Link className="lien" to="/login" onClick={update}>
-                  <button className="buttonLogout">
+                    <button className="buttonLogout">
                       <img
                         src={loginLogo}
                         alt="icone login"

@@ -10,7 +10,8 @@ class Signup extends Component {
     confirmPassword: "",
     email: "",
     err: null,
-    imageUrl:""
+    imageUrl:"",
+    errImage:null
   };
 
   // handleSubmit()
@@ -22,28 +23,34 @@ class Signup extends Component {
     const email = this.state.email;
     const image=this.state.imageUrl
 
-    signup(username, password, confirmPassword, email,image)
-      .then((response) => {
-        console.log("coucou");
-        this.setState({
-          username: "",
-          password: "",
-          confirmPassword: "",
-          email: "",
-          imageUrl:""
-        });
-        this.props.updateUser(response);
-        this.props.history.push("/home");
-      })
-      //     .catch((error) => console.log(error));
-      .catch((error) => {
-        this.setState({ err: error.response.data.message });
-        setTimeout(() => {
+    if (!image){
+     this.setState({errImage:"Your image is note upload Please Wait to change..."})
+    }else{
+      signup(username, password, confirmPassword, email,image)
+        .then((response) => {
+          console.log("coucou");
           this.setState({
-            err: null,
+            username: "",
+            password: "",
+            confirmPassword: "",
+            email: "",
+            imageUrl:""
           });
-        }, 3000);
-      });
+          this.props.updateUser(response);
+          this.props.history.push("/home");
+        })
+        //     .catch((error) => console.log(error));
+        .catch((error) => {
+          this.setState({ err: error.response.data.message });
+          setTimeout(() => {
+            this.setState({
+              err: null,
+            });
+          }, 3000);
+        });
+
+    }
+
   };
   //handlefiluploud()
   handleFileUpload = (e) => {
@@ -56,6 +63,7 @@ class Signup extends Component {
 
     handleUpload(uploadData)
       .then((response) => {
+        
         // console.log('response is: ', response);
         // after the console.log we can see that response carries 'secure_url' which we can use to update the state
         this.setState({ imageUrl: response.secure_url });
@@ -121,6 +129,7 @@ class Signup extends Component {
           Already have account?
           <Link to={"/login"}>Login</Link>
         </p>
+        {this.state.errImage && <p>{this.state.errImage}</p>}
       </div>
     );
   }

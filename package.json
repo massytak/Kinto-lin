@@ -6,7 +6,7 @@
     "start": "REACT_APP_APIURL=http://localhost:5000 react-scripts start",
     "dev": "DEBUG=serveurnode:* nodemon ./bin/www",
     "dev-windows": "nodemon ./bin/www",
-    "build": "cd client-react && npm install && npm run build"
+    "build": "cd client && npm install && npm run build"
   },
   "dependencies": {
     "axios": "^0.21.1",

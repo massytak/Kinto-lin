@@ -8,9 +8,9 @@ body {
   background: center url("./imgbackground/games-homepage.png");
   
   background-attachment: fixed;
- 
-  width: 100%;
-  height: 100%;
+  /* vw pour fixer le header en haut */
+  width: 100vw; 
+  height: 100vw;
   
 }
 

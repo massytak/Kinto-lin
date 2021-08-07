@@ -61,7 +61,7 @@ const Header = (props) => {
   const update = () => {
     setTimeout(() => {
       window.location.reload();
-    }, 2);
+    }, 200);
   };
   return (
     <div>

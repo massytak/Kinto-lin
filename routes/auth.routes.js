@@ -8,20 +8,34 @@ const router = express.Router();
 const User = require("../models/User.model");
 
 /////////// route gard + cloudinary/////////////////////
-const fileUploader = require("../configs/cloudinary.config"); 
-const routeGuard = require("../configs/route-gard-isLog")
-const session =require('../configs/session.config')
+
+const uploader = require("../configs/cloudinary.config");
+const routeGuard = require("../configs/route-gard-isLog");
+const session = require("../configs/session.config");
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
+router.post("/upload", uploader.single("image"), (req, res, next) => {
+  // console.log('file is: ', req.file)
+
+  if (!req.file) {
+    next(new Error("No file uploaded!"));
+    return;
+  }
+  // get secure_url from the file object and save it in the
+  // variable 'secure_url', but this can be any name, just make sure you remember to use the same in frontend
+
+  res.json({ secure_url: req.file.path });
+});
+
 //////////////////////////// Sign Up/////////////////////////////
 
-router.post("/signup", fileUploader.single("image"), (req, res, next) => {
+router.post("/signup", uploader.single("image"), (req, res, next) => {
   const username = req.body.username;
   const email = req.body.email;
   const password = req.body.password;
-  const image = req.path.file;
+  const image = req.body.image;
   const confirmPassword = req.body.confirmPassword;
   const regex = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/);
 
@@ -34,16 +48,14 @@ router.post("/signup", fileUploader.single("image"), (req, res, next) => {
   }
 
   if (!regex.test(password) === true) {
-    res
-      .status(400)
-      .json({
-        message:
-          "Password needs to have at least 6 chars and must contain at least one number, one lowercase and one uppercase letter.",
-      });
+    res.status(400).json({
+      message:
+        "Password needs to have at least 6 chars and must contain at least one number, one lowercase and one uppercase letter.",
+    });
 
     return;
   }
-  
+
   // when username is already taken
   console.log("confirmPassword", confirmPassword);
   console.log("password", password);
@@ -76,7 +88,7 @@ router.post("/signup", fileUploader.single("image"), (req, res, next) => {
           username: username,
           password: hashPass,
           email: email,
-          // image: image,
+          image: image,
         });
 
         aNewUser
@@ -104,7 +116,7 @@ router.post("/signup", fileUploader.single("image"), (req, res, next) => {
 router.post("/login", (req, res, next) => {
   const { username, password } = req.body; /// ce dont l'utilisateur a besoin pour se connecter
 
-  User.findOne({ username :username})
+  User.findOne({ username: username })
     .then((user) => {
       if (!user) {
         res
@@ -114,7 +126,7 @@ router.post("/login", (req, res, next) => {
 
       // compareSync
       if (bcrypt.compareSync(password, user.password) !== true) {
-        res.status(404).json({message:'mot de passe incorrect'})
+        res.status(404).json({ message: "mot de passe incorrect" });
         return;
       } else {
         req.session.currentUser = user;
@@ -130,7 +142,7 @@ router.post("/logout", (req, res, next) => {
   req.session.destroy();
   res.json({ message: "Your are now logged out." });
 });
-
+///////////////////////////////////////////////////
 router.get("/loggedin", (req, res, next) => {
   if (req.session.currentUser) {
     res.status(200).json(req.session.currentUser);
@@ -141,14 +153,27 @@ router.get("/loggedin", (req, res, next) => {
 
 /////////////////////////////// Edit user/////////////////////////////////
 
-router.put("/edit/:id", (req, res, next) => {
-  User.findByIdAndUpdate({ _id: req.params.id }, req.body).then((user) => {
-    User.findOne({ _id: req.params.id }).then((user) => {
-      res.send({ user });
-    });
-  });
-});
+router.put("/edit/:id", uploader.single("image"), (req, res, next) => {
+  user: req.session.currentUser;
 
+  if (!req.session.currentUser) {
+    res.status(400).json({ message: "you need to login" });
+    return;
+  } else {
+    User.findById(req.params.id)
+      .then((userDetail) => {
+        console.log(userDetail);
+        User.findByIdAndUpdate(req.params.id, req.body)
+          .then((user) => {
+            res.status(200).json("Your account is updated");
+          })
+          .catch((err) => console.log(err));
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  }
+});
 ////////////////////////////Delete user/////////////////////////////
 
 router.delete("/delete/:id", (req, res, next) => {
@@ -158,4 +183,15 @@ router.delete("/delete/:id", (req, res, next) => {
     .catch((err) => next(err));
 });
 
+///////////////lire les info du user concernée////////
+router.get("/user/:id",(req,res,next)=>{
+  
+  if (req.session.currentUser._id!== req.params.id) {
+    res.status(400).json('not authorise to edit this user');
+    return;
+  }
+User.findById(req.params.id)
+.then(userfromDb=>res.status(200).json(userfromDb))
+.catch(err=> res.status(500).json('I can not get this user'))
+})
 module.exports = router;

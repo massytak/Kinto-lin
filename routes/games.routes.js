@@ -7,7 +7,9 @@ const mongoose = require("mongoose");
 const Reviews = require("../models/Reviews.model");
 const User = require("../models/User.model");
 const routeGuard = require("../configs/route-gard-isLog");
-const session=require('../configs/session.config')
+const session=require('../configs/session.config');
+const { populate } = require("../models/Reviews.model");
+
 ////////POST ajouter un jeux sur notre base de donnee depuis L'API/////
 gamesRoutes.post("/addgames", (req, res, next) => {
  user:req.session.currentUser
@@ -100,6 +102,7 @@ gamesRoutes.post("/addgames", (req, res, next) => {
         .json({ message: "j'aia pas pu recuperer les utilisateurs" })
     );
 });
+
 /////////GET Read our DATA////////////
 gamesRoutes.get("/", (req, res, next) => {
   Games.find()
@@ -110,6 +113,7 @@ gamesRoutes.get("/", (req, res, next) => {
       res.json(err);
     });
 });
+
 ///////////GET detail of one game//////////
 gamesRoutes.get("/:id", (req, res, next) => {
   user: req.session.currentUser;
@@ -118,11 +122,11 @@ gamesRoutes.get("/:id", (req, res, next) => {
     return;
   }
   if (!req.session.currentUser) {
-    res.status(400).json({ message: "you need to login" });
+    res.status(400).json({ message: "you need to login massi" });
     return;
   } else {
     Games.findById(req.params.id)
-      .populate("reviews")
+      .populate({path:"reviews",populate:{path:'user',select:'username image _id'}})
       .then((gameDetail) => {
         res.status(200).json(gameDetail);
       })

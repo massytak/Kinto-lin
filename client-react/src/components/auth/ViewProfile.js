@@ -1,6 +1,8 @@
+/** @format */
+
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
+import "../../Styling/profilUser.css";
 import { userInfo } from "./auth-service";
 class ViewProfile extends Component {
   state = {
@@ -13,7 +15,6 @@ class ViewProfile extends Component {
 
   componentDidMount() {
     userInfo(this.state.id).then((userInfo) => {
-      
       this.setState({
         userInfostate: userInfo,
         username: userInfo.username,
@@ -26,18 +27,25 @@ class ViewProfile extends Component {
   render() {
     return (
       (!this.state.userInfostate && <h1>Loading ...</h1>) || (
-        <div  className ="profi">
-          <h3>Voir le profile</h3>
-          <img className="avatar" src={this.state.image} alt="photot de profile"/>
-          <p>Username : {this.state.username}</p>
-          <p>Email : {this.state.email}</p>
-
+        <div>
+          <h3 className="titre">Voir le profile</h3>
+          <div className="profil">
+          <img
+            className="avatar"
+            src={this.state.image}
+            alt="photot de profile"
+          />
+          <p className="para">Username : {this.state.username}</p>
+          <p className="para">Email : {this.state.email}</p>
+          <div className ="buttonlocation">
           <Link to={{ pathname: `/editprofil/${this.state.id}` }}>
-            <button>edit my profile</button>
+            <button className="buttoninfo">edit my profile</button>
           </Link>
           <Link>
-            <button onClick="{}">Delete my profil</button>
+            <button className="buttoninfo" onClick="{}">Delete my profil</button>
           </Link>
+          </div>
+          </div>
         </div>
       )
     );

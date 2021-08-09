@@ -16,7 +16,7 @@ const Navbar = (props) => {
         <ul>
           <li>{props.userInSession.username} is connected</li>
           <li>
-            <Link to="/home">Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
             <Link to="/games">Games</Link>

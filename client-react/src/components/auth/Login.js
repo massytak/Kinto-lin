@@ -16,6 +16,7 @@ class Login extends Component {
       .then((response) => {
         this.setState({ username: "", password: "" });
         this.props.updateUser(response);
+        this.props.history.push("/");
       })
       .catch((error) => {
         this.setState({ err: error.response.data.message });
@@ -39,7 +40,7 @@ class Login extends Component {
     return (
       <div >
         {this.props.userInSession ? (
-          <Redirect to="/home" />
+          <Redirect to="/" />
         ) : (
           <div style={divstyle}>
 

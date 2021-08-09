@@ -26,6 +26,7 @@ import Resultats from "./components/stream/Resultats/Resultats";
 import Erreur from "./components/stream/Erreur/Erreur";
 import ViewProfile from "./components/auth/ViewProfile";
 import Edit from "./components/auth/Edit";
+import Modal from "./components/games/Modal";
 require("dotenv").config();
 class App extends Component {
   // auth service functionality
@@ -78,10 +79,11 @@ class App extends Component {
           <Route
             exact
             path="/login"
-            render={() => (
+            render={(props) => (
               <Login
                 updateUser={this.updateLoggedInUser}
                 userInSession={this.state.loggedInUser}
+                {...props}
               />
             )}
           />
@@ -92,8 +94,25 @@ class App extends Component {
           />
           <Route
             exact
-            path="/home"
-            render={() => <Home userInSession={this.state.loggedInUser} />}
+            path="/modal"
+            render={(props) => (
+              <Modal
+                userInSession={this.state.loggedInUser}
+                updateUser={this.updateLoggedInUser}
+                {...props}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/"
+            render={(props) => (
+              <Home
+                userInSession={this.state.loggedInUser}
+                updateUser={this.updateLoggedInUser}
+                {...props}
+              />
+            )}
           />
 
           <Route exact path="/about" component={About} />
@@ -117,7 +136,11 @@ class App extends Component {
             exact
             path="/viewprofil/:id"
             render={(props) => (
-              <ViewProfile userInSession={this.state.loggedInUser} updateUser={this.updateLoggedInUser} {...props} />
+              <ViewProfile
+                userInSession={this.state.loggedInUser}
+                updateUser={this.updateLoggedInUser}
+                {...props}
+              />
             )}
           />
           <Route

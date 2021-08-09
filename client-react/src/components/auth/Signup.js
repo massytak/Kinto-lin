@@ -35,7 +35,7 @@ class Signup extends Component {
           imageUrl: "",
         });
         this.props.updateUser(response);
-        this.props.history.push("/home");
+        this.props.history.push("/");
       })
       //     .catch((error) => console.log(error));
       .catch((error) => {

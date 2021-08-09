@@ -19,7 +19,7 @@ Delete(this.state.id)
 
 .then((logout) => {
 
-    this.props.history.push(`/home`);
+    this.props.history.push(`/`);
 
 })
 

@@ -28,7 +28,7 @@ class ViewProfile extends Component {
   handleDeleteUser = () => {
     deleteProfile(this.state.id)
       .then(() => {
-        this.props.history.push(`/home`);
+        this.props.history.push(`/`);
         this.update()
       })
 

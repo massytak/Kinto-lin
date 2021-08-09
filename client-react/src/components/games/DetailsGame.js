@@ -6,12 +6,16 @@ import { Link } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import { deleteGame } from "./game-service";
 import "../../Styling/detailsGame.css";
+
+import { Redirect } from "react-router";
 class DetailsGame extends Component {
   state = {
+    userConnect: this.props.userInSession,
     game: false,
     id: this.props.match.params.id,
     admin: this.props.userInSession?.admin,
     err: null,
+    open: false,
   };
 
   componentDidMount() {
@@ -36,8 +40,12 @@ class DetailsGame extends Component {
         }, 3000);
       });
   };
+  toggle = () => {
+    this.setState({ open: !this.state.open });
+  };
   render(props) {
     return (
+      (!this.state.userConnect && <Redirect to="/modal" />) ||
       (!this.state.game && <h1>Loading...</h1>) || (
         <div className="single-game">
           <div style={styles.container}>

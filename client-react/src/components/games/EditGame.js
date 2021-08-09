@@ -162,7 +162,7 @@ class EditGame extends Component {
     )
       .then((response) => {
         // this.props.updateUser(response);
-        this.props.history.push("/games");
+        this.props.history.push("/listgames");
       })
       //     .catch((error) => console.log(error));
       .catch((error) => {

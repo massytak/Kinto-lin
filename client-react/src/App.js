@@ -116,7 +116,7 @@ class App extends Component {
           />
 
           <Route exact path="/about" component={About} />
-          <Route exact path="/games" component={ListGames} />
+          <Route exact path="/listgames" component={ListGames} />
           <Route
             exact
             path="/game/:id"

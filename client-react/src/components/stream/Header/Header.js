@@ -75,7 +75,7 @@ const Header = (props) => {
               </Link>
             </li>
             <li onClick={hideMenu} className="liensNav">
-              <Link className="lien" to="/games" onClick={update}>
+              <Link className="lien" to="/listgames" onClick={update}>
                 Games
               </Link>
             </li>

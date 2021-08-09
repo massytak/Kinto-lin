@@ -29,7 +29,7 @@ class DetailsGame extends Component {
     console.log("id du jeux", id);
     deleteGame(id)
       .then((response) => {
-        this.props.history.push("/games");
+        this.props.history.push("/listgames");
       })
       .catch((error) => {
         this.setState({ err: error.response.data.message });

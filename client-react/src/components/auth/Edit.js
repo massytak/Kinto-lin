@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import { handleUpload } from "./auth-service";
 import { editUser } from "./auth-service";
 import { userInfo } from "./auth-service";
+import  "../../Styling/editProfil.css";
 
 class Edit extends Component {
   state = {
@@ -67,14 +68,10 @@ class Edit extends Component {
       });
   };
   render(props) {
-    const divstyle = {
-      paddingTop: "5em",
-      color: "red",
-      backgroundColor: "yellow",
-    };
     return (
-      <div style={divstyle}>
-        <form onSubmit={this.handleFormSubmit}>
+      <div >
+        <h3 className="edith3">Edit your profil</h3>
+        <form className="editform"onSubmit={this.handleFormSubmit}>
           <label> New Username : </label>
           <input
             type="text"
@@ -94,7 +91,7 @@ class Edit extends Component {
           <label>New Avatar : </label>
           <input type="file" onChange={(e) => this.handleFileUpload(e)} />
 
-          <button>{this.state.buttonload}</button>
+          <button className="buttonedit">{this.state.buttonload}</button>
         </form>
         {this.state.errImage && <p>{this.state.errImage}</p>}
       </div>

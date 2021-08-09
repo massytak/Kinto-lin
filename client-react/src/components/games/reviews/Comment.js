@@ -22,8 +22,8 @@ class Comment extends Component {
           message: "",
           note: 0,
         });
-      // this.props.history.push(`/games`)
-      document.location.reload()
+      // this.props.history.push(`/games/${this.state.id}`)
+      window.location.reload()
       })
       .catch((error) => {
         this.setState({ err: error.response.data.message });

@@ -41,11 +41,22 @@ class DetailsGame extends Component {
       (!this.state.game && <h1>Loading...</h1>) || (
         <div className="single-game">
           <div style={styles.container}>
-            <ReactPlayer url={this.state.game.trailer} playing loop />
+            <ReactPlayer
+              style={styles.video}
+              url={this.state.game.trailer}
+              playing
+              loop
+            />
 
-            <img src={this.state.game.thumbnail} alt="game" />
-            <h3>{this.state.game.title}</h3>
-            <p>{this.state.game.description}</p>
+            <img
+              style={styles.affiche}
+              src={this.state.game.thumbnail}
+              alt="game"
+            />
+            <div style={styles.cadreOne}>
+              <h3 style={styles.h3}>{this.state.game.title}</h3>
+              <p style={styles.descriptif}>{this.state.game.description}</p>
+            </div>
             <Link
               to={{ pathname: `${this.state.game.game_url}` }}
               target="_blank"
@@ -69,39 +80,49 @@ class DetailsGame extends Component {
               </>
             )}
 
-            <h3>Information additionnelles</h3>
-            <div>
-              <p>Développeur:</p>
-              <p>{this.state.game.developer}</p>
-              <p>Éditeur</p>
-              <p>{this.state.game.publisher}</p>
-              <p>Plateforme:</p>
-              <p>{this.state.game.platform}</p>
-              <p>Date de sortie:</p>
-              <p>{this.state.game.release_date}</p>
-              <p>Catégorie:</p>
-              <p>{this.state.game.genre}</p>
-              <div>
+            <div className="tousCadres">
+              <div className="infoAddi" style={styles.cadreOne}>
+                <h3 style={styles.h3}>Information additionnelles</h3>
+                <div style={styles.descriptif}>
+                  <p>Développeur:</p>
+                  <p>{this.state.game.developer}</p>
+                  <p>Éditeur</p>
+                  <p>{this.state.game.publisher}</p>
+                  <p>Plateforme:</p>
+                  <p>{this.state.game.platform}</p>
+                  <p>Date de sortie:</p>
+                  <p>{this.state.game.release_date}</p>
+                  <p>Catégorie:</p>
+                  <p>{this.state.game.genre}</p>
+                </div>
+              </div>
+              <div className="imagesGames">
                 {this.state.game.screenshots.map((scrennShoot, i) => {
                   return (
                     <div key={scrennShoot.id}>
-                      <img src={scrennShoot.image} alt="screen" />
+                      <img
+                        style={stylesImages.image}
+                        src={scrennShoot.image}
+                        alt="screen"
+                      />
                     </div>
                   );
                 })}
               </div>
-              <h3>Configuration minimale requise</h3>
-              <div>
-                <p>OS:</p>
-                <p>{this.state.game.minimum_system_requirements.os}</p>
-                <p>Processeur:</p>
-                <p>{this.state.game.minimum_system_requirements.processor}</p>
-                <p>Stockage:</p>
-                <p>{this.state.game.minimum_system_requirements.storage}</p>
-                <p>Mémoire:</p>
-                <p>{this.state.game.minimum_system_requirements.memory}</p>
-                <p>Graphique:</p>
-                <p>{this.state.game.minimum_system_requirements.graphics}</p>
+              <div className="configMin" style={styles.cadreOne}>
+                <h3 style={styles.h3}>Configuration minimale requise</h3>
+                <div style={styles.descriptif}>
+                  <p>OS:</p>
+                  <p>{this.state.game.minimum_system_requirements.os}</p>
+                  <p>Processeur:</p>
+                  <p>{this.state.game.minimum_system_requirements.processor}</p>
+                  <p>Stockage:</p>
+                  <p>{this.state.game.minimum_system_requirements.storage}</p>
+                  <p>Mémoire:</p>
+                  <p>{this.state.game.minimum_system_requirements.memory}</p>
+                  <p>Graphique:</p>
+                  <p>{this.state.game.minimum_system_requirements.graphics}</p>
+                </div>
               </div>
             </div>
           </div>
@@ -113,8 +134,9 @@ class DetailsGame extends Component {
                   <img src={review.user.image} alt="avatar user" />
                   <p>{review.user.username}</p>
                   <ReactStars
-                    activeColor="#00FF00"
-                    size={100}
+                    color="#212529"
+                    activeColor="#2ecc71"
+                    size={50}
                     value={review.note}
                     edit={false}
                   />
@@ -135,19 +157,65 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
   },
+  video: {
+    marginTop: "100px",
+    border: "10px solid #2ecc71",
+    borderRadius: "5px",
+  },
+  affiche: {
+    marginTop: "100px",
+    height: "auto",
+    width: "500px",
+    border: "10px solid #2ecc71",
+    borderRadius: "5px",
+  },
+  h3: {
+    fontSize: "30px",
+    fontWeight: "bold",
+    color: "#2ecc71",
+  },
+  descriptif: {
+    marginTop: "30px",
+    fontSize: "20px",
+    fontWeight: "300",
+    color: "#2ecc71",
+  },
   button: {
+    margin: "10px",
     height: "50px",
     width: "200px",
+    textDecoration: "none",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    color: "#fff",
-    backgroundColor: "#212529",
-    fontSize: "14px",
-    lineHeight: "1.125",
+    border: "1px solid #2C3E50",
     borderRadius: "5px",
-    padding: "2px 5px",
+    padding: "10px",
+    backgroundColor: "#212529",
+    color: "#fff",
     cursor: "pointer",
+  },
+  cadreOne: {
+    marginTop: "100px",
+    padding: "20px",
+    height: "auto",
+    width: "800px",
+    border: "10px solid #2ecc71",
+    borderRadius: "5px",
+    backgroundColor: "#212529",
+  },
+};
+
+const stylesImages = {
+  image: {
+    height: "auto",
+    width: "500px",
+    display: "flex",
+    justifyContent: "spaceEvenly",
+    alignItems: "center",
+    flexDirection: "raw",
+    border: "10px solid #2ecc71",
+    borderRadius: "5px",
   },
 };
 

@@ -16,8 +16,8 @@ class RatingStars extends Component {
     return (
       <div>
         <ReactStars
-          color="#2C3E50"
-          activeColor="#00FF00"
+          color="#212529"
+          activeColor="#2ecc71"
           size={50}
           count={5}
           onChange={this.ratingChanged}

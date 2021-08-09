@@ -22,8 +22,8 @@ class Comment extends Component {
           message: "",
           note: 0,
         });
-      // this.props.history.push(`/games`)
-      document.location.reload()
+        // this.props.history.push(`/games`)
+        document.location.reload();
       })
       .catch((error) => {
         this.setState({ err: error.response.data.message });
@@ -45,15 +45,16 @@ class Comment extends Component {
       <div style={styles.container}>
         <RatingStars parentCallback={this.callbackFunction} {...this.props} />
         <form onSubmit={this.handleFormSubmit}>
-          <label>Vos commentaires : </label>
-          <input
+          <label style={styles.h3}>Vos commentaires : </label>
+          <textarea
+            style={styles.zoneCommentaire}
             type="text"
             name="message"
             value={this.state.message}
             onChange={(e) => this.handleChange(e)}
           />
 
-          <button>Soumettre</button>
+          <button style={styles.button}>Soumettre</button>
         </form>
         <p>{this.state.err}</p>
       </div>
@@ -67,23 +68,33 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
   },
-  textarea: {
+  zoneCommentaire: {
     border: "1px solid #2C3E50",
     borderRadius: 5,
-    width: 300,
+    minWidth: 300,
+    maxWidth: 300,
     margin: "20px 0",
     minHeight: 100,
+    maxHeight: 100,
     padding: 10,
-    backgroundColor: "#2C3E50",
-    color: "#00FF00",
+    backgroundColor: "#212529",
+    color: "#fff",
   },
   button: {
     border: "1px solid #2C3E50",
     borderRadius: 5,
-    width: 300,
+    width: 200,
     padding: 10,
-    backgroundColor: "#2C3E50",
-    color: "#00FF00",
+    backgroundColor: "#212529",
+    color: "#fff",
+    cursor: "pointer",
+  },
+  h3: {
+    marginTop: "100px",
+    fontSize: "30px",
+    fontWeight: "bold",
+    color: "#2ecc71",
+    textShadow: "-2px 0 black, 0 2px black, 2px 0 black, 0 -2px black",
   },
 };
 

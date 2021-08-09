@@ -5,7 +5,7 @@ import { createReview } from "./review-service";
 // import { deleteReview } from "./review-service";
 
 class Comment extends Component {
-  state = { message: "", note: "", err: null, id: this.props.match.params.id };
+  state = { message: "", note: 0, err: null, id: this.props.match.params.id };
 
   callbackFunction = (childData) => {
     this.setState({ note: childData });
@@ -22,8 +22,8 @@ class Comment extends Component {
           message: "",
           note: 0,
         });
-      // this.props.history.push(`/games/${this.state.id}`)
-      window.location.reload()
+        // this.props.history.push(`/games/${this.state.id}`)
+        window.location.reload(false)
       })
       .catch((error) => {
         this.setState({ err: error.response.data.message });

@@ -1,6 +1,6 @@
 /** @format */
 
-// components/Navbar.js
+components/Navbar.js
 
 import React from "react";
 import { Link } from "react-router-dom";
@@ -9,6 +9,7 @@ import { logout } from "./auth/auth-service";
 const Navbar = (props) => {
   const divstyle={
     backgroundColor:"green"
+
   }
   return (
     <nav style={divstyle} className="nav-style">

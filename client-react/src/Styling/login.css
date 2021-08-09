@@ -1,0 +1,137 @@
+.loginsub{
+    background-color:black;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    border: solid black 3px;
+    color: white;
+    width: 50vw;
+    height: 70vh;
+    margin-right:40%;
+    margin-left: 26%;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  monospace;
+  text-align: center;
+  margin-top:10vh;
+   }
+
+   .loginsub input{
+    background-color:#2ecc71;
+    width: 50%;
+    height: 4vh;
+    display:block;
+   margin-left:25%;
+   margin-top:5vh;
+
+   
+}
+
+.loginsub label{
+    display: block;
+    font-size:20px;
+    padding-right: 3%;;
+    text-align: center;
+    margin-top:10vh;
+  
+   
+}
+.buttonlogin {
+    margin-top:10vh;
+    background-color: #2ecc71;
+    color:white;
+    border: solid #2ecc71 5px;
+    height: 10vh;
+    width:20%;
+    padding-left:8px;
+    padding-right:8px;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+    font-size: 20px;
+}
+.loginP{
+    color:white;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+    font-size: 20px;
+    font-weight: bolder;
+    margin-top:2%;
+}
+.linklogin{
+    text-decoration: none;
+    color:#2ecc71;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+    font-size: 20px;
+    margin-left:2px;
+}
+
+
+
+@media screen and (max-width: 950px) {
+    
+   .loginsub{
+    background-color:black;
+    display: column;
+    justify-content: space-between;
+    align-items: center;
+    border: solid black 3px;
+    color: white;
+    width: 60vw;
+    height: 30vh;
+    margin-right:30%;
+    margin-left: 20%;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  monospace;
+  text-align: center;
+  margin-top:20vh;
+   }
+   .loginsub input{
+    background-color:#2ecc71;
+    width: 50%;
+    margin-top: 8%;
+    display: block;
+   margin-left:25%;
+
+   
+}
+
+.loginsub label{
+    display: block;
+    font-size:15px;
+    padding-right: 3%;
+    margin-top: 5%;
+  
+   
+}
+.buttonlogin{
+    margin-top:12%;
+    margin-bottom:15%;
+    background-color: #2ecc71;
+    color:white;
+    border: solid #2ecc71 2px;
+    height: 4vh;
+    width:25%;
+    padding-left:8px;
+    padding-right:8px;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+    font-size: 10px;
+}
+.loginP{
+    color:white;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+    font-size: 12px;
+    font-weight: bolder;
+    margin-top:2%;
+}
+.linklogin{
+    text-decoration: none;
+    color:#2ecc71;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+    font-size: 12px;
+    margin-left:2px;
+}
+
+  }

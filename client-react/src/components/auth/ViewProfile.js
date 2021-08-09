@@ -44,7 +44,7 @@ class ViewProfile extends Component {
     return (
       (!this.state.userInfostate && <h1>Loading ...</h1>) || (
         <div>
-          <h3 className="titre">Voir le profile</h3>
+          <h3 className="titre">My profil</h3>
           <div className="profil">
             <img
               className="avatar"

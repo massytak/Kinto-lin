@@ -100,7 +100,7 @@ class App extends Component {
           <Route exact path="/games" component={ListGames} />
           <Route
             exact
-            path="/games/:id"
+            path="/game/:id"
             render={(props) => (
               <DetailsGame userInSession={this.state.loggedInUser} {...props} />
             )}

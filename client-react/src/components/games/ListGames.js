@@ -21,7 +21,7 @@ class ListGames extends Component {
       (!this.state.games && <h1>Loading...</h1>) ||
       this.state.games.map((game, i) => {
         return (
-          <Link key={game._id} to={`/games/${game._id}`}>
+          <Link key={game._id} to={`/game/${game._id}`}>
             <div key={game._id} className="item-beer">
               <img src={game.thumbnail} alt="beer" />
               <div>

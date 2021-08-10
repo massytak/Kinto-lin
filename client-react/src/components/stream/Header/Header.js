@@ -8,6 +8,7 @@ import logoAcount from "../../../Styling/logo-account.png";
 import logoutlog from "../../../Styling/logo-logout.png";
 import { Link } from "react-router-dom";
 import { logout } from "../../auth/auth-service";
+import { BrowserRouter as Router } from "react-router-dom";
 const Header = (props) => {
   const [menu, showMenu] = useState(false);
   const [smallScreen, setSmallScreen] = useState(false);
@@ -92,30 +93,34 @@ const Header = (props) => {
             </li>
             {pathname && (
               <li className="liensNav">
-                <form className="formSubmit" onSubmit={handleSubmit}>
-                  <input
-                    required
-                    value={searchInput}
-                    onChange={(e) => handleKeyPress(e)}
-                    type="text"
-                    className="inputRecherche"
-                  />
-
-                  <Link
-                    className="lien"
-                    to={{
-                      pathname: `/stream/resultats/${searchInput}`,
-                    }}
-                  >
-                    <button type="submit">
-                      <img
-                        src={search}
-                        alt="icone loupe"
-                        className="logoLoupe"
+                <Router forceRefresh={true}>
+                  <div className="div">
+                    <form className="formSubmit" onSubmit={handleSubmit}>
+                      <input
+                        required
+                        value={searchInput}
+                        onChange={(e) => handleKeyPress(e)}
+                        type="text"
+                        className="inputRecherche"
                       />
-                    </button>
-                  </Link>
-                </form>
+
+                      <Link
+                        className="lien"
+                        to={{
+                          pathname: `/stream/resultats/${searchInput}`,
+                        }}
+                      >
+                        <button onClick={update} type="submit">
+                          <img
+                            src={search}
+                            alt="icone loupe"
+                            className="logoLoupe"
+                          />
+                        </button>
+                      </Link>
+                    </form>
+                  </div>
+                </Router>
               </li>
             )}
             {props.userInSession && (
@@ -126,7 +131,7 @@ const Header = (props) => {
                 </li>
                 {props.userInSession.admin && (
                   <li onClick={hideMenu} className="liensNav">
-                    <Link className="lien" to="/addgame" onClick={update}>
+                    <Link className="lien" to="/addgame">
                       Add games
                     </Link>
                   </li>
@@ -191,7 +196,7 @@ const Header = (props) => {
                 </li>
                 <li className="liensNav">
                   <Link className="lien" to="/login">
-                    <button className="buttonLogout" >
+                    <button className="buttonLogout">
                       <img
                         src={loginLogo}
                         alt="icone login"

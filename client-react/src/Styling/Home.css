@@ -1,4 +1,13 @@
-.bienvenue{
-    color:red;
 
+
+
+@media screen and (max-width: 950px){
+    .singe{
+        width:300px;
+        margin-left:10%;
+    }
+
+    .bienvenue{
+        color:red;
+    }
 }

@@ -39,10 +39,10 @@ class Home extends Component {
       <div style={divStyle}>
         <img src={singeKinto} alt="sigep" />
         {this.props.userInSession ? (
-          <p className="bienvenue">Bonjour {this.props.userInSession.username} </p>
+          <p className="bienvenue" style={styles.message}>Bonjour {this.props.userInSession.username} </p>
         ) : (
           <div>
-            <div>Bienvenue sur la home page</div>
+            <div style={styles.message}>Bienvenue sur la home page</div>
             <button onClick={this.activeLogin}>login</button>
             <button onClick={this.activeSginup}>Signup</button>
             {this.state.login && (
@@ -65,5 +65,17 @@ class Home extends Component {
     );
   }
 }
+
+
+const styles = {
+  message: {
+    margin: "25px 25px 50px 50px",
+    fontSize: "30px",
+    fontWeight: "bold",
+    color: "#2ecc71",
+    textShadow: "-2px 0 black, 0 2px black, 2px 0 black, 0 -2px black",
+    alignItems: "center"
+  }
+};
 
 export default Home;

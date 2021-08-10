@@ -44,7 +44,7 @@ class ViewProfile extends Component {
     return (
       (!this.state.userInfostate && <h1>Loading ...</h1>) || (
         <div>
-          <h3 className="titre">My profil</h3>
+          <h3 className="titre">My profile</h3>
           <div className="profil">
             <img
               className="avatar"
@@ -55,7 +55,7 @@ class ViewProfile extends Component {
             <p className="para">Email : {this.state.email}</p>
             <div className="buttonlocation">
               <Link to={{ pathname: `/editprofil/${this.state.id}` }}>
-                <button className="buttoninfo">edit my profile</button>
+                <button className="buttoninfo">Edit my profile</button>
               </Link>
 
               <button
@@ -69,7 +69,7 @@ class ViewProfile extends Component {
                   });
                 }}
               >
-                Delete my profil
+                Delete my profile
               </button>
             </div>
           </div>

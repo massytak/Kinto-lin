@@ -21,7 +21,7 @@
   display:column;
   justify-content: space-around;
   align-items: center;
- margin-top:10vh;
+ margin-top:5vh;
  border: solid black 3px;
   
  
@@ -29,20 +29,21 @@
 .avatar {
   padding-top: 15%;
   margin-bottom: 10%;
-  width: 40vh;
+  width: 25vh;
   height: auto;
   
 }
 .buttoninfo{
   margin-top:10%;
   margin-bottom:15%;
+  margin-left:3%;
   background-color: black;
   color:white;
   border: solid black 2px;
   font-size: 10px;
   height: 10vh;
   width:30vh;
-  padding-left:8px;
+  padding-left:6px;
   padding-right:8px;
   font-size:20px;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -58,7 +59,7 @@
     monospace;
 }
 .buttonlocation{
-  display:flex;
+  display:inline;
   align-items: center;
   justify-content: space-around;
   
@@ -77,13 +78,13 @@
   }
   .profil {
     background-color:#2ecc71;
-    width: 80%;
+    width: 60%;
     margin-right:30%;
-    margin-left: 10%;
+    margin-left: 20%;
     display: column;
     justify-content: space-around;
     align-items: center;
-   margin-top:20vh;
+   margin-top:8vh;
    border: solid black 3px;
    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
    monospace;
@@ -92,7 +93,7 @@
   .avatar {
     padding-top: 15%;
     margin-bottom: 10%;
-    width: 40%;
+    width: 30%;
     height: auto;
     
   }
@@ -124,7 +125,7 @@
     monospace;
   }
   .buttonlocation{
-    display:flex;
+    display:inline;
     align-items: center;
     justify-content: space-around;
 

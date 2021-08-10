@@ -38,17 +38,18 @@ class Home extends Component {
 
     };
     return (
-      <div style={divStyle}>
-        <img classeName="singe" src={singeKinto} alt="sigep" />
+      <div className="formhome">
+        <img className="singe" src={singeKinto} alt="sigep" />
         {this.props.userInSession ? (
           <p className="bienvenue">Bonjour {this.props.userInSession.username} </p>
         ) : (
           <div>
-            <div classeName="bienvenue">Bienvenue sur la home page</div>
-            <button onClick={this.activeLogin}>login</button>
+            <div className="bienvenue">Are you ready for the game?</div>
+            {/* <button onClick={this.activeLogin}>login</button>
             <button onClick={this.activeSginup}>Signup</button>
             {this.state.login && (
               <Login
+              className="logformhomepage"
                 updateUser={this.updateLoggedInUser}
                 userInSession={this.state.loggedInUser}
                 {...this.props}
@@ -60,7 +61,7 @@ class Home extends Component {
                 userInSession={this.state.loggedInUser}
                 {...this.props}
               />
-            )}
+            )} */}
           </div>
         )}
       </div>

@@ -9,6 +9,7 @@ body{
     color:#2ecc71;
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+    padding-top: 2em;
 }
 
 .signupform {
@@ -26,7 +27,7 @@ body{
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 monospace;
 text-align: center;
-margin-top:15vh;
+margin-top:8vh;
   
  
 }
@@ -113,7 +114,7 @@ margin-top:15vh;
       font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
     text-align: center;
-    margin-top:8vh;
+    margin-top:5vh;
       
      
     }
@@ -153,7 +154,7 @@ margin-top:15vh;
         font-size: 12px;
     }
     .file{
-        margin-left: 3%;
+        margin-left: 6%;
     }
     .signupP{
         color:white;
@@ -161,6 +162,7 @@ margin-top:15vh;
         monospace;
         font-size: 12px;
         font-weight: bolder;
+        padding-top: 1%;
         
     }
     .linksignup{

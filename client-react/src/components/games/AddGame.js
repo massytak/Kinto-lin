@@ -25,6 +25,7 @@ class AddGame extends Component {
       .then((response) => {
         this.setState({
           gamesFromApi: response.data,
+          
         });
       })
       .catch(function (error) {
@@ -40,9 +41,10 @@ class AddGame extends Component {
     const titlesearch = title;
     addGametoData(titlesearch)
       .then((response) => {
+        
         this.setState({
           addedgame: titlesearch,
-          correct: `${this.state.addedgame} a été ajouter dans la base de donnée`,
+          correct: `${titlesearch} a été ajouter dans la base de donnée`,
         });
         setTimeout(() => {
           this.setState({
@@ -103,7 +105,7 @@ class AddGame extends Component {
     const addedStyle = {
       margin: "0",
       textAlign: "center",
-      color: "green",
+      color: "black",
     };
     const notAddedStyle = {
       margin: "0",
@@ -132,10 +134,11 @@ class AddGame extends Component {
             value={this.state.name}
             onChange={(e) => this.handelFilter(e)}
           />
+          <p style={addedStyle}>{this.state.correct}</p>
+        <p style={notAddedStyle}>{this.state.err}</p>
         </div>
 
-        <p style={addedStyle}>{this.state.correct}</p>
-        <p style={notAddedStyle}>{this.state.err}</p>
+        
         <div style={divStyle}>
           {!this.state.gamesFromApi ? (
             <p>Loading...</p>

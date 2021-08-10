@@ -99,12 +99,12 @@
     width: 10vh;
     padding-left: 8px;
     padding-right: 8px;
-
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
       monospace;
     /* display:flex;
     justify-content: space-between;
     align-items: center; */
+   
   }
   .para {
     font-size: 15px;
@@ -116,9 +116,10 @@
       monospace;
   }
   .buttonlocation {
-    display: flex;
+    display: inline;
     align-items: center;
     justify-content: space-around;
+    text-align: center;
   }
 }
 

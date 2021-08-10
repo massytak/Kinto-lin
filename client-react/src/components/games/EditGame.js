@@ -7,7 +7,7 @@ const options = [
   { value: "MMORPG", label: "MMORPG" },
   { value: "Card games", label: "Card games" },
   { value: "MMO", label: "MMO" },
-  { value: "MMORPG", label: "MMORPG" },
+  { value: "Fighting", label: "Fighting" },
   { value: "MOBA ", label: "MOBA " },
   { value: "Racing ", label: "Racing " },
   { value: "Social", label: "Social" },

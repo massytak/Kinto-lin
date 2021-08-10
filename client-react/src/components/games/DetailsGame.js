@@ -7,7 +7,7 @@ import ReactStars from "react-rating-stars-component";
 import { deleteGame } from "./game-service";
 import "../../Styling/detailsGame.css";
 
-import { Redirect } from "react-router";
+
 class DetailsGame extends Component {
   state = {
     userConnect: this.props.userInSession,
@@ -23,7 +23,7 @@ class DetailsGame extends Component {
       .then((game) => {
         this.setState({ game: game });
       })
-      .catch((err) => console.log("err lors du chargement", err));
+      .catch((err) => {window.location.replace("/modal")})
   }
   deleteGameInOurDB = (id) => {
     console.log("id du jeux", id);
@@ -45,7 +45,7 @@ class DetailsGame extends Component {
   };
   render(props) {
     return (
-      (!this.state.userConnect && <Redirect to="/modal" />) ||
+      // (!this.props.userInSession?.username && <Redirect to="/modal" />) ||
       (!this.state.game && <h1>Loading...</h1>) || (
         <div className="single-game">
           <div style={styles.container}>

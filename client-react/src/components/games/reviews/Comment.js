@@ -22,7 +22,7 @@ class Comment extends Component {
           message: "",
           note: 0,
         });
-        // this.props.history.push(`/games/${this.state.id}`)
+        // this.props.history.push(`/listgames/${this.state.id}`)
         window.location.reload(false)
       })
       .catch((error) => {

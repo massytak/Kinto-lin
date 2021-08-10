@@ -83,6 +83,15 @@ class AddGame extends Component {
       width: "100%",
       margin: "0em",
     };
+    const pStyles = {
+      margin: "0",
+      textAlign: "center",
+      
+      position: "sticky",
+      top: "3em",
+      backgroundColor:"#2ecc71",
+      paddingBottom:"1.2em"
+    };
     const pStyle = {
       margin: "0",
       textAlign: "center",
@@ -101,6 +110,9 @@ class AddGame extends Component {
       textAlign: "center",
       color: "red",
     };
+    const divcompenenteStyle = {
+      paddingTop: "3em",
+    };
     for (let i = 1; i < sentence.length; i++) {
       newsentence += sentence.charAt(i).toLowerCase();
     }
@@ -111,9 +123,9 @@ class AddGame extends Component {
     }
 
     return (
-      <div>
-        <h2 style={pStyle}>Add game</h2>
-        <div style={pStyle}>
+      <div style={divcompenenteStyle}>
+        <div style={pStyles}>
+          <h2>Add game</h2>
           <input
             type="text"
             name=""

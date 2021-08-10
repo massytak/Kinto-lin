@@ -14,7 +14,7 @@ class Modal extends Component {
     };
     return (
       <div style={divstyle}>
-        <p>yous need to login</p>
+        <p style={styles.message}>You need to login</p>
         <Login
           updateUser={this.updateLoggedInUser}
           userInSession={this.state.loggedInUser}
@@ -24,5 +24,16 @@ class Modal extends Component {
     );
   }
 }
+
+const styles = {
+  message: {
+    margin: "25px 25px 50px 50px",
+    fontSize: "30px",
+    fontWeight: "bold",
+    color: "#2ecc71",
+    textShadow: "-2px 0 black, 0 2px black, 2px 0 black, 0 -2px black",
+    alignItems: "center",
+  },
+};
 
 export default Modal;

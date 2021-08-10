@@ -41,7 +41,7 @@ class Home extends Component {
       <div className="formhome">
         <img className="singe" src={singeKinto} alt="sigep" />
         {this.props.userInSession ? (
-          <p className="bienvenue">Bonjour {this.props.userInSession.username} </p>
+          <p className="bienvenue" style={styles.message}>Bonjour {this.props.userInSession.username} </p>
         ) : (
           <div>
             <div className="bienvenue">Are you ready for the game?</div>
@@ -68,5 +68,17 @@ class Home extends Component {
     );
   }
 }
+
+
+const styles = {
+  message: {
+    margin: "25px 25px 50px 50px",
+    fontSize: "30px",
+    fontWeight: "bold",
+    color: "#2ecc71",
+    textShadow: "-2px 0 black, 0 2px black, 2px 0 black, 0 -2px black",
+    alignItems: "center"
+  }
+};
 
 export default Home;

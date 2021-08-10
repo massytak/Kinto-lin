@@ -3,132 +3,122 @@
 * {
   margin: 0;
   padding: 0;
-
 }
-.titre{
- 
-  font-size:10vh;
-  padding-top:1em;
-  color:#2ecc71;
+.titre {
+  font-size: 10vh;
+  padding-top: 1em;
+  color: #2ecc71;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-  monospace;
+    monospace;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 .profil {
-  background-color:#2ecc71;
+  background-color: #2ecc71;
   width: 50%;
-  margin-right:40%;
+  margin-right: 40%;
   margin-left: 25%;
-  display:column;
+  display: column;
   justify-content: space-around;
   align-items: center;
- margin-top:5vh;
- border: solid black 3px;
-  
- 
+  margin-top: 10vh;
+  border: solid #212529 3px;
+  border-radius: 20px;
 }
 .avatar {
   padding-top: 15%;
   margin-bottom: 10%;
   width: 25vh;
   height: auto;
-  
 }
-.buttoninfo{
-  margin-top:10%;
-  margin-bottom:15%;
-  margin-left:3%;
-  background-color: black;
-  color:white;
-  border: solid black 2px;
+.buttoninfo {
+  margin-top: 10%;
+  margin-bottom: 15%;
+  background-color: #212529;
+  color: white;
+  border: solid #212529 2px;
+  border-radius: 10px;
   font-size: 10px;
   height: 10vh;
-  width:30vh;
-  padding-left:6px;
-  padding-right:8px;
-  font-size:20px;
+  width: 30vh;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: 20px;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-  monospace;
+    monospace;
 }
-.para{
+.para {
   font-size: 25px;
   font-weight: 500;
-  color:black;
+  color: black;
   text-transform: uppercase;
   margin-bottom: 10%;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.buttonlocation{
-  display:inline;
+.buttonlocation {
+  display: flex;
   align-items: center;
   justify-content: space-around;
-  
-
 }
 
 @media screen and (max-width: 950px) {
-  .titre{
-    font-size:5vh;
-  padding-top:3em;
-  color:#2ecc71;
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-    
-    
+  .titre {
+    font-size: 5vh;
+    padding-top: 3em;
+    color: #2ecc71;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+      monospace;
   }
   .profil {
-    background-color:#2ecc71;
-    width: 60%;
-    margin-right:30%;
-    margin-left: 20%;
+    background-color: #2ecc71;
+    width: 80%;
+    margin-right: 30%;
+    margin-left: 10%;
     display: column;
     justify-content: space-around;
     align-items: center;
-   margin-top:8vh;
-   border: solid black 3px;
-   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-   monospace;
-   
+    margin-top: 20vh;
+    border: solid black 3px;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+      monospace;
   }
   .avatar {
     padding-top: 15%;
     margin-bottom: 10%;
     width: 30%;
     height: auto;
-    
   }
-  .buttoninfo{
-    margin-top:10%;
-    margin-bottom:15%;
+  .buttoninfo {
+    margin-top: 10%;
+    margin-bottom: 15%;
     background-color: black;
-    color:white;
+    color: white;
     border: solid black 2px;
     font-size: 10px;
     height: 4vh;
-    width:10vh;
-    padding-left:8px;
-    padding-right:8px;
-    
+    width: 10vh;
+    padding-left: 8px;
+    padding-right: 8px;
+
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+      monospace;
     /* display:flex;
     justify-content: space-between;
     align-items: center; */
   }
-  .para{
+  .para {
     font-size: 15px;
     font-weight: 500;
-    color:black;
+    color: black;
     text-transform: uppercase;
     margin-bottom: 10%;
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+      monospace;
   }
-  .buttonlocation{
-    display:inline;
+  .buttonlocation {
+    display: flex;
     align-items: center;
     justify-content: space-around;
-
   }
 }
 

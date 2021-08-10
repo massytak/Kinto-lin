@@ -70,7 +70,7 @@ class Edit extends Component {
   render(props) {
     return (
       <div >
-        <h3 className="edith3">Edit your profil</h3>
+        <h3 className="edith3">Edit your profile</h3>
         <form className="editform"onSubmit={this.handleFormSubmit}>
           <label> New Username : </label>
           <input

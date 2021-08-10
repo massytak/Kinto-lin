@@ -41,62 +41,71 @@ class DetailsGame extends Component {
       (!this.state.game && <h1>Loading...</h1>) || (
         <div className="single-game">
           <div style={styles.container}>
+            <img
+              style={styles.affiche}
+              src={this.state.game.thumbnail}
+              alt="game"
+            />
             <ReactPlayer
               style={styles.video}
               url={this.state.game.trailer}
               playing
               loop
             />
-
-            <img
-              style={styles.affiche}
-              src={this.state.game.thumbnail}
-              alt="game"
-            />
             <div style={styles.cadreOne}>
               <h3 style={styles.h3}>{this.state.game.title}</h3>
               <p style={styles.descriptif}>{this.state.game.description}</p>
             </div>
-            <Link
-              to={{ pathname: `${this.state.game.game_url}` }}
-              target="_blank"
-            >
-              <button style={styles.button}>Jouer</button>
-            </Link>
-            <button style={styles.button}>Ajouter/Supprimer aux favoris</button>
-            {this.state.admin && (
-              <>
-                <button
-                  style={styles.button}
-                  onClick={() => {
-                    this.deleteGameInOurDB(this.state.id);
-                  }}
-                >
-                  Supprimer
-                </button>
-                <Link to={{ pathname: `/games/edit/${this.state.id}` }}>
-                  <button style={styles.button}>Modifier</button>
-                </Link>
-              </>
-            )}
+            <div className="packButtons" style={styles.packButtons}>
+              <Link
+                style={styles.lienButton}
+                to={{ pathname: `${this.state.game.game_url}` }}
+                target="_blank"
+              >
+                <button style={styles.button}>Jouer</button>
+              </Link>
+              {/* <button style={styles.button}>
+                Ajouter/Supprimer aux favoris
+              </button> */}
+              {this.state.admin && (
+                <>
+                  <button
+                    style={styles.button}
+                    onClick={() => {
+                      this.deleteGameInOurDB(this.state.id);
+                    }}
+                  >
+                    Supprimer
+                  </button>
+                  <Link
+                    style={styles.lienButton}
+                    to={{ pathname: `/games/edit/${this.state.id}` }}
+                  >
+                    <button style={styles.button}>Modifier</button>
+                  </Link>
+                </>
+              )}
+            </div>
 
             <div className="tousCadres">
               <div className="infoAddi" style={styles.cadreOne}>
                 <h3 style={styles.h3}>Information additionnelles</h3>
                 <div style={styles.descriptif}>
-                  <p>Développeur:</p>
-                  <p>{this.state.game.developer}</p>
-                  <p>Éditeur</p>
-                  <p>{this.state.game.publisher}</p>
-                  <p>Plateforme:</p>
-                  <p>{this.state.game.platform}</p>
-                  <p>Date de sortie:</p>
-                  <p>{this.state.game.release_date}</p>
-                  <p>Catégorie:</p>
-                  <p>{this.state.game.genre}</p>
+                  <div className="grille" style={grid.cadreTwo}>
+                    <p style={grid.one}>Développeur :</p>
+                    <p style={grid.two}>{this.state.game.developer}</p>
+                    <p style={grid.three}>Éditeur :</p>
+                    <p style={grid.four}>{this.state.game.publisher}</p>
+                    <p style={grid.five}>Plateforme :</p>
+                    <p style={grid.six}>{this.state.game.platform}</p>
+                    <p style={grid.seven}>Date de sortie :</p>
+                    <p style={grid.eight}>{this.state.game.release_date}</p>
+                    <p style={grid.nine}>Catégorie :</p>
+                    <p style={grid.ten}>{this.state.game.genre}</p>
+                  </div>
                 </div>
               </div>
-              <div className="imagesGames">
+              <div className="imagesGames" style={stylesImages.flexImage}>
                 {this.state.game.screenshots.map((scrennShoot, i) => {
                   return (
                     <div key={scrennShoot.id}>
@@ -112,16 +121,28 @@ class DetailsGame extends Component {
               <div className="configMin" style={styles.cadreOne}>
                 <h3 style={styles.h3}>Configuration minimale requise</h3>
                 <div style={styles.descriptif}>
-                  <p>OS:</p>
-                  <p>{this.state.game.minimum_system_requirements.os}</p>
-                  <p>Processeur:</p>
-                  <p>{this.state.game.minimum_system_requirements.processor}</p>
-                  <p>Stockage:</p>
-                  <p>{this.state.game.minimum_system_requirements.storage}</p>
-                  <p>Mémoire:</p>
-                  <p>{this.state.game.minimum_system_requirements.memory}</p>
-                  <p>Graphique:</p>
-                  <p>{this.state.game.minimum_system_requirements.graphics}</p>
+                  <div className="grille" style={grid.cadreTwo}>
+                    <p style={grid.one}>OS:</p>
+                    <p style={grid.two}>
+                      {this.state.game.minimum_system_requirements.os}
+                    </p>
+                    <p style={grid.three}>Processeur :</p>
+                    <p style={grid.four}>
+                      {this.state.game.minimum_system_requirements.processor}
+                    </p>
+                    <p style={grid.five}>Stockage :</p>
+                    <p style={grid.six}>
+                      {this.state.game.minimum_system_requirements.storage}
+                    </p>
+                    <p style={grid.seven}>Mémoire :</p>
+                    <p style={grid.eight}>
+                      {this.state.game.minimum_system_requirements.memory}
+                    </p>
+                    <p style={grid.nine}>Graphique :</p>
+                    <p style={grid.ten}>
+                      {this.state.game.minimum_system_requirements.graphics}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -130,17 +151,24 @@ class DetailsGame extends Component {
             <Comment {...this.props} />
             {this.state.game.reviews.map((review, i) => {
               return (
-                <div key={review._id}>
-                  <img src={review.user.image} alt="avatar user" />
-                  <p>{review.user.username}</p>
-                  <ReactStars
-                    color="#212529"
-                    activeColor="#2ecc71"
-                    size={50}
-                    value={review.note}
-                    edit={false}
-                  />
-                  <p>{review.message}</p>
+                <div key={review._id} style={design.comment}>
+                  <div className="underComment" style={design.underComment}>
+                    <img
+                      style={design.avatar}
+                      src={review.user.image}
+                      alt="avatar user"
+                    />
+                    <p style={design.username}>{review.user.username}</p>
+                    <ReactStars
+                      style={design.posiOne}
+                      color="#212529"
+                      activeColor="#2ecc71"
+                      size={50}
+                      value={review.note}
+                      edit={false}
+                    />
+                    <p style={design.message}>{review.message}</p>
+                  </div>
                 </div>
               );
             })}
@@ -180,42 +208,135 @@ const styles = {
     fontWeight: "300",
     color: "#2ecc71",
   },
+  packButtons: {
+    marginTop: "100px",
+    display: "flex",
+  },
   button: {
     margin: "10px",
     height: "50px",
     width: "200px",
     textDecoration: "none",
-    display: "flex",
-    justifyContent: "center",
+    justifyContent: "spaceEvenly",
     alignItems: "center",
-    border: "1px solid #2C3E50",
+    border: "5px solid #2ecc71",
     borderRadius: "5px",
     padding: "10px",
     backgroundColor: "#212529",
     color: "#fff",
     cursor: "pointer",
   },
+  lienButton: {
+    textDecoration: "none",
+  },
   cadreOne: {
     marginTop: "100px",
     padding: "20px",
     height: "auto",
-    width: "800px",
+    width: "1000px",
     border: "10px solid #2ecc71",
     borderRadius: "5px",
     backgroundColor: "#212529",
   },
 };
 
+const grid = {
+  cadreTwo: {
+    display: "grid",
+    gridTemplate: "repeat(5, 50px) / 1fr 1fr",
+  },
+  one: {
+    gridArea: "1 / 1 / 2 / 2",
+    textAlign: "center",
+  },
+  two: {
+    gridArea: "1 / 2 / 2 / 3",
+    textAlign: "center",
+  },
+  three: {
+    gridArea: "2 / 1 / 3 / 2",
+    textAlign: "center",
+  },
+  four: {
+    gridArea: "2 / 2 / 3 / 3",
+    textAlign: "center",
+  },
+  five: {
+    gridArea: "3 / 1 / 4 / 2",
+    textAlign: "center",
+  },
+  six: {
+    gridArea: "3 / 2 / 4 / 3",
+    textAlign: "center",
+  },
+  seven: {
+    gridArea: "4 / 1 / 5 / 2",
+    textAlign: "center",
+  },
+  eight: {
+    gridArea: "4 / 2 / 5 / 3",
+    textAlign: "center",
+  },
+  nine: {
+    gridArea: "5 / 1 / 6 / 2",
+    textAlign: "center",
+  },
+  ten: {
+    gridArea: "5 / 2 / 6 / 3",
+    textAlign: "center",
+  },
+};
+
 const stylesImages = {
+  flexImage: {
+    marginTop: "100px",
+  },
   image: {
     height: "auto",
     width: "500px",
-    display: "flex",
-    justifyContent: "spaceEvenly",
-    alignItems: "center",
-    flexDirection: "raw",
+    margin: "0px 30px 30px 0",
     border: "10px solid #2ecc71",
     borderRadius: "5px",
+  },
+};
+
+const design = {
+  comment: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  underComment: {
+    display: "grid",
+    gridTemplate: "repeat(2, 100px) / 1fr 1fr",
+    height: "200px",
+    width: "800px",
+    margin: "50px",
+    border: "10px solid #2ecc71",
+    borderRadius: "5px",
+    backgroundColor: "#212529",
+    color: "#fff",
+  },
+  avatar: {
+    height: "200px",
+    maxWidth: "150px",
+    gridArea: "1 / 1 / 2 / 2",
+  },
+  username: {
+    margin: "0px",
+    fontSize: "30px",
+    color: "#fff",
+    gridArea: "2 / 1 / 3 / 2",
+    textAlign: "center",
+    paddingLeft: "50px",
+    paddingTop: "50px",
+  },
+  posiOne: {
+    gridArea: "1 / 2 / 2 / 3",
+  },
+  message: {
+    gridArea: "2 / 2 / 3 / 3",
+    textAlign: "left",
   },
 };
 

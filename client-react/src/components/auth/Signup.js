@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { signup } from "./auth-service";
 import { Link } from "react-router-dom";
 import { handleUpload } from "./auth-service";
+import "../../Styling/signup.css";
 // import { saveNewThing } from "./auth-service"
 class Signup extends Component {
   state = {
@@ -80,15 +81,13 @@ class Signup extends Component {
     this.setState({ [name]: value });
   };
   render() {
-    const divstyle = {
-      backgroundColor: "red",
-      paddingTop: "4em",
-    };
     return (
       // form design
-      <div style={divstyle}>
+      <div>
         {/* HERE */}
-        <form onSubmit={this.handleFormSubmit}>
+        <h3 className="h3">Join the community</h3>
+        <form  className="signupform"onSubmit={this.handleFormSubmit}>
+          
           <label>Username:</label>
           <input
             type="text"
@@ -114,22 +113,22 @@ class Signup extends Component {
           />
 
           <label> Confirm Password:</label>
-          <input
+          <input 
             type="password"
             name="confirmPassword"
             value={this.state.confirmPassword}
             onChange={(e) => this.handleChange(e)}
           />
-          <label>Avatar</label>
+          <label>Avatar
           {/* <label> Upload your picture</label>
         <input type="file" value ={this.state.imahe} onChange={e=> this.handleChange(e)} /> */}
-          <input type="file" onChange={(e) => this.handleFileUpload(e)} />
-          <button>{this.state.buttonload}</button>
+          <input className="file"type="file" onChange={(e) => this.handleFileUpload(e)} /></label>
+          <button className="signupbutton">{this.state.buttonload}</button>
         </form>
         <p>{this.state.err}</p>
-        <p>
+        <p className="signupP">
           Already have account?
-          <Link to={"/login"}>Login</Link>
+          <Link className="linksignup"to={"/login"}>Login</Link>
         </p>
         {this.state.errImage && <p>{this.state.errImage}</p>}
       </div>

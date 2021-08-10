@@ -39,7 +39,7 @@ class Home extends Component {
       <div style={divStyle}>
         <img src={singeKinto} alt="sigep" />
         {this.props.userInSession ? (
-          <p>Bonjour {this.props.userInSession.username} </p>
+          <p className="bienvenue">Bonjour {this.props.userInSession.username} </p>
         ) : (
           <div>
             <div>Bienvenue sur la home page</div>

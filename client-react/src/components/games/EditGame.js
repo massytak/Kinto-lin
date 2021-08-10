@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { detailofGame } from "./game-service";
 import { editGame } from "./game-service";
 import Select from "react-select";
+import "../../Styling/editgame.css";
 
 const options = [
   { value: "MMORPG", label: "MMORPG" },
@@ -188,7 +189,7 @@ class EditGame extends Component {
     return (
       <div>
         <h2>Edit game</h2>
-        <form onSubmit={this.handleFormSubmit}>
+        <form className="editgameform"onSubmit={this.handleFormSubmit}>
           <div>
             <label>Title:</label>
             <input
@@ -232,7 +233,7 @@ class EditGame extends Component {
           </div>
 
           <div>
-            <h3>Information additionnelles</h3>
+            <h3 className="categoryName">Information additionnelles</h3>
             <label>developer:</label>
             <input
               type="text"
@@ -264,6 +265,7 @@ class EditGame extends Component {
             <br />
             <label>genre:</label>
             <Select
+            className="selection"
               placeholder={this.state.genre}
               name="genre"
               value={this.state.genre}
@@ -272,7 +274,7 @@ class EditGame extends Component {
             />
           </div>
           <div>
-            <h3>screenshots</h3>
+            <h3 className="categoryName">screenshots</h3>
 
             <label>screenshots1:</label>
             <input
@@ -313,7 +315,7 @@ class EditGame extends Component {
             )}
           </div>
           <div>
-            <h3>Configuration minimale requise</h3>
+            <h3 className="categoryName">Configuration minimale requise</h3>
             <label>os:</label>
             <input
               type="text"
@@ -351,7 +353,7 @@ class EditGame extends Component {
             />
           </div>
           <br />
-          <button>Edit</button>
+          <button className="buttoneditgame">Edit</button>
         </form>
       </div>
     );

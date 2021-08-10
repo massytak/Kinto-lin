@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import { login } from "./auth-service";
 import { Link, Redirect } from "react-router-dom";
+import  "../../Styling/login.css";
 
 class Login extends Component {
   state = { username: "", password: "", err: null };
@@ -44,7 +45,7 @@ class Login extends Component {
         ) : (
           <div style={divstyle}>
 
-          <form onSubmit={this.handleFormSubmit}>
+          <form className ="loginsub"onSubmit={this.handleFormSubmit}>
             <label>Username:</label>
             <input
               type="text"
@@ -61,12 +62,12 @@ class Login extends Component {
               onChange={(e) => this.handleChange(e)}
             />
 
-            <input type="submit" value="Login" />
+            <button className="buttonlogin"type="submit" value="Login">Log in</button>
           </form>
         <p>{this.state.err}</p>
-        <p>
+        <p className="loginP">
           Don't have account?
-          <Link to={"/signup"}>Register</Link>
+          <Link className="linklogin"to={"/signup"}>Register</Link>
         </p>
           </div>
         )}

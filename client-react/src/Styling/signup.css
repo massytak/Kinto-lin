@@ -1,0 +1,179 @@
+body{
+    margin: 0;
+    position:absolute;
+}
+
+.h3{
+    font-size:8vh;
+    padding-top:1em;
+    color:#2ecc71;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.signupform {
+
+  background-color:black;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  border: solid black 3px;
+  color: white;
+  width: 60vw;
+  height: 70vh;
+  margin-right:30%;
+  margin-left: 20%;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+monospace;
+text-align: center;
+margin-top:15vh;
+  
+ 
+}
+
+.signupform input{
+    background-color:#2ecc71;
+    width: 50%;
+    display:block;
+   margin-left:25%;
+   margin-top:1em;
+   
+}
+
+.signupform label{
+    display: block;
+    font-size:20px;
+    padding-right: 3%;;
+    text-align: center;
+    margin-top:1em;
+  
+   
+}
+.confirm{
+    font-size:12px;
+}
+.signupbutton{
+    margin-top:5%;
+    margin-bottom:15%;
+    background-color: #2ecc71;
+    color:white;
+    border: solid #2ecc71 2px;
+    font-size: 20px;
+    text-align: center;
+    height: 6vh;
+    width:20vh;
+    padding-left:8px;
+    padding-right:8px;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+    
+}
+.file{
+   margin-left: 3em;
+}
+.signupP{
+    color:white;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+    font-size: 20px;
+    font-weight: bolder;
+}
+.linksignup{
+    text-decoration: none;
+    color:#2ecc71;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+    font-size: 20px;
+    margin-left:2px;
+}
+
+@media screen and (max-width: 950px) {
+    
+    .h3{
+        font-size:3vh;
+        padding-top:4em;
+        font-weight:bolder;
+        color:#2ecc71;
+        font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+    }
+
+    .signupform {
+
+      background-color:black;
+      display: column;
+      justify-content: space-between;
+      align-items: center;
+      border: solid black 3px;
+      color: white;
+      width: 60vw;
+      height: 60vh;
+      margin-right:30%;
+      margin-left: 20%;
+      font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+    text-align: center;
+    margin-top:8vh;
+      
+     
+    }
+
+    .signupform input{
+        background-color:#2ecc71;
+        width: 50%;
+        margin-top: 8%;
+        display: block;
+
+       
+    }
+   
+    .signupform label{
+        display: block;
+        font-size:15px;
+        padding-right: 3%;;
+      
+       
+    }
+    .confirm{
+        font-size:12px;
+    }
+    .signupbutton{
+        margin-top:12%;
+        margin-bottom:15%;
+        background-color: #2ecc71;
+        color:white;
+        border: solid #2ecc71 2px;
+        font-size: 10px;
+        height: 4vh;
+        width:10vh;
+        padding-left:8px;
+        padding-right:8px;
+        font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
+        font-size: 12px;
+    }
+    .file{
+        margin-left: 3%;
+    }
+    .signupP{
+        color:white;
+        font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
+        font-size: 12px;
+        font-weight: bolder;
+        
+    }
+    .linksignup{
+        text-decoration: none;
+        color:#2ecc71;
+        font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
+        font-size: 12px;
+        margin-left:2px;
+    }
+   
+  }
+  
+  @media screen and (max-width: 900px) {
+  }
+  

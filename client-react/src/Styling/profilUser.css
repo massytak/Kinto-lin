@@ -117,8 +117,8 @@
   }
   .buttonlocation {
     display: inline;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-around;
     text-align: center;
   }
 }

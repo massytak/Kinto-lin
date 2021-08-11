@@ -5,8 +5,8 @@
   padding: 0;
 }
 .titre {
-  font-size: 10vh;
-  padding-top: 1em;
+  font-size: 30px;
+  padding-top: 4em;
   color: #2ecc71;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -14,53 +14,53 @@
 }
 .profil {
   background-color: #2ecc71;
-  width: 50%;
+  width: 80vh;
+  height:60vh;
   margin-right: 40%;
-  margin-left: 25%;
+  margin-left: 30%;
   display: column;
   justify-content: space-around;
   align-items: center;
-  margin-top: 10vh;
+  margin-top: 5vh;
   border: solid #212529 3px;
   border-radius: 20px;
 }
 .avatar {
-  padding-top: 15%;
-  margin-bottom: 10%;
-  width: 25vh;
+  padding-top: 6%;
+  margin-bottom: 5%;
+  width: 15vh;
   height: auto;
 }
 .buttoninfo {
-  margin-top: 10%;
+  margin-top: 5%;
   margin-bottom: 15%;
   background-color: #212529;
   color: white;
   border: solid #212529 2px;
   border-radius: 10px;
   font-size: 10px;
-  height: 10vh;
-  width: 30vh;
-  padding-left: 8px;
-  padding-right: 8px;
+  height: 5vh;
+  width: 20vh;
   font-size: 20px;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
   cursor: pointer;
+  margin-left: 5%;
+  
 }
 .para {
-  font-size: 25px;
-  font-weight: 500;
+  font-size: 18px;
   color: black;
   text-transform: uppercase;
-  margin-bottom: 10%;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+  margin-bottom: 2%;
 }
 .buttonlocation {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  cursor: pointer;
+  display: inline;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
 }
 
 @media screen and (max-width: 950px) {
@@ -73,27 +73,29 @@
   }
   .profil {
     background-color: #2ecc71;
-    width: 80%;
+    width: 70%;
+    height: 30%;
     margin-right: 30%;
-    margin-left: 10%;
+    margin-left: 15%;
     display: column;
     justify-content: space-around;
     align-items: center;
-    margin-top: 20vh;
+    margin-top: 3vh;
     border: solid black 3px;
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
       monospace;
+      margin-top:8vh;
   }
   .avatar {
-    padding-top: 15%;
+    padding-top: 8%;
     margin-bottom: 10%;
-    width: 30%;
+    width: 20%;
     height: auto;
   }
   .buttoninfo {
     margin-top: 10%;
     margin-bottom: 15%;
-    background-color: black;
+    background-color: #212529;
     color: white;
     border: solid black 2px;
     font-size: 10px;
@@ -103,12 +105,13 @@
     padding-right: 8px;
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
       monospace;
+      margin-left:5%;
     /* display:flex;
     justify-content: space-between;
     align-items: center; */
   }
   .para {
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 500;
     color: black;
     text-transform: uppercase;

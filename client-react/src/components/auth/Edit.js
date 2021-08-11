@@ -5,7 +5,7 @@ import React, { Component } from "react";
 import { handleUpload } from "./auth-service";
 import { editUser } from "./auth-service";
 import { userInfo } from "./auth-service";
-import  "../../Styling/editProfil.css";
+import "../../Styling/editProfil.css";
 
 class Edit extends Component {
   state = {
@@ -14,7 +14,7 @@ class Edit extends Component {
     email: "",
     imageUrl: "",
     errImage: null,
-    buttonload: "Update my profil",
+    buttonload: "Update my profile",
   };
 
   // handleSubmit()
@@ -58,7 +58,7 @@ class Edit extends Component {
         // console.log('response is: ', response);
         // after the console.log we can see that response carries 'secure_url' which we can use to update the state
         this.setState({
-          buttonload: "Update my profil",
+          buttonload: "Update my profile",
           imageUrl: response.secure_url,
           errImage: null,
         });
@@ -69,9 +69,9 @@ class Edit extends Component {
   };
   render(props) {
     return (
-      <div >
+      <div>
         <h3 className="edith3">Edit your profile</h3>
-        <form className="editform"onSubmit={this.handleFormSubmit}>
+        <form className="editform" onSubmit={this.handleFormSubmit}>
           <label> New Username : </label>
           <input
             type="text"
@@ -93,9 +93,21 @@ class Edit extends Component {
 
           <button className="buttonedit">{this.state.buttonload}</button>
         </form>
-        {this.state.errImage && <p>{this.state.errImage}</p>}
+        {this.state.errImage && <p style={styles.error}>{this.state.errImage}</p>}
       </div>
     );
   }
 }
+
+const styles = {
+  error: {
+    margin: "25px 25px 50px 50px",
+    fontSize: "30px",
+    fontWeight: "bold",
+    color: "#2ecc71",
+    textShadow: "-2px 0 black, 0 2px black, 2px 0 black, 0 -2px black",
+    alignItems: "center",
+  },
+};
+
 export default Edit;

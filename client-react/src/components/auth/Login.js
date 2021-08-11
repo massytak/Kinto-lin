@@ -3,7 +3,7 @@
 import React, { Component } from "react";
 import { login } from "./auth-service";
 import { Link, Redirect } from "react-router-dom";
-import  "../../Styling/login.css";
+import "../../Styling/login.css";
 
 class Login extends Component {
   state = { username: "", password: "", err: null };
@@ -35,45 +35,59 @@ class Login extends Component {
   };
 
   render() {
-    const divstyle={
-      paddingTop:"4em"
-    }
+    const divstyle = {
+      paddingTop: "4em",
+    };
     return (
-      <div >
+      <div>
         {this.props.userInSession ? (
           <Redirect to="/" />
         ) : (
           <div style={divstyle}>
+            <form className="loginsub" onSubmit={this.handleFormSubmit}>
+              <label>Username:</label>
+              <input
+                type="text"
+                name="username"
+                value={this.state.username}
+                onChange={(e) => this.handleChange(e)}
+              />
 
-          <form className ="loginsub"onSubmit={this.handleFormSubmit}>
-            <label>Username:</label>
-            <input
-              type="text"
-              name="username"
-              value={this.state.username}
-              onChange={(e) => this.handleChange(e)}
-            />
+              <label>Password:</label>
+              <input
+                type="password"
+                name="password"
+                value={this.state.password}
+                onChange={(e) => this.handleChange(e)}
+              />
 
-            <label>Password:</label>
-            <input
-              type="password"
-              name="password"
-              value={this.state.password}
-              onChange={(e) => this.handleChange(e)}
-            />
-
-            <button className="buttonlogin"type="submit" value="Login">Log in</button>
-          </form>
-        <p>{this.state.err}</p>
-        <p className="loginP">
-          Don't have account?
-          <Link className="linklogin"to={"/signup"}>Register</Link>
-        </p>
+              <button className="buttonlogin" type="submit" value="Login">
+                Log in
+              </button>
+            </form>
+            <p style={styles.error}>{this.state.err}</p>
+            <p className="loginP">
+              Don't have account?
+              <Link className="linklogin" to={"/signup"}>
+                Register
+              </Link>
+            </p>
           </div>
         )}
       </div>
     );
   }
 }
+
+const styles = {
+  error: {
+    margin: "25px 25px 50px 50px",
+    fontSize: "30px",
+    fontWeight: "bold",
+    color: "#2ecc71",
+    textShadow: "-2px 0 black, 0 2px black, 2px 0 black, 0 -2px black",
+    alignItems: "center",
+  },
+};
 
 export default Login;

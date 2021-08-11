@@ -28,7 +28,7 @@ class RatingStars extends Component {
 
 const styles = {
   rating: {
-    border: "5px solid #2ecc71",
+    border: "3px solid #2ecc71",
     borderRadius: "5px",
     backgroundColor: "#212529",
     padding: "5px 30px",

@@ -86,8 +86,7 @@ class Signup extends Component {
       <div>
         {/* HERE */}
         <h3 className="h3">Join the community</h3>
-        <form  className="signupform"onSubmit={this.handleFormSubmit}>
-          
+        <form className="signupform" onSubmit={this.handleFormSubmit}>
           <label>Username:</label>
           <input
             type="text"
@@ -113,26 +112,48 @@ class Signup extends Component {
           />
 
           <label> Confirm Password:</label>
-          <input 
+          <input
             type="password"
             name="confirmPassword"
             value={this.state.confirmPassword}
             onChange={(e) => this.handleChange(e)}
           />
-          <label>Avatar
-          {/* <label> Upload your picture</label>
+          <label>
+            Avatar
+            {/* <label> Upload your picture</label>
         <input type="file" value ={this.state.imahe} onChange={e=> this.handleChange(e)} /> */}
-          <input className="file"type="file" onChange={(e) => this.handleFileUpload(e)} /></label>
+            <input
+              className="file"
+              type="file"
+              onChange={(e) => this.handleFileUpload(e)}
+            />
+          </label>
           <button className="signupbutton">{this.state.buttonload}</button>
         </form>
-        <p>{this.state.err}</p>
+        <p style={styles.error}>{this.state.err}</p>
         <p className="signupP">
           Already have account?
-          <Link className="linksignup"to={"/login"}>Login</Link>
+          <Link className="linksignup" to={"/login"}>
+            Login
+          </Link>
         </p>
-        {this.state.errImage && <p>{this.state.errImage}</p>}
+        {this.state.errImage && (
+          <p style={styles.error}>{this.state.errImage}</p>
+        )}
       </div>
     );
   }
 }
+
+const styles = {
+  error: {
+    margin: "25px 25px 50px 50px",
+    fontSize: "30px",
+    fontWeight: "bold",
+    color: "#2ecc71",
+    textShadow: "-2px 0 black, 0 2px black, 2px 0 black, 0 -2px black",
+    alignItems: "center",
+  },
+};
+
 export default Signup;

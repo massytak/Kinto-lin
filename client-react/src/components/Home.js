@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import singeKinto from "../Styling/singe-kinto-un.png";
 import Login from "./auth/Login";
 import Signup from "./auth/Signup";
+import "../Styling/Home.css";
 class Home extends Component {
   state = {
     connectIn: this.props.userInSession,
@@ -34,19 +35,21 @@ class Home extends Component {
   render(props) {
     const divStyle = {
       paddingTop: "5em",
+
     };
     return (
-      <div style={divStyle}>
-        <img src={singeKinto} alt="sigep" />
+      <div className="formhome">
+        <img className="singe" src={singeKinto} alt="sigep" />
         {this.props.userInSession ? (
           <p className="bienvenue" style={styles.message}>Bonjour {this.props.userInSession.username} </p>
         ) : (
           <div>
-            <div style={styles.message}>Bienvenue sur la home page</div>
-            <button onClick={this.activeLogin}>login</button>
+            <div className="bienvenue">Are you ready for the game?</div>
+            {/* <button onClick={this.activeLogin}>login</button>
             <button onClick={this.activeSginup}>Signup</button>
             {this.state.login && (
               <Login
+              className="logformhomepage"
                 updateUser={this.updateLoggedInUser}
                 userInSession={this.state.loggedInUser}
                 {...this.props}
@@ -58,7 +61,7 @@ class Home extends Component {
                 userInSession={this.state.loggedInUser}
                 {...this.props}
               />
-            )}
+            )} */}
           </div>
         )}
       </div>

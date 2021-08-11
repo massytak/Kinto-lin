@@ -1,3 +1,5 @@
+/** @format */
+
 body {
   margin: 0;
   position: absolute;
@@ -9,16 +11,17 @@ body {
   color: #2ecc71;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+  padding-top: 2em;
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
 .signupform {
+  border-radius: 20px;
   background-color: #212529;
   display: block;
   justify-content: center;
   align-items: center;
-  border: solid #2ecc71 3px;
-  border-radius: 20px;
+  border: solid black 3px;
   color: white;
   width: 60vw;
   height: 70vh;
@@ -26,8 +29,7 @@ body {
   margin-left: 20%;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-  text-align: center;
-  margin-top: 15vh;
+    margin-top:8vh;
 }
 
 .signupform input {
@@ -95,7 +97,7 @@ body {
   }
 
   .signupform {
-    background-color: black;
+    background-color: #212529;
     display: column;
     justify-content: space-between;
     align-items: center;

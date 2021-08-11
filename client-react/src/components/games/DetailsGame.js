@@ -330,7 +330,7 @@ const design = {
     gridTemplate: "repeat(2, 100px) / 1fr 1fr",
     height: "200px",
     width: "80%",
-    margin: "50px",
+    margin: "1% 2% 10% 2%",
     border: "3px solid #2ecc71",
     borderRadius: "5px",
     backgroundColor: "#212529",
@@ -338,7 +338,7 @@ const design = {
   },
   avatar: {
     minHeight: "200px",
-    maxWidth: "150px",
+    maxWidth: "40%",
     gridArea: "1 / 1 / 2 / 2",
   },
   username: {
@@ -348,18 +348,18 @@ const design = {
     gridArea: "1 / 1 / 2 / 2",
     textAlign: "left",
     marginTop: "3vh",
-    marginLeft: "10vw",
+    marginLeft: "45%",
   },
   posiOne: {
     gridArea: "1 / 2 / 2 / 3",
     marginTop: "1vh",
-    marginLeft: "20vw",
+    marginLeft: "40%",
   },
   message: {
     gridArea: "2 / 1 / 2 / 3",
     textAlign: "left",
     marginTop: "3vh",
-    marginLeft: "10vw",
+    marginLeft: "22%",
   },
 };
 

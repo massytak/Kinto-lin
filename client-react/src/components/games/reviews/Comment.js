@@ -72,8 +72,8 @@ const styles = {
   zoneCommentaire: {
     border: "3px solid #2ecc71",
     borderRadius: 5,
-    minWidth: 500,
-    maxWidth: 500,
+    minWidth: 300,
+    maxWidth: 300,
     margin: "25px 25px 50px 25px",
     minHeight: 100,
     maxHeight: 100,

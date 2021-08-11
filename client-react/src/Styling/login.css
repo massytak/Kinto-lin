@@ -45,6 +45,7 @@
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
   font-size: 20px;
+  cursor: pointer;
 }
 .loginP {
   color: white;

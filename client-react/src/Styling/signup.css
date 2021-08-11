@@ -29,7 +29,7 @@ body {
   margin-left: 20%;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-    margin-top:8vh;
+  margin-top: 8vh;
 }
 
 .signupform input {
@@ -65,6 +65,7 @@ body {
   padding-right: 8px;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+  cursor: pointer;
 }
 .file {
   margin-left: 3em;

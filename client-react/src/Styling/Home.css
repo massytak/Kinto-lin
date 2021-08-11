@@ -1,54 +1,46 @@
-
-*{
-    margin:0;
-    padding:0;
+* {
+  margin: 0;
+  padding: 0;
 }
-.singe{
-   
-    width:100vh;
+.singe {
+  width: 100vh;
+  height: auto;
+  margin-left: 10%;
+  margin-top: 5em;
+}
+
+.bienvenue {
+  color: #2ecc71;
+  font-size: 3em;
+  padding-top: 0.5em;
+  font-weight: bolder;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+.logformhomepage {
+  width: 20vh;
+  margin-bottom: 40vh;
+}
+
+@media screen and (max-width: 950px) {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .singe {
+    width: 30vh;
     height: auto;
-    margin-left:10%;
-    margin-top: 5em;
-   
-}
+    margin-left: 10%;
+    margin-top: 13em;
+  }
 
-
-.bienvenue{
-    color:#2ecc71;
-    font-size:3em;
+  .bienvenue {
+    color: #2ecc71;
+    font-size: 22px;
     padding-top: 0.5em;
     font-weight: bolder;
-}
-.logformhomepage{
-    width:20vh;
-    margin-bottom:40vh;
-}
-
-@media screen and (max-width: 950px){
-
-    
-    *{
-        margin:0;
-        padding:0;
-    }
-    .singe{
-       
-        width:30vh;
-        height: auto;
-        margin-left:10%;
-        margin-top: 13em;
-       
-    }
-
-   
-    .bienvenue{
-        color:#2ecc71;
-        font-size:22px;
-        padding-top: 0.5em;
-        font-weight: bolder;
-    }
-    .logformhomepage{
-        width:20vh;
-        margin-bottom:40vh;
-    }
+  }
+  .logformhomepage {
+    width: 20vh;
+    margin-bottom: 40vh;
+  }
 }

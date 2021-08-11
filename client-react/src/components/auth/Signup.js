@@ -118,12 +118,11 @@ class Signup extends Component {
             value={this.state.confirmPassword}
             onChange={(e) => this.handleChange(e)}
           />
-          <label>
+          <label className="file">
             Avatar
             {/* <label> Upload your picture</label>
         <input type="file" value ={this.state.imahe} onChange={e=> this.handleChange(e)} /> */}
             <input
-              className="file"
               type="file"
               onChange={(e) => this.handleFileUpload(e)}
             />

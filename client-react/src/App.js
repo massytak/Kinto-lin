@@ -26,6 +26,7 @@ import Erreur from "./components/stream/Erreur/Erreur";
 import ViewProfile from "./components/auth/ViewProfile";
 import Edit from "./components/auth/Edit";
 import Modal from "./components/games/Modal";
+import Footer from "./components/Footer";
 require("dotenv").config();
 class App extends Component {
   // auth service functionality
@@ -66,6 +67,7 @@ class App extends Component {
           userInSession={this.state.loggedInUser}
           updateUser={this.updateLoggedInUser}
         />
+        
         <Switch>
           <Route
             exact
@@ -156,6 +158,7 @@ class App extends Component {
           <Route exact path="/stream/resultats/:slug" component={Resultats} />
           <Route exact path="/stream/resultats/" component={Erreur} />
         </Switch>
+        <Footer/>
       </div>
     );
   }

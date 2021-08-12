@@ -3,7 +3,7 @@ import RatingStars from "./RatingStars";
 import { createReview } from "./review-service";
 // import { updateReview } from "./review-service";
 // import { deleteReview } from "./review-service";
-
+import "../../../Styling/detailsGame.css"
 class Comment extends Component {
   state = { message: "", note: 0, err: null, id: this.props.match.params.id };
 
@@ -23,7 +23,7 @@ class Comment extends Component {
           note: 0,
         });
         // this.props.history.push(`/listgames/${this.state.id}`)
-        window.location.reload(false)
+        window.location.reload(false);
       })
       .catch((error) => {
         this.setState({ err: error.response.data.message });
@@ -43,17 +43,28 @@ class Comment extends Component {
   render() {
     return (
       <div style={styles.container}>
-        <RatingStars parentCallback={this.callbackFunction} {...this.props} />
         <form onSubmit={this.handleFormSubmit} style={styles.formulaire}>
           <div className="itemForm" style={styles.itemForm}>
             <label style={styles.h3}>Share your experience: </label>
-            <textarea
-              style={styles.zoneCommentaire}
-              type="text"
-              name="message"
-              value={this.state.message}
-              onChange={(e) => this.handleChange(e)}
-            />
+            <div style={styles.itemForme}>
+              <textarea
+                placeholder="Your exprience here..."
+                style={styles.zoneCommentaire}
+                type="text"
+                name="message"
+                value={this.state.message}
+                onChange={(e) => this.handleChange(e)}
+              />
+              <div>
+                <div className='rattingStart' >
+                  <RatingStars
+                    parentCallback={this.callbackFunction}
+                    {...this.props}
+                  />
+                </div>
+              </div>
+            </div>
+
             <button style={styles.button}>Submit</button>
           </div>
         </form>
@@ -67,14 +78,12 @@ const styles = {
   container: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
   },
   zoneCommentaire: {
     border: "3px solid #2ecc71",
     borderRadius: 5,
-    minWidth: 300,
-    maxWidth: 300,
-    margin: "25px 25px 50px 25px",
+    width: "80%",
+    marginTop: "25px",
     minHeight: 100,
     maxHeight: 100,
     padding: 10,
@@ -90,11 +99,11 @@ const styles = {
     backgroundColor: "#212529",
     color: "#2ecc71",
     cursor: "pointer",
-    margin: "25px 120px 50px 25px",
+    margin: "25px 0px 0px 0px",
     alignItems: "center",
   },
   h3: {
-    margin: "25px 25px 50px 50px",
+  
     fontSize: "30px",
     fontWeight: "bold",
     color: "#2ecc71",
@@ -105,9 +114,11 @@ const styles = {
     marginTop: "30px",
   },
   itemForm: {
-    display: "flex",
-    justifyContent: "spaceEvenly",
     alignItems: "center",
+    position: "relative",
+  },
+  itemForme: {
+    position: "",
   },
   error: {
     margin: "25px 25px 50px 50px",
@@ -115,8 +126,9 @@ const styles = {
     fontWeight: "bold",
     color: "#2ecc71",
     textShadow: "-2px 0 black, 0 2px black, 2px 0 black, 0 -2px black",
-    alignItems: "center"
-  }
+    alignItems: "center",
+  },
+  
 };
 
 export default Comment;

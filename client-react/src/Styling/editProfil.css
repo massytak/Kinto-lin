@@ -1,6 +1,6 @@
 .edith3 {
   font-size: 6vh;
-  padding-top: 3em;
+  padding-top: 1.2em;
   font-weight: bolder;
   color: #2ecc71;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -17,13 +17,13 @@
   border-radius: 20px;
   color: white;
   width: 60vw;
-  height: 100vh;
+  height: auto;
   margin-right: 30%;
   margin-left: 20%;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
   text-align: center;
-  margin-top: 20vh0;
+  margin-bottom: 5em;
 }
 .editform input {
   background-color: #2ecc71;
@@ -75,13 +75,13 @@
     border: solid #212529 3px;
     color: white;
     width: 60vw;
-    height: 45vh;
+    height: auto;
     margin-right: 30%;
     margin-left: 20%;
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
       monospace;
     text-align: center;
-    margin-top: 20vh;
+    
   }
   .editform input {
     background-color: #2ecc71;

@@ -3,8 +3,7 @@
 import React, { Component } from "react";
 
 import singeKinto from "../Styling/singe-kinto-un.png";
-import Login from "./auth/Login";
-import Signup from "./auth/Signup";
+
 import "../Styling/Home.css";
 class Home extends Component {
   state = {
@@ -33,10 +32,7 @@ class Home extends Component {
     });
   };
   render(props) {
-    const divStyle = {
-      paddingTop: "5em",
-
-    };
+    
     return (
       <div className="formhome">
         <img className="singe" src={singeKinto} alt="sigep" />

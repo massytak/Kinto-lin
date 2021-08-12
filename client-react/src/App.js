@@ -155,8 +155,8 @@ class App extends Component {
           <Route exact path="/stream/top-streams" component={TopStreams} />
           <Route exact path="/stream/live/:slug" component={Live} />
           <Route exact path="/stream/game/:slug" component={GameStreams} />
-          <Route exact path="/stream/resultats/:slug" component={Resultats} />
-          <Route exact path="/stream/resultats/" component={Erreur} />
+          <Route exact path="/stream/resultat/:slug" component={Resultats} />
+          <Route exact path="/stream/resultat/" component={Erreur} />
         </Switch>
         <Footer/>
       </div>

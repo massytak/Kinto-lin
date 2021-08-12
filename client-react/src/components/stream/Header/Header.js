@@ -107,7 +107,7 @@ const Header = (props) => {
                       <Link
                         className="lien"
                         to={{
-                          pathname: `/stream/resultats/${searchInput}`,
+                          pathname: `/stream/resultat/${searchInput}`,
                         }}
                       >
                         <button onClick={update} type="submit">

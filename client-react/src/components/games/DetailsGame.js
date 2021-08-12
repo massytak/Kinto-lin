@@ -65,7 +65,7 @@ class DetailsGame extends Component {
               />
               <div style={styles.cadreOne}>
                 <h3 style={styles.h3}>{this.state.game.title}</h3>
-                <p style={styles.descriptif}>{this.state.game.description}</p>
+                <p className="descriptif">{this.state.game.description}</p>
               </div>
               <div className="packButtons" style={styles.packButtons}>
                 <Link
@@ -100,7 +100,7 @@ class DetailsGame extends Component {
               <div className="tousCadres">
                 <div className="infoAddi" style={styles.cadreOne}>
                   <h3 style={styles.h3}>Information additionnelles</h3>
-                  <div style={styles.descriptif}>
+                  <div className="descriptif">
                     <div className="grille" style={grid.cadreTwo}>
                       <p style={grid.one}>Développeur :</p>
                       <p style={grid.two}>{this.state.game.developer}</p>
@@ -115,12 +115,12 @@ class DetailsGame extends Component {
                     </div>
                   </div>
                 </div>
-                <div className="packImage" style={styles.flexImage}>
+                <div style={styles.flexImage}>
                   {this.state.game.screenshots.map((scrennShoot, i) => {
                     return (
                       <div key={scrennShoot.id}>
                         <img
-                          style={styles.image}
+                          className="packImage"
                           src={scrennShoot.image}
                           alt="screen"
                         />
@@ -130,7 +130,7 @@ class DetailsGame extends Component {
                 </div>
                 <div className="configMin" style={styles.cadreOne}>
                   <h3 style={styles.h3}>Configuration minimale requise</h3>
-                  <div style={styles.descriptif}>
+                  <div className="descriptif">
                     <div className="grille" style={grid.cadreTwo}>
                       <p style={grid.one}>OS:</p>
                       <p style={grid.two}>
@@ -156,35 +156,33 @@ class DetailsGame extends Component {
                   </div>
                 </div>
               </div>
-              <div>
-                <Comment {...this.props} />
-                {this.state.game.reviews.map((review, i) => {
-                  return (
-                    <div key={review._id} style={design.comment}>
-                      <div className="underComment" style={design.underComment}>
-                        <img
-                          style={design.avatar}
-                          src={review.user.image}
-                          alt="avatar user"
+
+              <Comment {...this.props} />
+              {this.state.game.reviews.map((review, i) => {
+                return (
+                  <div key={review._id} style={design.comment}>
+                    <div className="underComment" style={design.underComment}>
+                      <img
+                        style={design.avatar}
+                        src={review.user.image}
+                        alt="avatar user"
+                      />
+                      <p className="pusername">{review.user.username}</p>
+                      <div style={design.posiOne}>
+                        <ReactStars
+                          color2="#212529"
+                          color1="#212529"
+                          activeColor="#2ecc71"
+                          size={25}
+                          value={review.note}
+                          edit={false}
                         />
-                        <p style={design.username}>{review.user.username}</p>
-                        <div  style={design.posiOne}>
-                          <ReactStars
-                            
-                            color2="#212529"
-                            color1="#212529"
-                            activeColor="#2ecc71"
-                            size={50}
-                            value={review.note}
-                            edit={false}
-                          />
-                        </div>
-                        <p style={design.message}>{review.message}</p>
                       </div>
+                      <p style={design.message}>{review.message}</p>
                     </div>
-                  );
-                })}
-              </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -202,46 +200,35 @@ const styles = {
   background: {
     backgroundColor: "#212529",
     height: "auto",
-    width: "min-content",
+    width: "80%",
     alignItems: "center",
+    minWidth: "80%",
+    marginBottom:'4em',
+    marginTop:'3em'
   },
   affiche: {
     marginTop: "100px",
     height: "auto",
-    width: "50%",
+    width: "70%",
     border: "3px solid #2ecc71",
     borderRadius: "10px",
   },
   flexImage: {
-    marginTop: "100px",
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "center",
   },
-  image: {
-    height: "auto",
-    width: "500px",
-    position: "relative",
-    margin: "20px",
-    border: "3px solid #2ecc71",
-    borderRadius: "10px",
-  },
+
   h3: {
     fontSize: "30px",
     fontWeight: "bold",
     color: "#2ecc71",
     marginTop: "25px",
   },
-  descriptif: {
-    marginTop: "25px",
-    fontSize: "20px",
-    fontWeight: "300",
-    color: "#2ecc71",
-    textAlign: "center",
-  },
+
   packButtons: {
-    marginTop: "100px",
-    display: "flex",
+    marginTop: "50px",
+
     flexDirection: "row",
     justifyContent: "center",
   },
@@ -330,7 +317,7 @@ const design = {
   underComment: {
     display: "grid",
     gridTemplate: "repeat(2, 100px) / 1fr 1fr",
-    height: "200px",
+    height: "auto",
     width: "80%",
     margin: "1% 2% 10% 2%",
     border: "3px solid #2ecc71",
@@ -342,17 +329,9 @@ const design = {
     minHeight: "200px",
     maxWidth: "40%",
     gridArea: "1 / 1 / 2 / 2",
-    height:"inherit"
+    height: "200px",
   },
-  username: {
-    margin: "0px",
-    fontSize: "30px",
-    color: "#2ecc71",
-    gridArea: "1 / 1 / 2 / 2",
-    textAlign: "left",
-    marginTop: "3vh",
-    marginLeft: "45%",
-  },
+  
   posiOne: {
     gridArea: "1 / 2 / 2 / 3",
     marginTop: "1vh",
@@ -361,8 +340,9 @@ const design = {
   message: {
     gridArea: "2 / 1 / 2 / 3",
     textAlign: "left",
-    marginTop: "3vh",
+    marginTop: "-2vh",
     marginLeft: "22%",
+    overflow:"auto"
   },
 };
 

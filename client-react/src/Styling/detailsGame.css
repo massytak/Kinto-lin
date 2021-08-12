@@ -1,0 +1,63 @@
+.packImage {
+  height: auto;
+  width: 500px;
+  position: relative;
+  margin: 20px;
+  border: 3px solid 2ecc71;
+  border-radius: 10px;
+}
+.rattingStart {
+  position: absolute;
+  right: 8%;
+  top: 21%;
+  margin: 0px;
+}
+.descriptif {
+  margin-top: 25px;
+  font-size: 20px;
+  font-weight: 300;
+  color: #2ecc71;
+  text-align: center;
+}
+.pusername {
+  margin: 0px;
+  font-size: 30px;
+  color: #2ecc71;
+  grid-area: 1 / 1 / 2 / 2;
+  text-align: left;
+  margin-top: 3vh;
+  margin-left: 45%;
+}
+@media screen and (max-width: 790px) {
+  .packImage {
+    height: auto;
+    width: 174px;
+    position: relative;
+    margin: 20px;
+    border: 3px solid rgb(46, 204, 113);
+    border-radius: 10px;
+  }
+  .rattingStart {
+    position: absolute;
+    right: 4%;
+    top: 57%;
+    margin: 0px;
+  }
+  .descriptif {
+    margin-top: 25px;
+    font-size: 13px;
+    font-weight: 300;
+    color: #2ecc71;
+    text-align: center;
+  }
+  .pusername {
+    margin: 0px;
+    font-size: 20px;
+    color: #2ecc71;
+    grid-area: 1 / 1 / 2 / 2;
+    text-align: left;
+    margin-top: 3vh;
+    margin-left: 45%;
+    overflow: scroll;
+  }
+}

@@ -76,13 +76,7 @@ class AddGame extends Component {
       flexWrap: "wrap",
       justifyContent: "center",
     };
-    const sectionStyle = {
-      textAlign: "center",
-      margin: "1em 1.2em",
-
-      border: "2px solid red",
-      borderRadius: "5px",
-    };
+    
    
     const pStyles = {
       margin: "0",
@@ -99,10 +93,7 @@ class AddGame extends Component {
       margin: "0",
       textAlign: "center",
     };
-    const imgStyle = {
-      aspectRatio: "auto",
-      width: "100%",
-    };
+    
     const addedStyle = {
       margin: "0",
       textAlign: "center",

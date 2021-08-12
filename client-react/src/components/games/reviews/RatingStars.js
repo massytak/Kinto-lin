@@ -17,7 +17,7 @@ class RatingStars extends Component {
         <ReactStars
           color="grey"
           activeColor="#2ecc71"
-          size={50}
+          size={30}
           count={5}
           onChange={this.ratingChanged}
         />
@@ -28,11 +28,11 @@ class RatingStars extends Component {
 
 const styles = {
   rating: {
-    border: "3px solid #2ecc71",
+   
     borderRadius: "5px",
-    backgroundColor: "#212529",
+    
     padding: "5px 30px",
-    margin: "100px 50px 25px 50px",
+   
   },
 };
 

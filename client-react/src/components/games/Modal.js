@@ -27,7 +27,7 @@ class Modal extends Component {
 
 const styles = {
   message: {
-    margin: "25px 25px 50px 50px",
+    margin: "25px 25px 0px 50px",
     fontSize: "30px",
     fontWeight: "bold",
     color: "#2ecc71",

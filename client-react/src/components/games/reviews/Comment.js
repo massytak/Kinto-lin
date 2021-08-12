@@ -46,7 +46,7 @@ class Comment extends Component {
         <RatingStars parentCallback={this.callbackFunction} {...this.props} />
         <form onSubmit={this.handleFormSubmit} style={styles.formulaire}>
           <div className="itemForm" style={styles.itemForm}>
-            <label style={styles.h3}>Vos commentaires : </label>
+            <label style={styles.h3}>Share your experience: </label>
             <textarea
               style={styles.zoneCommentaire}
               type="text"
@@ -54,7 +54,7 @@ class Comment extends Component {
               value={this.state.message}
               onChange={(e) => this.handleChange(e)}
             />
-            <button style={styles.button}>Soumettre</button>
+            <button style={styles.button}>Submit</button>
           </div>
         </form>
         <p style={styles.error}>{this.state.err}</p>

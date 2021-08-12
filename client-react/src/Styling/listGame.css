@@ -5,6 +5,7 @@
   position: fixed;
   width:-moz-available; 
   width:-webkit-fill-available;
+  width: 98%;
   z-index: 100;
 }
 .genrePlatform{
@@ -71,7 +72,7 @@ Header
 }
 
 .inputRecherchegame {
-  width:20%;
+  width:38%;
   background-color: #fff;
   border: 2px solid #fff;
   
@@ -171,7 +172,7 @@ Games
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
-.flexAccueil {
+.flexAccueill {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -180,7 +181,7 @@ Games
   padding-bottom: 4em; 
 }
 
-.carteGames {
+.carteGamess {
   height: 311px;
   width: 280px;
   margin: 0 30px 30px 0;
@@ -191,17 +192,17 @@ Games
   background-color: #2ecc71;
 }
 
-.carteGames:hover {
+.carteGamess:hover {
   transform: translateY(-5px);
 }
 
-.imgCarte {
+.imgCartegame {
   width: 100%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
-.cardBodyGames {
+.cardBodyGamess {
   height: 144px;
   display: flex;
   align-items: center;
@@ -229,7 +230,7 @@ Games
   color: #fff;
 }
 
-.titreCartesGames {
+.titreCartesGamess {
   white-space: nowrap;
   text-overflow: ellipsis;
   width: 80%;
@@ -254,7 +255,7 @@ Games
 }
 
 @media screen and (max-width: 559px) {
-  .carteGames {
+  .carteGamess {
     margin: 0 0 30px 0;
   }
   .flexAccueil {
@@ -415,6 +416,9 @@ Live
 GameStreams
 ///////////////////////////////// 
  */
+ .h2oups{
+   color: aliceblue;
+ }
 
 .titreGamesStreams {
   padding-top: 100px;

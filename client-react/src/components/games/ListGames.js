@@ -82,7 +82,7 @@ class ListGames extends Component {
         borderBottom: "1px dotted pink",
         color: state.selectProps.menuColor,
         padding: 20,
-        color:"black"
+        
       }),
 
       control: (_, { selectProps: { width } }) => ({
@@ -193,13 +193,13 @@ class ListGames extends Component {
               />
             </div>
           </div>
-          <div className="flexAccueil">
+          <div className="flexAccueill">
             {!games.length ? (
-              <p>Oups there are note game with this name</p>
+              <h2 className='h2oups'>Oups there are not game with this name</h2>
             ) : (
               games.map((game, i) => {
                 return (
-                  <div className="carteGames">
+                  <div className="carteGamess">
                     <Link
                       className="lien"
                       key={game._id}
@@ -209,10 +209,10 @@ class ListGames extends Component {
                         <img
                           src={game.thumbnail}
                           alt="beer"
-                          className="imgCarte"
+                          className="imgCartegame"
                         />
-                        <div className="cardBodyGames">
-                          <h2 className="titreCartesGames">{game.title}</h2>
+                        <div className="cardBodyGamess">
+                          <h2 className="titreCartesGamess">{game.title}</h2>
                           <p>{game.short_description}</p>
                           <div className="genrePlatform">
                             <p>{game.genre}</p>

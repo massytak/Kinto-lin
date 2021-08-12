@@ -15,7 +15,7 @@ class RatingStars extends Component {
     return (
       <div style={styles.rating}>
         <ReactStars
-          color="#fff"
+          color="grey"
           activeColor="#2ecc71"
           size={50}
           count={5}

@@ -168,9 +168,11 @@ class DetailsGame extends Component {
                           alt="avatar user"
                         />
                         <p style={design.username}>{review.user.username}</p>
-                        <div className="ratingStars" style={design.posiOne}>
+                        <div  style={design.posiOne}>
                           <ReactStars
-                            color="#212529"
+                            
+                            color2="#212529"
+                            color1="#212529"
                             activeColor="#2ecc71"
                             size={50}
                             value={review.note}
@@ -200,7 +202,7 @@ const styles = {
   background: {
     backgroundColor: "#212529",
     height: "auto",
-    width: "80%",
+    width: "min-content",
     alignItems: "center",
   },
   affiche: {
@@ -235,7 +237,7 @@ const styles = {
     fontSize: "20px",
     fontWeight: "300",
     color: "#2ecc71",
-    textAlign: "left",
+    textAlign: "center",
   },
   packButtons: {
     marginTop: "100px",
@@ -340,6 +342,7 @@ const design = {
     minHeight: "200px",
     maxWidth: "40%",
     gridArea: "1 / 1 / 2 / 2",
+    height:"inherit"
   },
   username: {
     margin: "0px",

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { addGametoData } from "./game-service";
+import '../../Styling/addGame.css'
 require("dotenv").config();
+
 class AddGame extends Component {
   state = {
     gamesFromApi: null,
@@ -68,7 +70,7 @@ class AddGame extends Component {
     const sentence = this.state.query;
     var newsentence = sentence.charAt(0).toUpperCase();
     const divStyle = {
-      color: "blue",
+      paddingTop:"1em",
       display: "flex",
       flexDirection: "row",
       flexWrap: "wrap",
@@ -81,18 +83,17 @@ class AddGame extends Component {
       border: "2px solid red",
       borderRadius: "5px",
     };
-    const buttonStyle = {
-      width: "100%",
-      margin: "0em",
-    };
+   
     const pStyles = {
       margin: "0",
       textAlign: "center",
-      
+      paddingTop:"1em",
+      zIndex:"10",
       position: "sticky",
       top: "3em",
-      backgroundColor:"#2ecc71",
-      paddingBottom:"1.2em"
+      backgroundColor:"#2c3e50",
+      paddingBottom:"1.2em",
+      color:"aliceblue"
     };
     const pStyle = {
       margin: "0",
@@ -105,7 +106,7 @@ class AddGame extends Component {
     const addedStyle = {
       margin: "0",
       textAlign: "center",
-      color: "black",
+      color: "#2ecc71",
     };
     const notAddedStyle = {
       margin: "0",
@@ -145,15 +146,16 @@ class AddGame extends Component {
           ) : (
             games.map((e) => {
               return (
-                <section style={sectionStyle} key={e.id}>
+                <section className="carteGamesa" key={e.id}>
                   <button
-                    style={buttonStyle}
+                  className="buttonStyle"
+                   
                     onClick={() => this.addGameInOurData(e.title)}
                   >
                     Ajouter
                   </button>
                   <p style={pStyle}>{e.title}</p>
-                  <img style={imgStyle} src={e.thumbnail} alt="img du jeux" />
+                  <img className="imgCartea"  src={e.thumbnail} alt="img du jeux" />
                 </section>
               );
             })

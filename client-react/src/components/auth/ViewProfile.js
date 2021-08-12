@@ -55,7 +55,7 @@ class ViewProfile extends Component {
             <p className="para">Email : {this.state.email}</p>
             <div className="buttonlocation">
               <Link to={{ pathname: `/editprofil/${this.state.id}` }}>
-                <button className="buttoninfo">Edit my profile</button>
+                <button className="buttoninfo">Edit </button>
               </Link>
 
               <button
@@ -69,7 +69,7 @@ class ViewProfile extends Component {
                   });
                 }}
               >
-                Delete my profile
+                Delete 
               </button>
             </div>
           </div>

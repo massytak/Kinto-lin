@@ -7,27 +7,26 @@
   border-radius: 20px;
   color: white;
   width: 60vw;
-  height: 555vh;
+  height: 435vh;
   margin-right: 30%;
   margin-left: 20%;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
   text-align: center;
-  margin-top: 10vh;
-  margin-bottom: 5vh;
+
 }
 .editgameform input {
   background-color: #2ecc71;
   width: 50%;
-  height: 4em;
+  height: 1em;
   margin-top: 8%;
   display: block;
   margin-left: 25%;
 }
 
 .selection {
-  width: 60vh;
-  margin-top: 3%;
+  width: 45vh;
+  margin-top: 2%;
   background-color: #2ecc71;
   margin-left: 25%;
 }
@@ -67,39 +66,41 @@
 
 @media screen and (max-width: 950px) {
   .editgameform {
-    background-color: black;
+    background-color: #212529;
     display: column;
     justify-content: space-between;
     align-items: center;
-    border: solid black 3px;
+    border: solid #2ecc71 3px;
+    border-radius: 10px;
     color: white;
     width: 60vw;
-    height: 230vh;
+    height: 180vh;
     margin-right: 30%;
     margin-left: 20%;
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
       monospace;
     text-align: center;
-    margin-top: 10vh;
-    margin-bottom: 5vh;
+    margin-top: 2vh;
+   
   }
   .editgameform input {
     background-color: #2ecc71;
     width: 50%;
-    margin-top: 8%;
+    margin-top: 3%;
     display: block;
     margin-left: 25%;
   }
 
   .editgameform label {
     display: block;
-    font-size: 15px;
+    font-size: 10px;
     padding-right: 3%;
     margin-top: 5%;
   }
 
   .editgameform textarea {
     width: 30vh;
+    height: 12vh;
     margin-top: 3%;
     background-color: #2ecc71;
   }
@@ -108,8 +109,16 @@
     font-size: 20px;
   }
 
+  .selection {
+    width: 18vh;
+    height: 5vh;
+    margin-top: 2%;
+    background-color: #2ecc71;
+    margin-left: 25%;
+  }
+
   .buttoneditgame {
-    margin-top: 12%;
+    margin-top: 1%;
     margin-bottom: 15%;
     background-color: #2ecc71;
     color: white;

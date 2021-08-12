@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  height: auto;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -9,8 +10,8 @@ body {
   
   background-attachment: fixed;
   /* vw pour fixer le header en haut */
-  width: 100vw; 
-  height: 100vw;
+  width: 100%; 
+  
   
 }
 

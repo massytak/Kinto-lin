@@ -13,7 +13,7 @@ const path = require("path");
 const cors = require("cors");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
-
+const pwaAssetGenerator = require('pwa-asset-generator');
 // Set up the database
 require("./configs/db.config");
 
@@ -86,5 +86,19 @@ app.use((req, res, next) => {
     if (err) next(err);
   });
 });
-
+// Generate images over a module function call, instead of using CLI commands
+(async () => {
+  const { savedImages, htmlMeta, manifestJsonContent } = await pwaAssetGenerator.generateImages(
+    'https://onderceylan.github.io/pwa-asset-generator/static/logo.png',
+    './temp',
+    {
+      scrape: false,
+      background: "linear-gradient(to right, #fa709a 0%, #fee140 100%)",
+      splashOnly: true,
+      portraitOnly: true,
+      log: false
+    });
+})();
+//Access to static data for Apple Device specs that are used for generating launch images
+const appleDeviceSpecsForLaunchImages = pwaAssetGenerator.appleDeviceSpecsForLaunchImages;
 module.exports = app;

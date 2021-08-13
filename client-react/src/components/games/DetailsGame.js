@@ -200,7 +200,7 @@ const styles = {
   background: {
     backgroundColor: "#212529",
     height: "auto",
-    width: "80%",
+    width: "95%",
     alignItems: "center",
     minWidth: "80%",
     marginBottom:'4em',

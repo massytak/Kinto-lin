@@ -24,7 +24,7 @@ body {
   border: solid black 3px;
   color: white;
   width: 40vw;
-  height: 50vh;
+  height: auto;
   margin-right: 30%;
   margin-left: 30%;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -51,8 +51,7 @@ body {
   font-size: 12px;
 }
 .signupbutton {
-  margin-top: 5%;
-  margin-bottom: 15%;
+ 
   background-color: #2ecc71;
   color: white;
   border: solid #2ecc71 2px;
@@ -72,6 +71,7 @@ body {
   
 }
 .signupP {
+  padding: 2em;
   color: white;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -106,13 +106,13 @@ body {
     border: solid black 3px;
     color: white;
     width: 60vw;
-    height: 60vh;
+    height: auto;
     margin-right: 30%;
     margin-left: 20%;
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
       monospace;
     text-align: center;
-    margin-top: 5vh;
+    margin: auto;
   }
 
   .signupform input {
@@ -131,8 +131,7 @@ body {
     font-size: 12px;
   }
   .signupbutton {
-    margin-top: 12%;
-    margin-bottom: 15%;
+    margin: auto;
     background-color: #2ecc71;
     color: white;
     border: solid #2ecc71 2px;
@@ -154,7 +153,7 @@ body {
       monospace;
     font-size: 12px;
     font-weight: bolder;
-    margin-bottom: 4em;
+    margin: 2em;
   }
   .linksignup {
     text-decoration: none;

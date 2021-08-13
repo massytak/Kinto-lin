@@ -60,18 +60,17 @@ class Login extends Component {
                 value={this.state.password}
                 onChange={(e) => this.handleChange(e)}
               />
-
+              <p style={styles.error}>{this.state.err}</p>
               <button className="buttonlogin" type="submit" value="Login">
                 Log in
               </button>
+              <p className="loginP">
+                Don't have account?
+                <Link className="linklogin" to={"/signup"}>
+                  Register
+                </Link>
+              </p>
             </form>
-            <p style={styles.error}>{this.state.err}</p>
-            <p className="loginP">
-              Don't have account?
-              <Link className="linklogin" to={"/signup"}>
-                Register
-              </Link>
-            </p>
           </div>
         )}
       </div>
@@ -81,10 +80,8 @@ class Login extends Component {
 
 const styles = {
   error: {
-    margin: "25px 25px 50px 50px",
-    fontSize: "30px",
-    fontWeight: "bold",
-    color: "#2ecc71",
+    padding:"1em",
+    color: "red",
     textShadow: "-2px 0 black, 0 2px black, 2px 0 black, 0 -2px black",
     alignItems: "center",
   },

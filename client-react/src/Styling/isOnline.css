@@ -1,0 +1,45 @@
+.messageLive{
+  z-index: -1;
+  position: fixed;
+  bottom: -1.5em ;
+  left: 80%;
+}
+.divstyleonline{
+  width: 60%;
+  background-color: crimson;
+  border-radius: 5px;
+ 
+}
+a{
+
+  text-decoration: none;
+  color: aliceblue;
+}
+
+.messageLive:hover{
+  z-index: -1;
+  position: fixed;
+  bottom: 4.5em ;
+  left: 80%;
+}
+
+@media screen and (max-width: 950px) {
+  a{
+  font-size: small;
+    text-decoration: none;
+    color: aliceblue;
+  }
+  .messageLive{
+    z-index: -1;
+    position: fixed;
+    bottom: 2em ;
+    left: 80%;
+  }
+  .divstyleonline{
+    width: 90%;
+    background-color: crimson;
+    border-radius: 5px;
+   
+  }
+
+}

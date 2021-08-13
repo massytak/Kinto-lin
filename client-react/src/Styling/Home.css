@@ -5,7 +5,7 @@
 .singe {
   width: 50vh;
   height: auto;
-  margin-left: 10%;
+
   margin-top: 5em;
 }
 
@@ -15,11 +15,17 @@
   padding-top: 0.5em;
   font-weight: bolder;
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-  margin-left: 10%;
 }
 .logformhomepage {
   width: 20vh;
   margin-bottom: 40vh;
+}
+.formhome {
+  display: flex;
+  justify-content: center;
+}
+.showone {
+  visibility: hidden;
 }
 
 @media screen and (max-width: 950px) {
@@ -30,10 +36,19 @@
   .singe {
     width: 30vh;
     height: auto;
-    margin-left: 10%;
+
     margin-top: 10em;
   }
-
+  .hiddenone {
+    visibility: hidden;
+  }
+  .showone {
+    visibility: visible;
+    padding: 2em;
+  }
+  .formhome {
+    display: inline;
+  }
   .bienvenue {
     color: #2ecc71;
     font-size: 22px;
@@ -43,5 +58,25 @@
   .logformhomepage {
     width: 20vh;
     margin-bottom: 40vh;
+  }
+  .buttonclassname {
+    background-color: #2ecc71; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 5px;
+    
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+  .buttonclassname:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+      0 17px 50px 0 rgba(0, 0, 0, 0.19);
   }
 }

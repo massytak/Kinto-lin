@@ -127,18 +127,22 @@ class Signup extends Component {
               onChange={(e) => this.handleFileUpload(e)}
             />
           </label>
+          <p style={styles.error}>{this.state.err}</p>
+          <p style={styles.error}>{this.state.err}</p>
           <button className="signupbutton">{this.state.buttonload}</button>
-        </form>
-        <p style={styles.error}>{this.state.err}</p>
-        <p className="signupP">
+          {this.state.errImage && (
+          <p style={styles.error}>{this.state.errImage}</p>
+        )}
+          <p className="signupP">
           Already have account?
           <Link className="linksignup" to={"/login"}>
             Login
           </Link>
         </p>
-        {this.state.errImage && (
-          <p style={styles.error}>{this.state.errImage}</p>
-        )}
+        </form>
+        
+        
+       
       </div>
     );
   }
@@ -146,10 +150,8 @@ class Signup extends Component {
 
 const styles = {
   error: {
-    margin: "25px 25px 50px 50px",
-    fontSize: "30px",
-    fontWeight: "bold",
-    color: "#2ecc71",
+    padding:"1em",
+    color: "red",
     textShadow: "-2px 0 black, 0 2px black, 2px 0 black, 0 -2px black",
     alignItems: "center",
   },

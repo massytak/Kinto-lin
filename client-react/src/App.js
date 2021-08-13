@@ -27,6 +27,7 @@ import ViewProfile from "./components/auth/ViewProfile";
 import Edit from "./components/auth/Edit";
 import Modal from "./components/games/Modal";
 import Footer from "./components/Footer";
+import Online from "./components/stream/Online"
 require("dotenv").config();
 class App extends Component {
   // auth service functionality
@@ -157,6 +158,10 @@ class App extends Component {
           <Route exact path="/stream/game/:slug" component={GameStreams} />
           <Route exact path="/stream/resultat/:slug" component={Resultats} />
           <Route exact path="/stream/resultat/" component={Erreur} />
+          <Route exact path="/stream/online" render={(props) => (
+              <Online userInSession={this.state.loggedInUser} {...props} />
+            )}
+          />
         </Switch>
         <Footer/>
       </div>

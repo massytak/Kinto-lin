@@ -1,0 +1,26 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-kintolive-dev-154838-authRole",
+            "UnauthRoleArn": "arn:aws:iam::973696151045:role/amplify-kintolive-dev-154838-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::973696151045:role/amplify-kintolive-dev-154838-authRole",
+            "Region": "eu-west-1",
+            "DeploymentBucketName": "amplify-kintolive-dev-154838-deployment",
+            "UnauthRoleName": "amplify-kintolive-dev-154838-unauthRole",
+            "StackName": "amplify-kintolive-dev-154838",
+            "StackId": "arn:aws:cloudformation:eu-west-1:973696151045:stack/amplify-kintolive-dev-154838/2b4e04b0-fc3d-11eb-898c-06d173f04d49",
+            "AmplifyAppId": "d3vod2x0tfmyej"
+        },
+        "categories": {
+            "auth": {
+                "kintolive508f8b59": {}
+            },
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d3vod2x0tfmyej",
+                    "type": "manual"
+                }
+            }
+        }
+    }
+}

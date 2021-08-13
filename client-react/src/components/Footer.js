@@ -18,8 +18,10 @@ class Footer extends Component {
     logoLink: "none",
     logosla: false,
     logoGIT: false,
-    open: false
+    open: false,
+    path:""
   };
+ 
 
   openLinkdin = () => {
     console.log(this.state.logoLink);
@@ -55,7 +57,12 @@ class Footer extends Component {
     
     // const toggle = () => setDropdownOpen((prevState) => !prevState);
     return (
+      <div>
+
+    
+      
       <footer className="footer">
+        
         <div className="logocontact">
           <p className="paraAboutus">About us :</p>
 
@@ -154,6 +161,7 @@ class Footer extends Component {
           </ul>
         </div>
       </footer>
+      </div>
     );
   }
 }

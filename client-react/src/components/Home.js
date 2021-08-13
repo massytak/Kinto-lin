@@ -4,7 +4,7 @@ import React, { Component } from "react";
 
 import singeKinto from "../Styling/singe-kinto-un.png";
 import Login from "../components/auth/Login";
-
+import IsOnline from "../IsOnline";
 import "../Styling/Home.css";
 import { Link } from "react-router-dom";
 class Home extends Component {
@@ -64,6 +64,7 @@ class Home extends Component {
           
           </>
         )}
+        <IsOnline/>
       </div>
     );
   }

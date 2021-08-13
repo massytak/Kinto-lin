@@ -165,7 +165,7 @@ const Header = (props) => {
                       onClick={(e) => {
                         logout().then(() => {
                           props.updateUser(false);
-                          update();
+                          
                         });
                       }}
                     >
